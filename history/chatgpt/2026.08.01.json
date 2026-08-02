@@ -1,0 +1,37 @@
+[
+  {
+    "title": "\"위험한 의료 조언으로 죽을 뻔\" — 챗GPT 소송",
+    "summary": "플로리다의 한 남성이 챗GPT의 조언 때문에 폐색전증으로 죽을 뻔했다며 오픈AI와 샘 알트먼을 상대로 소송을 냈어요. 이번 주 제기된 소송이라 반응이 뜨거워요.",
+    "tag": "HOT ISSUE",
+    "buzz": 88,
+    "source": "CBS News·Futurism"
+  },
+  {
+    "title": "GPT-6 초기 테스트에서 보안 취약점 발견",
+    "summary": "출시를 앞두고 진행된 초기 테스트에서 심각한 사이버보안 결함이 드러났다는 소식이 전해지며 우려가 커지고 있어요.",
+    "tag": "HOT ISSUE",
+    "buzz": 74,
+    "source": "Northeast Times"
+  },
+  {
+    "title": "브라우저 'Atlas', 8/9 서비스 종료 예정",
+    "summary": "오픈AI가 별도 브라우저 Atlas를 접고, 브라우저 에이전트 기능을 챗GPT·Codex 안으로 통합하기로 했어요. 북마크·기록은 자동 이전되지 않아 사용자들이 미리 백업 방법을 찾고 있어요.",
+    "tag": "NEW FEATURE",
+    "buzz": 66,
+    "source": "OpenAI Help Center"
+  },
+  {
+    "title": "'챗GPT for PowerPoint', 비즈니스용 정식 출시",
+    "summary": "마이크로소프트 파워포인트 안에서 바로 편집 가능한 발표자료를 만들고 고칠 수 있게 됐어요. 8/6까지는 무료로 쓸 수 있어요.",
+    "tag": "NEW FEATURE",
+    "buzz": 60,
+    "source": "OpenAI Newsroom"
+  },
+  {
+    "title": "구형 모델 o3, 8/26 챗GPT에서 은퇴 예정",
+    "summary": "90일 유예 기간을 거쳐 o3 모델이 챗GPT에서 완전히 사라져요. 이 모델에 익숙했던 사용자들이 대체 모델을 알아보고 있어요.",
+    "tag": "HOT ISSUE",
+    "buzz": 54,
+    "source": "OpenAI Help Center"
+  }
+]

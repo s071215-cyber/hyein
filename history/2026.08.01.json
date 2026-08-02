@@ -1,0 +1,23 @@
+[
+  {
+    "title": "클로드 저작권 집단소송, 15억 달러 합의 최종 승인",
+    "summary": "무단으로 도서를 학습에 썼다는 작가들의 소송에서 판사가 15억 달러 배상 합의를 최종 승인했어요. AI 저작권 소송 중 최대 규모라 업계 전반의 관심이 쏠리고 있어요.",
+    "tag": "HOT ISSUE",
+    "buzz": 82,
+    "source": "Lieff Cabraser·법원 문서"
+  },
+  {
+    "title": "Claude Max 사용량 제한 집단소송 진행 중",
+    "summary": "'광고된 것보다 사용량이 훨씬 적다'며 Max 구독자가 낸 집단소송이 계속 진행되고 있어요. $100·$200 요금제 사용자들 사이에서 관련 소식이 계속 공유되고 있어요.",
+    "tag": "HOT ISSUE",
+    "buzz": 68,
+    "source": "PYMNTS·Engadget"
+  },
+  {
+    "title": "Workbench·실험적 프롬프트 도구 API, 8/17 은퇴 예정",
+    "summary": "개발자용 레거시 Workbench와 프롬프트 생성/개선 API가 곧 완전히 사라져요. 해당 도구로 워크플로우를 짠 개발자들이 대체 방법을 찾아보고 있어요.",
+    "tag": "NEW FEATURE",
+    "buzz": 55,
+    "source": "platform.claude.com release notes"
+  }
+]

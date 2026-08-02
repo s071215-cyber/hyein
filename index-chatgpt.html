@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>오늘의 챗GPT 인기글 TOP5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0F1117; --surface:#171A24; --surface2:#1F2330;
+    --text:#F5F3EC; --muted:#8B90A0; --line: rgba(245,243,236,0.08);
+    --lime:#3DDC97; --violet:#9B8CFF;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:40px 16px 60px;}
+  .top{width:100%;max-width:460px;text-align:center;margin-bottom:22px;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;color:var(--lime);
+    text-transform:uppercase;margin-bottom:8px;}
+  h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;line-height:1.3;margin:0 0 6px;}
+  .sub{color:var(--muted);font-size:13px;line-height:1.5;}
+  .stage{position:relative;width:100%;max-width:460px;aspect-ratio:1/1;}
+  .card{position:absolute;inset:0;background:var(--surface);border:1px solid var(--line);border-radius:20px;
+    padding:28px;display:flex;flex-direction:column;opacity:0;transform:translateX(24px);
+    transition:opacity .35s ease, transform .35s ease;pointer-events:none;overflow:hidden;}
+  .card.active{opacity:1;transform:translateX(0);pointer-events:auto;}
+  .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--lime),var(--violet));opacity:.7;}
+  .rank-row{display:flex;justify-content:space-between;align-items:flex-start;}
+  .rank{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:56px;line-height:1;color:var(--text);}
+  .rank sup{font-size:16px;color:var(--muted);font-weight:500;margin-left:2px;}
+  .badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;background:rgba(61,220,151,0.12);
+    color:var(--lime);border:1px solid rgba(61,220,151,0.35);padding:5px 9px;border-radius:100px;
+    white-space:nowrap;margin-top:6px;}
+  .signal{margin-top:14px;height:6px;width:100%;background:var(--surface2);border-radius:100px;overflow:hidden;}
+  .signal-fill{height:100%;background:linear-gradient(90deg,var(--violet),var(--lime));border-radius:100px;
+    transition:width .6s ease;}
+  .signal-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-top:6px;}
+  .headline{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;line-height:1.32;margin-top:20px;}
+  .why{color:var(--muted);font-size:14px;line-height:1.55;margin-top:12px;flex:1;}
+  .foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);
+    padding-top:14px;margin-top:12px;}
+  .source{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--violet);}
+  .dots{display:flex;gap:6px;}
+  .dot{width:6px;height:6px;border-radius:100%;background:var(--line);transition:background .2s, width .2s;}
+  .dot.on{background:var(--lime);width:16px;border-radius:100px;}
+  .nav{display:flex;justify-content:space-between;width:100%;max-width:460px;margin-top:16px;}
+  .arrow{background:var(--surface);border:1px solid var(--line);color:var(--text);width:44px;height:44px;
+    border-radius:100%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:background .15s;}
+  .arrow:hover{background:var(--surface2);}
+  .arrow:disabled{opacity:.3;cursor:default;}
+  .dots-wrap{display:flex;align-items:center;gap:6px;}
+  .controls{width:100%;max-width:460px;margin-top:28px;display:flex;flex-direction:column;gap:10px;}
+  .meta-row{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);
+    font-family:'JetBrains Mono',monospace;}
+  .caption-toggle{background:transparent;border:1px solid var(--line);color:var(--muted);font-size:12px;
+    padding:10px;border-radius:12px;cursor:pointer;font-family:'Inter',sans-serif;}
+  .caption-box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;
+    font-size:13px;line-height:1.7;white-space:pre-wrap;display:none;}
+  .caption-box.show{display:block;}
+  .copy-btn{margin-top:10px;background:var(--surface2);color:var(--text);border:1px solid var(--line);
+    padding:8px 14px;border-radius:8px;font-size:12px;cursor:pointer;}
+</style>
+</head>
+<body>
+
+  <div class="top">
+    <div class="eyebrow">Daily ChatGPT Buzz Radar</div>
+    <h1>오늘, 챗GPT에 대해<br/>가장 많이 찾아본 5가지</h1>
+    <p class="sub" id="dateLabel">인스타 캐러셀용</p>
+  </div>
+
+  <div id="stageWrap"></div>
+
+  <div class="controls">
+    <div class="meta-row">
+      <span id="updatedAt">-</span>
+      <span>5건 · 웹 검색 기반</span>
+    </div>
+    <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
+    <div class="caption-box" id="captionBox">
+      <div id="captionText"></div>
+      <button class="copy-btn" id="copyBtn">복사하기</button>
+    </div>
+  </div>
+
+<script>
+// 2026.08.01
+const generatedAt = "2026.08.01";
+const items = [{"title":"\"위험한 의료 조언으로 죽을 뻔\" — 챗GPT 소송","summary":"플로리다의 한 남성이 챗GPT의 조언 때문에 폐색전증으로 죽을 뻔했다며 오픈AI와 샘 알트먼을 상대로 소송을 냈어요. 이번 주 제기된 소송이라 반응이 뜨거워요.","tag":"HOT ISSUE","buzz":88,"source":"CBS News·Futurism"},{"title":"GPT-6 초기 테스트에서 보안 취약점 발견","summary":"출시를 앞두고 진행된 초기 테스트에서 심각한 사이버보안 결함이 드러났다는 소식이 전해지며 우려가 커지고 있어요.","tag":"HOT ISSUE","buzz":74,"source":"Northeast Times"},{"title":"브라우저 'Atlas', 8/9 서비스 종료 예정","summary":"오픈AI가 별도 브라우저 Atlas를 접고, 브라우저 에이전트 기능을 챗GPT·Codex 안으로 통합하기로 했어요. 북마크·기록은 자동 이전되지 않아 사용자들이 미리 백업 방법을 찾고 있어요.","tag":"NEW FEATURE","buzz":66,"source":"OpenAI Help Center"},{"title":"'챗GPT for PowerPoint', 비즈니스용 정식 출시","summary":"마이크로소프트 파워포인트 안에서 바로 편집 가능한 발표자료를 만들고 고칠 수 있게 됐어요. 8/6까지는 무료로 쓸 수 있어요.","tag":"NEW FEATURE","buzz":60,"source":"OpenAI Newsroom"},{"title":"구형 모델 o3, 8/26 챗GPT에서 은퇴 예정","summary":"90일 유예 기간을 거쳐 o3 모델이 챗GPT에서 완전히 사라져요. 이 모델에 익숙했던 사용자들이 대체 모델을 알아보고 있어요.","tag":"HOT ISSUE","buzz":54,"source":"OpenAI Help Center"}];
+
+let current = 0;
+const stageWrap = document.getElementById('stageWrap');
+document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
+document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
+
+function renderStage(){
+  const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');
+  const cardsHtml = items.map((it,i)=>`
+    <div class="card ${i===current?'active':''}">
+      <div class="rank-row">
+        <div class="rank">${String(i+1).padStart(2,'0')}<sup>/ ${String(items.length).padStart(2,'0')}</sup></div>
+        <div class="badge">${it.tag}</div>
+      </div>
+      <div class="signal"><div class="signal-fill" style="width:${it.buzz}%"></div></div>
+      <div class="signal-label">관심도 ${it.buzz}%</div>
+      <div class="headline">${it.title}</div>
+      <div class="why">${it.summary}</div>
+      <div class="foot"><span class="source">${it.source}</span></div>
+    </div>
+  `).join('');
+
+  stageWrap.innerHTML = `
+    <div class="stage">${cardsHtml}</div>
+    <div class="nav">
+      <button class="arrow" id="prevBtn" ${current===0?'disabled':''}>←</button>
+      <div class="dots-wrap">${dotsHtml}</div>
+      <button class="arrow" id="nextBtn" ${current===items.length-1?'disabled':''}>→</button>
+    </div>
+  `;
+  document.getElementById('prevBtn').onclick = ()=>{ if(current>0){current--; renderStage();} };
+  document.getElementById('nextBtn').onclick = ()=>{ if(current<items.length-1){current++; renderStage();} };
+  stageWrap.querySelectorAll('.dot').forEach(d=>{
+    d.onclick = ()=>{ current = parseInt(d.dataset.i); renderStage(); };
+  });
+  buildCaption();
+}
+
+function buildCaption(){
+  const lines = items.map((it,i)=> `${i+1}. ${it.title}\n${it.summary}\n(출처: ${it.source})`).join('\n\n');
+  document.getElementById('captionText').textContent = lines;
+}
+
+document.addEventListener('click', (e)=>{
+  if(e.target && e.target.id === 'captionToggle'){
+    document.getElementById('captionBox').classList.toggle('show');
+  }
+  if(e.target && e.target.id === 'copyBtn'){
+    navigator.clipboard.writeText(document.getElementById('captionText').textContent);
+    e.target.textContent = '복사됨!';
+    setTimeout(()=> e.target.textContent = '복사하기', 1500);
+  }
+});
+
+renderStage();
+</script>
+</body>
+</html>

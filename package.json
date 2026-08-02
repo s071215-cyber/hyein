@@ -1,0 +1,12 @@
+{
+  "name": "claude-top5-carousel",
+  "version": "1.0.0",
+  "description": "매일 클로드 관련 인기글 TOP5를 검색해서 인스타 캐러셀용 사이트를 자동 생성하는 프로젝트",
+  "type": "module",
+  "scripts": {
+    "update": "node update.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
