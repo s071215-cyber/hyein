@@ -1,50 +1,34 @@
-name: Daily Claude Top5 Update
+name: Deploy Top5 Carousels to GitHub Pages
 
 on:
-  schedule:
-    # 매일 한국시간 오전 8시 (UTC 기준 전날 23시)
-    - cron: "0 23 * * *"
-  workflow_dispatch: {} # 수동 실행 버튼도 쓸 수 있게
+  push:
+    branches: [main]
+  workflow_dispatch: {}
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
 jobs:
-  update:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - name: 오늘 인기글 검색 + index.html 생성
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node update.mjs
-
-      - name: 변경사항 커밋
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add index.html history/
-          git diff --quiet && git diff --staged --quiet || git commit -m "docs: 오늘의 클로드 인기글 TOP5 갱신"
-          git push
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-
   deploy:
-    needs: update
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
       - name: GitHub Pages 배포
         id: deployment
         uses: actions/deploy-pages@v4
