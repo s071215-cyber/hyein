@@ -4,20 +4,20 @@
     "summary": "24시간 백그라운드에서 알아서 업무를 처리하는 개인 AI 에이전트 '제미나이 스파크'가 7월 30일 한국에 정식 출시됐어요. Google AI Ultra 구독자부터 순차 지원되며 Gmail·문서·시트 자동화가 화제를 모으고 있어요.",
     "tag": "NEW FEATURE",
     "buzz": 84,
-    "source": "ZDNet Korea·Google Blog"
+    "source": "ZDNet Korea·Google Blog (2026.07.30)"
   },
   {
     "title": "Gemini Enterprise 에이전트 스튜디오, SSRF 취약점 긴급 패치",
     "summary": "7월 1일 이전 Agent Studio로 만든 웹앱의 프록시 엔드포인트에서 서버 위조 요청(SSRF) 취약점이 발견돼 구글이 도메인 허용목록 검증을 강화했어요. 해당 앱을 배포한 기업들은 앱을 다시 생성해 재배포하라는 권고를 받았어요.",
     "tag": "HOT ISSUE",
     "buzz": 66,
-    "source": "Google Cloud Release Notes"
+    "source": "Google Cloud Release Notes (2026.07)"
   },
   {
     "title": "Grok 4.1, Gemini Enterprise Agent Platform에서 8/20 지원 종료",
     "summary": "제미나이 엔터프라이즈 에이전트 플랫폼에서 xAI의 Grok 4.1 모델군 서비스가 8월 20일부로 완전히 끊겨요. 이 모델로 워크플로우를 짠 기업 개발자들이 Grok 4.2·4.3 등으로 서둘러 이전을 준비 중이에요.",
     "tag": "HOT ISSUE",
     "buzz": 52,
-    "source": "Google Cloud Documentation"
+    "source": "Google Cloud Documentation (종료 예정 2026.08.20)"
   }
 ]
