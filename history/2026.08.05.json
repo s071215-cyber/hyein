@@ -1,0 +1,23 @@
+[
+  {
+    "title": "앤트로픽, 6개월 된 클라우드 스타트업 볼타와 12조원 컴퓨팅 계약",
+    "summary": "앤트로픽이 올해 초 설립된 클라우드 스타트업 볼타·비트디어와 6년간 100억 달러 규모의 컴퓨팅 계약을 체결했어요. 노르웨이에 엔비디아 신형 칩 기반 데이터센터를 짓기로 하며 AI 인프라 확보 경쟁이 다시 화제가 되고 있어요.",
+    "tag": "HOT ISSUE",
+    "buzz": 88,
+    "source": "Bloomberg·TechCrunch (2026.08.04)"
+  },
+  {
+    "title": "Claude Opus 4.1, 오늘(8/5) API에서 완전 은퇴",
+    "summary": "2025년 8월 출시된 Claude Opus 4.1이 1년 만에 API에서 공식 은퇴해요. 앤트로픽은 이 모델을 쓰던 개발자들에게 Opus 4.8로 즉시 마이그레이션할 것을 권고하고 있어요.",
+    "tag": "NEW FEATURE",
+    "buzz": 62,
+    "source": "Anthropic Release Notes (은퇴 2026.08.05)"
+  },
+  {
+    "title": "클로드 코드, 작업 흐름 한눈에 보는 'Focus View' 추가",
+    "summary": "v2.1.221 업데이트로 도구 실행 내역을 접어서 보여주는 Focus View가 생겨 실시간 진행 표시와 함께 작업을 더 깔끔하게 볼 수 있게 됐어요. 서브에이전트 텍스트 스트리밍 등 개발 편의 기능도 함께 개선됐어요.",
+    "tag": "NEW FEATURE",
+    "buzz": 50,
+    "source": "Anthropic Claude Code Release Notes (2026.08.03)"
+  }
+]

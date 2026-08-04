@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span>5건 · 웹 검색 기반</span>
+      <span>3건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,9 +87,9 @@
   </div>
 
 <script>
-// 2026.08.03
-const generatedAt = "2026.08.04";
-const items = [{"title":"앤트로픽 다리오 아모데이, 백악관과 정면충돌","summary":"메타·엔비디아·오픈AI 등이 서명한 '오픈웨이트 지지' 서한에 앤트로픽만 불참하자, 백악관 AI 자문 데이비드 색스가 '규제 포획 전략'이라 직격하며 논쟁이 커졌어요. 다리오 아모데이는 '금지를 주장한 적 없다'고 반박하며 갈등이 이어지고 있어요.","tag":"HOT ISSUE","buzz":92,"source":"TechCrunch·Axios·Bloomberg (2026.07.29)"},{"title":"구글, 앤트로픽 텍사스 데이터센터에 15조원 대출 보증","summary":"모건스탠리 주도 은행단이 텍사스에 짓는 앤트로픽 전용 데이터센터에 150억 달러 규모 대출을 추진 중인데, 구글이 지분 20%와 채무 보증까지 서며 힘을 실어주고 있어요. AI 인프라 투자 경쟁이 다시 화제가 되고 있어요.","tag":"HOT ISSUE","buzz":85,"source":"Bloomberg·CNBC (2026.07.30)"},{"title":"클로드 소네트5 가격, 9월부터 50% 인상","summary":"출시 프로모션가가 8월 31일 끝나고 9월 1일부터 정가로 전환되는데, 새 토크나이저가 토큰 소모량까지 늘려 실질 비용 부담이 더 커질 전망이에요. 저렴한 가격에 써오던 개발자들이 이번 달 안에 서둘러 마이그레이션을 고민하고 있어요.","tag":"HOT ISSUE","buzz":75,"source":"finopsllm.com (종료 예정 2026.08.31)"},{"title":"클로드 코드 주간 사용량 2배 혜택, 8/19로 또 연장","summary":"5월부터 이어진 Pro·Max·Team 대상 주간 사용량 상향 프로모션이 이번에도 8월 19일까지 연장됐어요. 종료 임박 발표가 반복되면서 '이번엔 진짜 끝날까'라는 논쟁이 커뮤니티에서 계속되고 있어요.","tag":"NEW FEATURE","buzz":65,"source":"Anthropic 공지 (종료 예정 2026.08.19)"},{"title":"코그니잔트, 앤트로픽 '최상위 파트너'로 격상","summary":"코그니잔트가 클로드 파트너 네트워크의 소수 '글로벌 프리미어 파트너'로 올라서며 제조·생명과학·보험 등 산업 플랫폼 전반에 클로드를 내재화한다고 발표했어요. 기업용 AI 확산 경쟁이 가속화되는 신호로 주목받고 있어요.","tag":"USE CASE","buzz":55,"source":"Cognizant·Anthropic 뉴스룸 (2026.07.27)"}];
+// 2026.08.05
+const generatedAt = "2026.08.05";
+const items = [{"title":"앤트로픽, 6개월 된 클라우드 스타트업 볼타와 12조원 컴퓨팅 계약","summary":"앤트로픽이 올해 초 설립된 클라우드 스타트업 볼타·비트디어와 6년간 100억 달러 규모의 컴퓨팅 계약을 체결했어요. 노르웨이에 엔비디아 신형 칩 기반 데이터센터를 짓기로 하며 AI 인프라 확보 경쟁이 다시 화제가 되고 있어요.","tag":"HOT ISSUE","buzz":88,"source":"Bloomberg·TechCrunch (2026.08.04)"},{"title":"Claude Opus 4.1, 오늘(8/5) API에서 완전 은퇴","summary":"2025년 8월 출시된 Claude Opus 4.1이 1년 만에 API에서 공식 은퇴해요. 앤트로픽은 이 모델을 쓰던 개발자들에게 Opus 4.8로 즉시 마이그레이션할 것을 권고하고 있어요.","tag":"NEW FEATURE","buzz":62,"source":"Anthropic Release Notes (은퇴 2026.08.05)"},{"title":"클로드 코드, 작업 흐름 한눈에 보는 'Focus View' 추가","summary":"v2.1.221 업데이트로 도구 실행 내역을 접어서 보여주는 Focus View가 생겨 실시간 진행 표시와 함께 작업을 더 깔끔하게 볼 수 있게 됐어요. 서브에이전트 텍스트 스트리밍 등 개발 편의 기능도 함께 개선됐어요.","tag":"NEW FEATURE","buzz":50,"source":"Anthropic Claude Code Release Notes (2026.08.03)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
