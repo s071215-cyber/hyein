@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span>5건 · 웹 검색 기반</span>
+      <span>4건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,9 +87,9 @@
   </div>
 
 <script>
-// 2026.08.05
-const generatedAt = "2026.08.05";
-const items = [{"title":"오픈AI, 애플 '영업비밀 도용' 소송에 공식 반박","summary":"애플이 자사 출신 직원 400명 이상을 빼가고 미공개 하드웨어 정보까지 훔쳤다며 낸 소송에 오픈AI가 \"애플이 완전히 틀렸다\"는 블로그 글로 정면 반박했어요. AI 하드웨어를 둘러싼 두 거대 기업의 충돌이 격화되고 있어요.","tag":"HOT ISSUE","buzz":92,"source":"OpenAI Newsroom·Bloomberg (2026.08.04)"},{"title":"챗GPT 음성, \"진짜 대화처럼\" — GPT-Live 공개","summary":"듣기와 말하기를 동시에 처리하는 완전 이중 방식의 3세대 음성 모델 GPT-Live가 아이폰·안드로이드·웹에 순차 적용되기 시작했어요. 대화 중간에 자연스럽게 끼어들거나 멈출 수 있어 실제 통화 같다는 반응이에요.","tag":"NEW FEATURE","buzz":78,"source":"OpenAI Newsroom (2026.08.03)"},{"title":"GPT-5.6 '패스트 모드' 출시로 응답속도 대폭 개선","summary":"오픈AI가 GPT-5.6 솔에 응답 속도를 높이는 패스트 모드를 새로 얹고, 루나·테라 가격도 추가로 낮췄어요. 챗GPT 워크·코덱스·API 전반에서 비용·속도 경쟁이 계속되고 있어요.","tag":"NEW FEATURE","buzz":60,"source":"OpenAI Help Center (2026.08.04)"},{"title":"ChatGPT Enterprise·EDU, 관리자 권한 화면 대개편","summary":"워크 로컬·클라우드를 따로 관리하고 패스트 모드 기본값도 역할별로 다르게 설정할 수 있도록 '역할 및 권한' 페이지가 새로 디자인됐어요. 대규모 조직의 세밀한 정책 관리 수요를 겨냥한 업데이트예요.","tag":"NEW FEATURE","buzz":48,"source":"OpenAI Help Center (2026.08.03)"},{"title":"챗GPT 속 원조 'DALL·E', 8/30 완전 퇴장","summary":"챗GPT 안에서 그림을 그려주던 원조 DALL·E GPT가 8월 30일 완전히 사라지고 이후로는 챗GPT 이미지로 통합돼요. 그동안 만든 이미지는 미리 다운로드해두라는 안내가 나왔어요.","tag":"NEW FEATURE","buzz":45,"source":"OpenAI Help Center (2026.07.31 발표, 종료 예정 2026.08.30)"}];
+// 2026.08.06
+const generatedAt = "2026.08.06";
+const items = [{"title":"오픈AI 아스트라, 수십 년 묵은 수학 난제 10개 풀었다","summary":"오픈AI가 미공개 차세대 모델 아스트라로 8개 분야 수학·이론컴퓨터과학 난제 10개를 풀어 증명까지 공개했어요. 다만 앤트로픽이 공개 모델로 그중 절반을 하루 만에 재현하며 성과의 진짜 격차를 둘러싼 논쟁이 뜨거워요.","tag":"HOT ISSUE","buzz":92,"source":"OpenAI·Forbes (2026.08.01)"},{"title":"챗GPT·코덱스·API, 토요일 50분간 전 세계 동시 먹통","summary":"8월 1일 새벽(미 동부시간) 챗GPT와 코덱스, API 12개 엔드포인트가 한꺼번에 오류를 일으키며 전 세계에서 접속 장애가 발생했어요. 나흘 새 벌어진 네 번째 장애라 안정성 불만이 커지고 있어요.","tag":"HOT ISSUE","buzz":80,"source":"BleepingComputer·IBTimes (2026.08.01)"},{"title":"챗GPT 워크·코덱스에 교사·학생 전용 플러그인 추가","summary":"대학 교수용, K-12 교사용, 대학생용 3종 플러그인이 새로 추가돼 수업 자료 기반으로 강의 설계·평가·학습 계획까지 짤 수 있게 됐어요. 답변 제공을 넘어 실제 업무 흐름으로 들어가려는 오픈AI의 교육 시장 공략이 눈에 띄어요.","tag":"NEW FEATURE","buzz":58,"source":"OpenAI·Forbes (2026.08.04)"},{"title":"오픈AI \"챗GPT 앱 UI 엉망이었다\" 인정…탭 없애고 재설계","summary":"오픈AI 그렉 브록먼 사장이 최근 개편한 챗GPT 데스크톱 앱 UI가 혼란스러웠다고 인정했어요. 워크·코덱스 탭 통합 과정에서 불거진 혼선을 잡기 위해 재설계에 들어갔어요.","tag":"HOT ISSUE","buzz":50,"source":"디지털투데이·네이트뉴스 (2026.07.30)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
