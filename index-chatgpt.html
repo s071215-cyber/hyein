@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span>4건 · 웹 검색 기반</span>
+      <span>2건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,9 +87,9 @@
   </div>
 
 <script>
-// 2026.08.06
-const generatedAt = "2026.08.09";
-const items = [{"title":"오픈AI \"차기 모델 아스트라, 해킹 위험 최고 등급 도달\"…개발 일부 중단","summary":"오픈AI가 자체 안전성 평가에서 차기 모델 아스트라가 대비 프레임워크상 '치명적(Critical)' 사이버보안 위험 수준에 도달했을 가능성을 배제할 수 없다며, 강화된 보안 조치를 갖추지 못한 개발 작업을 스스로 중단했다고 밝혔어요. 스스로 제로데이 취약점을 찾아 공격까지 수행할 수 있다는 의미라 AI 안전성 우려가 다시 커지고 있어요.","tag":"HOT ISSUE","buzz":88,"source":"Bloomberg·TechCrunch·OpenAI 공식 발표 (2026.08.07)"},{"title":"백악관 AI 안전 심사, 오픈모델은 면제…오픈AI 등 폐쇄형 모델만 정조준","summary":"백악관이 오픈AI·구글·앤트로픽 등에 브리핑한 새 AI 보안심사 체계에서 오픈웨이트 모델은 사전 심사 대상에서 빼고, 챗GPT 같은 폐쇄형 최첨단 모델에만 사이버보안·해킹 능력 평가를 요구하기로 했어요. 오픈AI 입장에서는 사실상 자사 모델만 콕 집어 규제 강화 대상이 된 셈이라 반응이 엇갈려요.","tag":"HOT ISSUE","buzz":52,"source":"Washington Post·Qz (2026.08.04)"},{"title":"MS 공시로 드러난 숫자…오픈AI, 애저 AI 매출의 70% 차지","summary":"마이크로소프트가 연례 공시에서 오픈AI와의 계약으로 240억 달러를 벌어들였다고 밝혔는데, 이는 애저 AI 매출의 약 70%에 달하는 규모예요. 동시에 오픈AI에 대한 미수금도 60억 달러로 나타나며 두 회사의 얽힌 이해관계가 새삼 주목받고 있어요.","tag":"HOT ISSUE","buzz":36,"source":"Bloomberg·Yahoo Finance (2026.08.05)"},{"title":"뉴욕타임스 vs MS·오픈AI 저작권 소송, '적극 조장' 주장 기각","summary":"뉴욕타임스가 마이크로소프트를 상대로 저작권 침해를 '적극 조장'했다는 주장을 뒤늦게 추가하려 했지만 담당 판사가 \"너무 늦은 시도\"라며 받아들이지 않았어요. AI 저작권 소송전이 이어지는 가운데 나온 절차적 판단이라 업계 관심이 이어지고 있어요.","tag":"HOT ISSUE","buzz":27,"source":"Bloomberg Law·MLex (2026.08.06)"}];
+// 2026.08.09
+const generatedAt = "2026.08.10";
+const items = [{"title":"챗GPT, EU 최고 강도 규제 'VLOSE' 지정 임박…이르면 8월","summary":"EU 집행위원회가 디지털서비스법(DSA)상 최고 강도 규제 대상인 'VLOSE(초대형 온라인 검색엔진)'로 챗GPT 검색 기능과 로블록스를 이르면 8월 중 지정할 전망이에요. 지정되면 연 1회 외부 감사와 위반 시 전 세계 매출 최대 6% 과징금까지 물게 돼, 유럽을 포함한 전 세계 챗GPT 사용자들의 관심이 쏠리고 있어요.","tag":"HOT ISSUE","buzz":74,"source":"ZDNet Korea·AI타임스·Silicon Republic (2026.08.01)"},{"title":"애플-오픈AI 영업비밀 소송, 오픈AI 법원 답변시한 8/17 임박","summary":"애플이 전직 직원 2명과 오픈AI를 상대로 하드웨어 기밀 유출 혐의로 낸 가처분 신청에서, 법원이 오픈AI에 8월 17일까지 공식 답변을 제출하라고 명령했어요. 오픈AI의 첫 자체 하드웨어 개발과 맞물린 소송이라 두 회사의 갈등 향방에 관심이 쏠리고 있어요.","tag":"HOT ISSUE","buzz":50,"source":"MacRumors·AppleInsider·JURIST (2026.08.04~08.07, 답변시한 2026.08.17)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
