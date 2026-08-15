@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Daily Gemini Buzz Radar</div>
-    <h1>오늘, 제미나이에 대해<br/>가장 많이 찾아본 5가지</h1>
+    <div class="eyebrow">Recent Gemini Buzz Radar</div>
+    <h1>최근, 제미나이에 대해<br/>가장 많이 찾아본 5가지</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -93,8 +93,8 @@ const items = [{"title": "구글 제미나이 앱, 월간 이용자 10억 명 �
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
-document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
+document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
+document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');
