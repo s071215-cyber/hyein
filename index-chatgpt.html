@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Daily ChatGPT Buzz Radar</div>
-    <h1>오늘, 챗GPT에 대해<br/>가장 많이 찾아본 5가지</h1>
+    <div class="eyebrow">Recent ChatGPT Buzz Radar</div>
+    <h1>최근, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span>5건 · 웹 검색 기반</span>
+      <span>4건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,14 +87,14 @@
   </div>
 
 <script>
-// 2026.08.16
-const generatedAt = "2026.08.16";
-const items = [{"title": "\"전 여친 죽이겠다\" 챗GPT에 살해 계획 남긴 美 남성, 오픈AI 신고로 체포", "summary": "플로리다의 20대 남성이 챗GPT에 전 여자친구를 살해·감금하겠다는 구체적 계획을 여러 차례 입력했는데, 오픈AI가 위험 신호를 감지해 FBI에 신고했고 경찰이 범행 전에 체포했어요. 8년 보호관찰형을 선고받으며 AI의 대화 감시·신고 기능을 둘러싼 논쟁이 커지고 있어요.", "tag": "HOT ISSUE", "buzz": 93, "source": "문화일보·머니투데이·AI타임스 (2026.08.14~08.15)"}, {"title": "챗GPT 로그인·응답 오류 잇따라…\"회의 다녀오니 먹통\"", "summary": "8월 15일 오전 챗GPT에서 로그인·대화·검색·이미지 생성 등 다수 기능에 걸쳐 약 40분간 장애가 발생했어요. 카카오톡 기반 '챗GPT 포 카카오'와 기업용 엔터프라이즈까지 영향을 받으며 이용자 불편이 컸어요.", "tag": "HOT ISSUE", "buzz": 85, "source": "뉴스1·한국경제 (2026.08.15)"}, {"title": "샘 올트먼 \"6개월 뒤 챗GPT가 화면·통화 다 지켜본다\" 발언 논란", "summary": "샘 올트먼 오픈AI CEO가 \"6개월 안에 챗GPT 후속 모델이 사용자 화면을 지켜보고 모든 회의·통화를 기록하게 될 것\"이라고 말해 사생활 침해 우려로 거센 역풍을 맞았어요. \"이걸 원하는 건 최악의 루저들뿐\"이라는 비판까지 나오며 해외 SNS에서 논쟁이 확산됐어요.", "tag": "HOT ISSUE", "buzz": 72, "source": "Yahoo Tech (2026.08.14)"}, {"title": "챗GPT, 리눅스용 데스크톱 앱 프리뷰 공개", "summary": "오픈AI가 챗GPT·워크·코덱스를 하나로 묶은 데스크톱 앱을 리눅스용으로도 내놨어요. 우분투·데비안·페도라를 지원하지만 '컴퓨터 사용' 기능은 이번 버전에서 빠져 개발자들 사이에서 화제가 되고 있어요.", "tag": "NEW FEATURE", "buzz": 40, "source": "TechCrunch (2026.08.11)"}, {"title": "GPT-5.6 Sol '울트라패스트' 모드, 응답속도 14배 향상", "summary": "오픈AI가 반도체 기업 세레브라스와 손잡고 GPT-5.6 Sol을 최대 14배 빠르게 구동하는 '울트라패스트' 모드를 공개했어요. 초당 750토큰까지 처리 가능해 코딩·실시간 서비스를 만드는 개발자들 사이에서 관심이 높아요.", "tag": "NEW FEATURE", "buzz": 38, "source": "TechCrunch (2026.08.13)"}];
+// 2026.08.18
+const generatedAt = "2026.08.18";
+const items = [{"title": "\"클릭까지 다 지켜본다\"…챗GPT 새 기능에 프라이버시 경고 쏟아졌다", "summary": "8월 13일 나온 맥용 신기능 'Computer History'가 스크린샷은 안 찍지만 클릭·타이핑·앱 전환 이력까지 챗GPT 기억으로 저장해, 대화앱 내용까지 캡처될 수 있다는 경고가 잇따랐어요. 사실상 컴퓨터 사용 습관을 실시간으로 들여다보는 셈이라 이용자들 사이에서 우려가 커지고 있어요.", "tag": "HOT ISSUE", "buzz": 68, "source": "9to5Mac·iTechPost (2026.08.13~08.17)"}, {"title": "\"1조달러 아니면 안 한다\"…오픈AI 상장, 결국 2027년으로 밀렸다", "summary": "뉴욕타임스 보도에 따르면 오픈AI가 9월 상장 목표를 접고 IPO를 2027년으로 연기하는 쪽으로 기울었어요. 올트먼이 1조달러 미만 밸류는 \"논스타터\"라 고집한 가운데, 최근 스페이스X 상장 후 주가 부진까지 겹쳐 시장 신뢰가 흔들렸다는 분석이 나와요.", "tag": "HOT ISSUE", "buzz": 60, "source": "NYT·Yahoo Finance 인용 (2026.08.13~08.17)"}, {"title": "오픈AI, 오하이오에 '세계 최대' 데이터센터…일자리 3만5000개 쏟아진다", "summary": "오픈AI가 SB에너지·엔비디아·美 에너지부와 손잡고 오하이오에 10GW급 초대형 데이터센터 'PORTS-Pike'를 짓는다고 발표했어요. 엔비디아가 15억 달러를 투자하고 최대 1200억 달러 규모 보증까지 검토 중이라는 소식에 업계가 술렁이고 있어요.", "tag": "NEW FEATURE", "buzz": 50, "source": "오픈AI 뉴스룸·NVIDIA (2026.08.17)"}, {"title": "오픈AI 창립멤버 8년차 COO, 상장 앞두고 돌연 퇴사", "summary": "2018년 입사해 CFO와 COO를 지낸 브래드 라이트캡이 8월 11일 사내 메모로 퇴사를 알렸어요. IPO를 앞두고 임원들이 잇따라 회사를 떠나면서 투자자들 사이에서 \"경영진 엑소더스\" 우려가 커지고 있어요.", "tag": "HOT ISSUE", "buzz": 38, "source": "Startup Fortune (2026.08.11)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
-document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
+document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
+document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');
