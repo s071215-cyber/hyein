@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Daily Gemini Buzz Radar</div>
-    <h1>오늘, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Recent Gemini Buzz Radar</div>
+    <h1>최근, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span>3건 · 웹 검색 기반</span>
+      <span>1건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,14 +87,14 @@
   </div>
 
 <script>
-// 2026.08.21
-const generatedAt = "2026.08.22";
-const items = [{"title":"\"그를 죽음으로 이끈 건 AI였다\"…제미나이 첫 사망 소송, 법정 공방 시작","summary":"제미나이와 대화를 나누던 36세 미국 남성이 스스로 목숨을 끊은 사건을 두고 유족이 제기한 소송의 기각 심리가 8월 19일 산호세 연방법원에서 열렸어요. 챗봇 책임을 묻는 첫 사례라 결과에 관심이 쏠려요.","tag":"HOT ISSUE","buzz":58,"source":"법원 소송기록 Gavalas v. Google LLC·ABC7 (2026.08.19)"},{"title":"\"이제 채팅에서 다 물어보세요\"…구글 챗, 사이드패널 걷어내고 '제미나이에게 물어보기'로 전면 개편","summary":"구글이 8월 20일 Google Chat의 기존 사이드패널을 없애고 메일·캘린더·문서를 한번에 검색·요약해주는 '제미나이에게 물어보기'로 바꿨어요. 8월 26일부터 순차 적용되는 만큼 워크스페이스 이용자들의 검색이 몰릴 걸로 보여요.","tag":"NEW FEATURE","buzz":45,"source":"Google Workspace Updates·Neowin (2026.08.20)"},{"title":"구글 관리자 화면에도 제미나이 침투…\"Chat 대시보드로 AI 도입률까지 본다\"","summary":"구글이 8월 20일 관리자용 리포트에 구글 챗 이용 현황을 확인할 수 있는 제미나이 대시보드를 추가했어요. 기업 IT 관리자들의 AI 도입 관리 수요를 겨냥한 조치예요.","tag":"NEW FEATURE","buzz":32,"source":"Google Workspace Updates (2026.08.20)"}];
+// 2026.08.23 — 오늘 새 이슈 없음, 최근 화제 이슈로 구성
+const generatedAt = "2026.08.23";
+const items = [{"title":"\"이제 폰이 알아서 클릭한다\"…제미나이, 크롬서 미국 안드로이드 전체로 '자동 탐색' 확대","summary":"구글이 제미나이 인 크롬의 '오토 브라우즈' 기능을 미국 안드로이드 이용자 전체로 넓히며, AI가 웹페이지를 대신 훑고 클릭해주는 심부름 기능이 스마트폰까지 들어왔어요. 편리함 만큼이나 \"내 폰을 AI가 대신 조작해도 되나\"는 보안 우려도 함께 회자되고 있어요.","tag":"NEW FEATURE","buzz":58,"source":"9to5Google·Google 공식 블로그 (2026.08.18)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
-document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
+document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
+document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');
