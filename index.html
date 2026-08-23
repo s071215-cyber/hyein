@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">2건 · 웹 검색 기반</span>
+      <span id="itemCount">3건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,9 +87,9 @@
   </div>
 
 <script>
-// 2026.08.23 — 오늘 새 이슈 없음, 최근 화제 이슈로 구성
-const generatedAt = "2026.08.23";
-const items = [{"title":"\"규칙 대신 '왜'냐고 묻는다\"…클로드, 3년 만에 헌법 통째로 다시 썼다","summary":"앤트로픽이 2023년판 규칙 나열식 헌법을 폐기하고, 클로드가 상황마다 \"왜 그래야 하는가\"를 스스로 판단하게 하는 방식으로 전면 개정했어요. AI가 정해진 매뉴얼이 아니라 가치판단으로 움직인다는 점에 개발자·업계 관계자들의 관심이 쏠려요.","tag":"NEW FEATURE","buzz":50,"source":"AI타임스·CIO (2026.08.21)"},{"title":"\"해킹당하기 전에 우리가 찾는다\"…클로드, 오픈소스 보안에 3500만달러 통 크게 쐈다","summary":"앤트로픽이 클로드 시큐리티에 최신 모델 Mythos 5를 탑재하고, 오픈소스 프로젝트 취약점 점검을 지원하는 '디펜더 어드밴티지 펀드'에 3500만달러를 투입했어요. AI가 해커보다 먼저 보안 구멍을 찾아준다는 점에서 개발자·보안업계의 관심이 커요.","tag":"NEW FEATURE","buzz":42,"source":"Claude 공식 블로그·MarkTechPost (2026.08.21)"}];
+// 2026.08.24 — 오늘 새 이슈 없음, 최근 화제 이슈로 구성
+const generatedAt = "2026.08.24";
+const items = [{"title":"\"5~10년 안에 웬만한 병 다 고친다\"…다리오 아모데이 발언에 의료계 발칵","summary":"앤트로픽 CEO 다리오 아모데이가 투자자의 '독점주의' 비판에 반박하며 \"5~10년 내 대부분의 인간 질병을 치료할 수 있게 될 것\"이라고 주장해 의료 전문가들의 거센 반발을 샀어요. 근거 없는 낙관론이라는 지적과 함께 논쟁이 커지고 있어요.","tag":"HOT ISSUE","buzz":65,"source":"Semafor·ChinaTechNews (2026.08.16~08.19)"},{"title":"\"복구되고 며칠 만에 또\"…클로드, 8월 21일 소규모 접속 장애 재발","summary":"8월 17·18일 대규모 장애가 겨우 진정된 지 며칠 만인 21일, 클로드에서 다시 접속 오류 신고가 다운디텍터에 몰렸어요. \"이번 달만 대체 몇 번째냐\"는 이용자 피로감이 다시 고개를 들고 있어요.","tag":"HOT ISSUE","buzz":58,"source":"DownDetector·온라인 커뮤니티 (2026.08.21)"},{"title":"\"30일 강제 보관 없던 일로\"…앤트로픽, 기업 데이터 정책 슬쩍 뒤집었다","summary":"앤트로픽이 지난 6월 발표했던 '기업 데이터 30일 강제 보관' 방침을 철회하고, 세일즈포스 등 기업 고객이 자체 인프라에 데이터를 저장할 수 있도록 바꿨어요. 데이터 주권을 중시하는 기업 고객 확보 경쟁의 일환으로 풀이돼요.","tag":"NEW FEATURE","buzz":48,"source":"Bloomberg·PYMNTS (2026.08.20)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
