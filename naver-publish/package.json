@@ -1,0 +1,17 @@
+{
+  "name": "naver-publish",
+  "private": true,
+  "version": "1.0.0",
+  "description": "blog-master-writer로 만든 원고를 네이버 블로그에 반자동으로 올리는 스크립트",
+  "type": "module",
+  "scripts": {
+    "publish": "node publish.mjs"
+  },
+  "dependencies": {
+    "marked": "^12.0.2",
+    "playwright": "^1.47.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
