@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Daily Claude Buzz Radar</div>
-    <h1>오늘, 클로드에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Recent Claude Buzz Radar</div>
+    <h1>최근, 클로드에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -87,14 +87,14 @@
   </div>
 
 <script>
-// 2026.08.27
-const generatedAt = "2026.08.27";
-const items = [{"title":"\"대한민국이 없다\"…클로드 신원인증서 국가 목록에서 한국만 통째로 빠졌다","summary":"앤트로픽이 의심스러운 계정에 요구하는 신원 인증 절차에서 국가 선택 목록에 '대한민국'이 통째로 빠져, 국내 이용자들이 인증을 완료하지 못하는 사례가 잇따랐어요. ZDNet코리아 취재가 시작되자 앤트로픽은 그제서야 \"일시적 오류\"라며 수정을 인정했어요.","tag":"HOT ISSUE","buzz":58,"source":"ZDNet Korea (2026.08.25)"},{"title":"\"따로 놀던 기억, 이제 하나로\"…클로드 코워크·챗, 서로 기억까지 공유한다","summary":"앤트로픽이 클로드 챗과 협업 도구 코워크의 기억(메모리) 시스템을 하나로 합쳐, 한쪽에서 나눈 대화 맥락을 다른 쪽에서도 자동으로 이어받게 됐어요. 무료·프로·맥스 요금제에 기본 적용돼 매번 처음부터 설명하지 않아도 되는 변화를 이용자들이 체감할 거예요.","tag":"NEW FEATURE","buzz":52,"source":"TechCrunch·Dataconomy (2026.08.25~08.26)"}];
+// 2026.08.28 — 오늘 새 이슈 없음, 최근 화제 이슈로 구성
+const generatedAt = "2026.08.28";
+const items = [{"title":"\"이제 브라우저 켤 필요도 없다\"…클로드, 데스크톱 앱에 자체 브라우저 통째로 심었다","summary":"클로드 데스크톱 앱(맥·윈도우·리눅스)이 크롬 같은 외부 브라우저 없이도 코워크 안에서 바로 웹사이트를 열고 클릭·입력까지 대신 처리하는 내장 브라우저를 갖췄어요. 프로·맥스·팀·엔터프라이즈 요금제에 순차 적용되면서 업무 자동화 범위가 한층 넓어졌다는 평가예요.","tag":"NEW FEATURE","buzz":46,"source":"Anthropic 공식 블로그 (2026.08)"},{"title":"\"삼전·SK하이닉스도 줄섰다\"…국내 반도체 공룡들, 앤트로픽에 통 큰 투자 나섰다","summary":"네이버에 이어 삼성전자와 SK하이닉스까지 클로드 개발사 앤트로픽에 투자를 늘린 사실이 알려지며 국내 'K테크' 자금이 앤트로픽으로 몰리고 있다는 분석이 나왔어요. 국내 기업들의 클로드 전사 도입 확산과 맞물려 관심을 끌고 있어요.","tag":"HOT ISSUE","buzz":39,"source":"한국경제 (2026.08.21)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
-document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
+document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
+document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');

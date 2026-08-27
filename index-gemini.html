@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Daily Gemini Buzz Radar</div>
-    <h1>오늘, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Recent Gemini Buzz Radar</div>
+    <h1>최근, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -87,14 +87,14 @@
   </div>
 
 <script>
-// 2026.08.27
-const generatedAt = "2026.08.27";
-const items = [{"title":"\"이번엔 대학생 잡는다\"…구글, 국내 대학생에 제미나이 유료 멤버십 1년 통째로 공짜","summary":"구글이 9월 새 학기를 맞아 국내 대학생 대상으로 월 1만1000원 상당의 '구글 AI 플러스' 멤버십(제미나이·노트북LM·비오3·2TB 저장공간)을 1년간 무료로 제공해요. 챗GPT·클로드와 대학가 이용자 확보 경쟁이 치열해지는 가운데 나온 통 큰 프로모션이라 학생들 사이에서 신청이 몰리고 있어요.","tag":"USE CASE","buzz":55,"source":"뉴시스·이데일리 (2026.08.24~08.25)"}];
+// 2026.08.28 — 오늘 새 이슈 없음, 최근 화제 이슈로 구성
+const generatedAt = "2026.08.28";
+const items = [{"title":"\"이제 제미나이가 과외선생님\"…구글, 검색·제미나이에 3D 시뮬레이션 스터디 도구 탑재","summary":"구글이 검색과 제미나이 라이브에 AI로 생성한 3D 시뮬레이션, 맞춤형 연습 퀴즈, 학생 전용 허브를 대거 추가했어요. 개학 시즌을 앞두고 학생층 공략에 나선 구글의 행보로, 무료로 구글 AI 요금제를 받는 대학생들 사이에서도 관심이 커지고 있어요.","tag":"NEW FEATURE","buzz":34,"source":"TechCrunch (2026.08.19)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
-document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
+document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
+document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');
