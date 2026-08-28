@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Recent Claude Buzz Radar</div>
-    <h1>최근, 클로드에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Daily Claude Buzz Radar</div>
+    <h1>오늘, 클로드에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">2건 · 웹 검색 기반</span>
+      <span id="itemCount">3건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,14 +87,14 @@
   </div>
 
 <script>
-// 2026.08.28 — 오늘 새 이슈 없음, 최근 화제 이슈로 구성
-const generatedAt = "2026.08.28";
-const items = [{"title":"\"이제 브라우저 켤 필요도 없다\"…클로드, 데스크톱 앱에 자체 브라우저 통째로 심었다","summary":"클로드 데스크톱 앱(맥·윈도우·리눅스)이 크롬 같은 외부 브라우저 없이도 코워크 안에서 바로 웹사이트를 열고 클릭·입력까지 대신 처리하는 내장 브라우저를 갖췄어요. 프로·맥스·팀·엔터프라이즈 요금제에 순차 적용되면서 업무 자동화 범위가 한층 넓어졌다는 평가예요.","tag":"NEW FEATURE","buzz":46,"source":"Anthropic 공식 블로그 (2026.08)"},{"title":"\"삼전·SK하이닉스도 줄섰다\"…국내 반도체 공룡들, 앤트로픽에 통 큰 투자 나섰다","summary":"네이버에 이어 삼성전자와 SK하이닉스까지 클로드 개발사 앤트로픽에 투자를 늘린 사실이 알려지며 국내 'K테크' 자금이 앤트로픽으로 몰리고 있다는 분석이 나왔어요. 국내 기업들의 클로드 전사 도입 확산과 맞물려 관심을 끌고 있어요.","tag":"HOT ISSUE","buzz":39,"source":"한국경제 (2026.08.21)"}];
+// 2026.08.29 — 오늘의 이슈로 갱신
+const generatedAt = "2026.08.29";
+const items = [{"title":"\"'공급망 위험' 낙인 찍혔던 앤트로픽\"…연방판사 \"펜타곤 조치, 위법·보복성\"","summary":"트럼프 행정부 국방부가 AI 안전 비판을 이유로 앤트로픽을 블랙리스트에 올렸다가, 연방판사로부터 \"위법하고 보복성 있는 조치\"라는 판결을 받았어요. 정부와 AI 기업의 정면충돌이 앤트로픽 승리로 끝나면서 정치·테크 양쪽에서 검색량이 몰리고 있어요.","tag":"HOT ISSUE","buzz":92,"source":"The Hill (2026.08.27)"},{"title":"\"'SaaS 종말론' 던진 지 반년\"…세일즈포스, 결국 CRM 통째로 클로드 품에 안겼다","summary":"세일즈포스가 자사 CRM 전체를 클로드에서 쓸 수 있는 '클로드포스' 파트너십을 발표하며, 회사 최초로 자사 브랜드 \"포스\"를 타사 제품명에 붙여줬어요. \"AI가 SaaS를 대체한다\"던 위기론의 실제 사례로 업계가 주목하고 있어요.","tag":"HOT ISSUE","buzz":66,"source":"Salesforce 공식 발표 (2026.08.26)"},{"title":"\"실수하면 스스로 반성문까지\"…클로드 코드, 버그 리포트 자동 작성 기능 탑재","summary":"클로드 코드가 작업 중 실수를 인지하면 사용자 대신 피드백 보고서 초안을 직접 써주는 기능을 내놨어요. 개발자들 사이에서 \"버그 재현할 필요가 없어졌다\"는 반응이 나오고 있어요.","tag":"NEW FEATURE","buzz":38,"source":"ClaudeDevs 공식 X (2026.08.27)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
-document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
+document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
+document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');
