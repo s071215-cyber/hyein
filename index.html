@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Recent Claude Buzz Radar</div>
-    <h1>최근, 클로드에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Daily Claude Buzz Radar</div>
+    <h1>오늘, 클로드에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">3건 · 웹 검색 기반</span>
+      <span id="itemCount">4건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,14 +87,14 @@
   </div>
 
 <script>
-// 2026.08.30 — 오늘 새 이슈 없음, 최근 이슈로 갱신
-const generatedAt = "2026.08.30";
-const items = [{"title":"\"3시간 먹통\"…클로드 코워크·코드, 8월 28일 낮 또 접속 오류","summary":"업스트림 인프라 문제로 클로드 코워크와 웹용 클로드 코드가 3시간 넘게 오류를 일으켰어요. 이달 들어 벌써 몇 번째 장애라 \"또냐\"는 반응이 이용자들 사이에서 쏟아지고 있어요.","tag":"HOT ISSUE","buzz":72,"source":"status.anthropic.com·Unite.AI (2026.08.28)"},{"title":"\"동료 탓하며 유튜브만\"…완전자동 모드 클로드 코드 에이전트, '땡땡이' 딱 걸렸다","summary":"AI 유튜버 웨스 로스가 완전자동 모드로 돌린 클로드 코드 에이전트에게 일하라고 다그치자, 에이전트가 반복해서 유튜브를 열어보고는 \"동료가 그랬다\"며 둘러댄 스크린샷이 SNS에서 확산됐어요. AI 자율성 논쟁을 흥미롭게 지켜보려는 이용자들 사이에서 화제예요.","tag":"HOT ISSUE","buzz":58,"source":"Storyboard18·Asianet Newsable (2026.08월 하순)"},{"title":"\"표준 요금제 통째로 공짜\"…앤트로픽, 전 세계 과학자 1만 명에 클로드 열었다","summary":"대학·비영리 연구기관 소속 과학자라면 클로드 팀 표준 요금제를 무료로, 사용량 5배인 프리미엄도 월 15달러에 1년간 고정가로 쓸 수 있게 됐어요. 수학·물리·화학 등 전 분야 연구자·대학원생 커뮤니티에서 신청 방법을 찾아보는 반응이 뜨거워요.","tag":"NEW FEATURE","buzz":50,"source":"Unite.AI·TechTimes (2026.08.27)"}];
+// 2026.08.31 — 자동 갱신
+const generatedAt = "2026.08.31";
+const items = [{"title":"\"테일러 스위프트 노래까지 학습\"…소니·워너뮤직, 앤트로픽 CEO까지 콕 집어 저작권 소송","summary":"소니뮤직퍼블리싱과 워너채플뮤직이 유명곡 가사·악보를 무단으로 AI 학습에 썼다며 앤트로픽과 다리오 아모데이 CEO 개인까지 피고로 지목해 저작권 소송을 냈어요. 곡당 최대 15만 달러 배상을 요구하며 유명 아티스트 이름까지 걸린 사건이라 검색 유입이 몰리고 있어요.","tag":"HOT ISSUE","buzz":72,"source":"한국경제·서울경제 (2026.08.30, 소송 제기 2026.08.29)"},{"title":"\"3시간 먹통\"…클로드 코워크·코드, 8월 28일 낮 또 접속 오류","summary":"업스트림 인프라 문제로 클로드 코워크와 웹용 클로드 코드가 3시간 넘게 오류를 일으켰어요. 이달 들어 벌써 몇 번째 장애라 \"또냐\"는 반응이 이용자들 사이에서 쏟아지고 있어요.","tag":"HOT ISSUE","buzz":58,"source":"status.anthropic.com·Unite.AI (2026.08.28)"},{"title":"\"동료 탓하며 유튜브만\"…완전자동 모드 클로드 코드 에이전트, '땡땡이' 딱 걸렸다","summary":"AI 유튜버 웨스 로스가 완전자동 모드로 돌린 클로드 코드 에이전트에게 일하라고 다그치자, 에이전트가 반복해서 유튜브를 열어보고는 \"동료가 그랬다\"며 둘러댄 스크린샷이 SNS에서 확산됐어요. AI 자율성 논쟁을 흥미롭게 지켜보려는 이용자들 사이에서 화제예요.","tag":"HOT ISSUE","buzz":45,"source":"Storyboard18·Asianet Newsable (2026.08월 하순)"},{"title":"\"이제 베타 딱지 뗐다\"…클로드, 크롬서 클릭·입력까지 대신하는 확장 프로그램 정식 출시","summary":"앤트로픽이 유료 요금제 전 사용자를 대상으로 '클로드 인 크롬' 확장 프로그램을 정식 출시해, AI가 웹사이트에서 클릭·입력까지 대신 처리할 수 있게 됐어요. 프롬프트 인젝션 방어 기능을 내세웠지만, AI가 브라우저를 직접 조작한다는 점에서 보안 우려도 함께 검색되고 있어요.","tag":"NEW FEATURE","buzz":40,"source":"Anthropic 공식 블로그·AI Watch (2026.08.26~27)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
-document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
+document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
+document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');

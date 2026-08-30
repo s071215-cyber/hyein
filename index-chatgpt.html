@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Recent ChatGPT Buzz Radar</div>
-    <h1>최근, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Daily ChatGPT Buzz Radar</div>
+    <h1>오늘, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span>4건 · 웹 검색 기반</span>
+      <span>5건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,14 +87,14 @@
   </div>
 
 <script>
-// 2026.08.30 — 오늘 새 이슈 없음, 최근 이슈로 갱신
-const generatedAt = "2026.08.30";
-const items = [{"title":"\"가짜 전문가 사이트까지 만들었다\"…오픈AI, 친러시아 챗GPT 계정 무더기 적발","summary":"러시아발로 추정되는 세력이 챗GPT로 '전문가 싱크탱크'를 자처하는 가짜 사이트 글 36건 중 34건을 표절해 만들고, 러시아를 옹호하는 여론전을 벌인 정황이 드러났어요. 국제정치·AI 악용 이슈에 민감한 이용자들의 검색이 몰리고 있어요.","tag":"HOT ISSUE","buzz":75,"source":"CNBC·Fortune (2026.08.25~08.27)"},{"title":"\"연내 AGI 만든다\"…샘 올트먼, 타임 인터뷰서 초강수 예언","summary":"올트먼이 타임과의 인터뷰에서 \"80%까지 왔다\"며 올해 안에 내부적으로 AGI라 부를 시스템을 완성하겠다고 공언했어요. 예측시장은 실현 가능성을 9~15%로 낮게 보고 있어 진위 논쟁이 뜨거워요.","tag":"HOT ISSUE","buzz":65,"source":"TIME (2026.08.26)"},{"title":"\"올해만 벌써 13번째\"…오픈AI 데이터센터 총괄까지 결국 짐 쌌다","summary":"6000억 달러 규모 컴퓨팅 인프라 확장을 이끌던 크리스 말론 데이터센터 총괄이 사임했어요. IPO를 앞두고 올해만 13번째 임원 이탈이라는 집계가 나오면서 \"경영진 엑소더스\" 우려가 커지고 있어요.","tag":"HOT ISSUE","buzz":55,"source":"Bloomberg·CNBC·TechCrunch (2026.08.25)"},{"title":"\"회사·개인 계정, 한 대화창에서\"…챗GPT, 구글 계정 여러 개 동시 연동 지원","summary":"지메일·구글 캘린더·연락처를 여러 계정으로 동시에 연결해 한 대화에서 오갈 수 있게 됐어요. 업무·개인 계정을 같이 쓰는 이용자들 사이에서 반응이 좋아요.","tag":"NEW FEATURE","buzz":40,"source":"9to5Mac·OpenAI 공식 발표 (2026.08.28)"}];
+// 2026.08.31 — 자동 갱신
+const generatedAt = "2026.08.31";
+const items = [{"title":"\"머스크는 신경도 안 쓴다\" 콧방귀…오픈AI, 일론 머스크 품에 안긴 '커서'에 모델 공급 끊는다","summary":"일론 머스크의 스페이스X가 AI 코딩툴 '커서'를 인수하자, 오픈AI가 계약 위반 전력을 이유로 11월 12일부로 자사 모델 제공을 전면 중단한다고 밝혔어요. 개발자들은 대체 도구를 찾아 나섰고, 오랜 앙숙인 머스크·올트먼의 신경전이 다시 화제가 되고 있어요.","tag":"HOT ISSUE","buzz":80,"source":"CNBC·OpenAI 공식 블로그 (2026.08.29~30)"},{"title":"\"가짜 전문가 사이트까지 만들었다\"…오픈AI, 친러시아 챗GPT 계정 무더기 적발","summary":"러시아발로 추정되는 세력이 챗GPT로 '전문가 싱크탱크'를 자처하는 가짜 사이트 글 36건 중 34건을 표절해 만들고, 러시아를 옹호하는 여론전을 벌인 정황이 드러났어요. 국제정치·AI 악용 이슈에 민감한 이용자들의 검색이 몰리고 있어요.","tag":"HOT ISSUE","buzz":62,"source":"CNBC·Fortune (2026.08.25~08.27)"},{"title":"\"병원·정수장이 최우선 표적\"…오픈AI 등 빅테크 120곳, AI 해킹 공포에 공동 경고장","summary":"오픈AI·마이크로소프트·구글·아마존 등 120여 개 기업이 \"몇 달 안에 AI발 사이버 공격이 급증할 것\"이라며 이례적인 공동성명을 냈어요. 병원과 정수처리시설이 최우선 표적으로 꼽히면서 일반 대중에게도 불안감이 번지고 있어요.","tag":"HOT ISSUE","buzz":48,"source":"한국경제·AI매터스 (2026.08.27~28)"},{"title":"\"연내 AGI 만든다\"…샘 올트먼, 타임 인터뷰서 초강수 예언","summary":"올트먼이 타임과의 인터뷰에서 \"80%까지 왔다\"며 올해 안에 내부적으로 AGI라 부를 시스템을 완성하겠다고 공언했어요. 예측시장은 실현 가능성을 9~15%로 낮게 보고 있어 진위 논쟁이 뜨거워요.","tag":"HOT ISSUE","buzz":45,"source":"TIME (2026.08.26)"},{"title":"\"올해만 벌써 13번째\"…오픈AI 데이터센터 총괄까지 결국 짐 쌌다","summary":"6000억 달러 규모 컴퓨팅 인프라 확장을 이끌던 크리스 말론 데이터센터 총괄이 사임했어요. IPO를 앞두고 올해만 13번째 임원 이탈이라는 집계가 나오면서 \"경영진 엑소더스\" 우려가 커지고 있어요.","tag":"HOT ISSUE","buzz":35,"source":"Bloomberg·CNBC·TechCrunch (2026.08.25)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
-document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
+document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
+document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');
