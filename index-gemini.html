@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span>4건 · 웹 검색 기반</span>
+      <span>2건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,9 +87,9 @@
   </div>
 
 <script>
-// 2026.08.31 — 자동 갱신
-const generatedAt = "2026.08.31";
-const items = [{"title":"\"지메일·드라이브까지 줄줄이\"…제미나이, 8월 27일 또 다운돼 신고 폭증","summary":"8월 27일 낮(미 동부시간 기준) 제미나이와 지메일·구글드라이브에서 동시에 오류 신고가 치솟았어요. 반복되는 구글 서비스 장애에 \"이번엔 또 뭐냐\"는 반응이 확산됐어요.","tag":"HOT ISSUE","buzz":55,"source":"DesignTAXI Community (2026.08.27)"},{"title":"\"10초 전 장면까지 기억한다\"…구글, 제미나이 새 영상생성모델 '옴니 1.1 플래시' 전격 공개","summary":"기존 영상 속 캐릭터·조명·서사를 그대로 이어 새 장면을 만들어주는 신규 영상 생성 모델이 구글 AI 플러스·프로·울트라 구독자 전체에 곧바로 적용됐어요. 영상 생성 AI 경쟁이 치열한 가운데 나온 구글의 반격 카드라 관련 검색이 늘고 있어요.","tag":"NEW FEATURE","buzz":50,"source":"Google 공식 블로그·9to5Google (2026.08.27)"},{"title":"필러 \"음~ 어~\" 자동 삭제…구글, 신형 음성인식 '제미나이 3.5 트랜스크라이브' 공개","summary":"85개 언어를 지원하고 말 더듬음·정정(\"화요일 아니 수요일\")까지 자동으로 다듬어주는 신형 음성-텍스트 모델이 공개됐어요. 지메일·독스·Gboard 등에 순차 적용되면서 실사용 후기를 찾아보는 이용자가 늘고 있어요.","tag":"NEW FEATURE","buzz":40,"source":"9to5Google·AI타임스 (2026.08.26)"},{"title":"\"산 전자책도 이제 AI가 읽어준다\"…제미나이 노트북, 구글플레이북스 연동 시작","summary":"구글플레이에서 구매한 전자책을 그대로 제미나이 노트북 자료로 불러와 요약·퀴즈까지 만들 수 있게 됐어요. 독서·학습에 AI를 어떻게 쓸지 찾아보는 이용자들의 관심을 끌 만한 소식이에요.","tag":"NEW FEATURE","buzz":32,"source":"Google·Android Headlines (2026.08.27~28)"}];
+// 2026.09.01 — 자동 갱신
+const generatedAt = "2026.09.01";
+const items = [{"title":"\"되돌릴 수 없다\"…구글 어시스턴트, 9월 4일 완전히 사라지고 제미나이로 강제 전환","summary":"스마트폰·태블릿·Wear OS·안드로이드오토까지 \"헤이 구글\" 어시스턴트가 9월 4일부터 순차적으로 사라지고 제미나이로 되돌릴 수 없이 대체돼요. 원래 2025년 말 예정이었다가 늦춰진 조치라, 오랜 이용자들 사이에서 아쉬움 섞인 검색이 몰리고 있어요.","tag":"HOT ISSUE","buzz":68,"source":"케이벤치·디지털투데이 (2026.08.29~08.31, 시행 예정 2026.09.04)"},{"title":"\"무제한인 줄 알았는데\"…제미나이 노트북, 9월 2일부터 사용량 계산법 통째로 바뀐다","summary":"등급별 하루 고정 횟수 제한이 사라지고, 프롬프트 복잡도와 모델 사용량에 따라 5시간마다 갱신되는 '컴퓨트 기반' 주간 한도로 바뀌어요. 한도를 넘기면 대체 출력이나 '나중에 생성' 기능이 제안돼요.","tag":"NEW FEATURE","buzz":45,"source":"9to5Google·Android Police (2026.08.28, 시행 예정 2026.09.02)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
