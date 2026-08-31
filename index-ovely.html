@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OVELY 트렌드 체크</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#12100D; --surface:#1C1914; --surface2:#241F18;
+    --text:#F7F1E6; --muted:#A79C8A; --line: rgba(247,241,230,0.08);
+    --coral:#FF8A5B; --gold:#E8C468;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:40px 16px 60px;}
+  .top{width:100%;max-width:560px;text-align:center;margin-bottom:20px;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;color:var(--coral);
+    text-transform:uppercase;margin-bottom:8px;}
+  h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;line-height:1.3;margin:0 0 6px;}
+  .sub{color:var(--muted);font-size:13px;line-height:1.5;}
+
+  .wrap{width:100%;max-width:560px;}
+
+  .warn{background:rgba(255,138,91,0.1);border:1px solid rgba(255,138,91,0.35);border-radius:14px;
+    padding:14px 16px;font-size:13px;line-height:1.6;color:var(--text);margin-top:18px;}
+  .warn b{color:var(--coral);}
+
+  .reminder{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;
+    margin-top:12px;display:flex;gap:12px;align-items:flex-start;}
+  .reminder .icon{font-size:18px;line-height:1;margin-top:1px;}
+  .reminder .txt{font-size:13px;line-height:1.6;color:var(--muted);}
+  .reminder .txt b{color:var(--gold);font-weight:600;}
+
+  .meta-row{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);
+    font-family:'JetBrains Mono',monospace;margin-top:20px;padding:0 2px;}
+
+  .list{display:flex;flex-direction:column;gap:14px;margin-top:12px;}
+  .item{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;position:relative;overflow:hidden;}
+  .item::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--coral),var(--gold));opacity:.7;}
+  .item-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:var(--coral);}
+  .name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;line-height:1.35;margin-top:4px;}
+  .why{color:var(--muted);font-size:13.5px;line-height:1.6;margin-top:8px;}
+  .sources{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+  .src-link{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold);text-decoration:none;
+    border:1px solid rgba(232,196,104,0.35);background:rgba(232,196,104,0.08);padding:5px 10px;border-radius:100px;
+    white-space:nowrap;}
+  .src-link:hover{background:rgba(232,196,104,0.16);}
+
+  .empty{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;text-align:center;
+    color:var(--muted);font-size:13.5px;line-height:1.7;margin-top:12px;}
+
+  .footer-note{margin-top:26px;font-size:11.5px;color:var(--muted);line-height:1.7;text-align:center;padding:0 8px;}
+</style>
+</head>
+<body>
+
+  <div class="top">
+    <div class="eyebrow">OVELY Daily Trend Radar</div>
+    <h1>매일 발견하는<br/>괜찮은 쇼핑템, 오늘의 참고자료</h1>
+    <p class="sub" id="dateLabel">-</p>
+  </div>
+
+  <div class="wrap">
+    <div class="warn">
+      ⚠️ 이 리스트는 <b>네이버 데이터랩·유튜브의 실시간 순위 데이터가 아니라</b>, 웹 검색 기반 뉴스/블로그 참고자료이며 교차검증을 거쳤습니다.
+    </div>
+
+    <div class="reminder">
+      <div class="icon">🔔</div>
+      <div class="txt">오늘 <b>네이버 데이터랩 쇼핑인사이트(datalab.naver.com)</b>와 <b>유튜브</b>를 직접 확인하시고, OVELY에 올릴 상품 후보 2~3개를 상세페이지 스크롤 영상으로 보내주세요.</div>
+    </div>
+
+    <div class="meta-row">
+      <span id="updatedAt">-</span>
+      <span id="countLabel">-</span>
+    </div>
+
+    <div class="list" id="listWrap"></div>
+
+    <div class="footer-note">각 항목은 서로 다른 두 개 이상의 출처에서 확인된 내용만 실었어요. 최종 상품 선정은 운영자 확인 후 진행합니다.</div>
+  </div>
+
+<script>
+const generatedAt = "2026.08.31";
+const items = [
+  {
+    name: "가을 아우터 조기 수요 급증 (후드티·니트·트렌치코트)",
+    why: "열대야가 끝나자마자 가을옷 검색·매출이 동시에 튀어서, 지금 아우터를 올리면 타이밍이 잘 맞아요.",
+    sources: [
+      {label: "allure Korea", url: "https://www.allurekorea.com/2026/08/28/%EA%B0%80%EC%9D%84-%EC%99%94%EB%8B%A4-%ED%9B%84%EB%93%9C-%EC%9E%85%EC%9E%90-%EC%A7%80%EA%B8%88%EB%B6%80%ED%84%B0-%EC%9E%85%EA%B8%B0-%EC%A2%8B%EC%9D%80-%ED%9B%84%EB%93%9C%ED%8B%B0-%EC%A7%91%EC%97%85"},
+      {label: "청년일보", url: "https://www.youthdaily.co.kr/news/article.html?no=225961"}
+    ]
+  },
+  {
+    name: "가을 신발 1순위, 로퍼(주름로퍼·로퍼뮬)",
+    why: "여러 패션 매체가 동시에 '올가을 신발은 로퍼'라고 짚고 있어서, 신발 카테고리에서 지금 가장 안전한 픽이에요.",
+    sources: [
+      {label: "보그 코리아", url: "https://www.vogue.co.kr/2026/08/19/%EC%98%AC%EA%B0%80%EC%9D%84-%EB%A1%9C%ED%8D%BC%EB%8A%94-%EC%9D%B4-%EB%8B%A4%EC%84%AF-%EA%B0%80%EC%A7%80-%EC%A4%91-%EC%B7%A8%ED%96%A5%EC%97%90-%EB%A7%9E%EB%8A%94-%EA%B1%B8%EB%A1%9C-%EA%B3%A0%EB%A5%B4"},
+      {label: "allure Korea", url: "https://www.allurekorea.com/2026/08/25/%EC%A0%9C%EB%8B%88%EA%B0%80-%EC%8B%A0%EA%B3%A0-%ED%92%88%EC%A0%88%EB%8C%80%EB%9E%80-%EC%A4%91%EC%9D%B8-%EC%98%AC%EA%B0%80%EC%9D%84-%EA%BC%AD-%EC%82%AC%EC%95%BC-%ED%95%A0-%EC%8A%88%EC%A6%88"}
+    ]
+  },
+  {
+    name: "실버·메탈릭 주얼리/시계/네일",
+    why: "액세서리 쪽에서 반짝이는 금색 대신 매트한 실버가 반복해서 언급되고 있어서, 저가 실버 액세서리 수요가 붙기 좋은 타이밍이에요.",
+    sources: [
+      {label: "코스모폴리탄 코리아", url: "https://www.cosmopolitan.co.kr/article/1906236"},
+      {label: "반디뉴스", url: "https://www.bandinews.com/news/articleView.html?idxno=1103"}
+    ]
+  },
+  {
+    name: "볼륨감 있는 맥시멀 실루엣 (빅백·청키주얼리·풍성한 스커트)",
+    why: "미니멀 대신 '존재감 있는' 아이템이 뜨는 흐름이라, 작고 저렴한 포인트 소품으로도 스타일링 제안하기 좋아요.",
+    sources: [
+      {label: "보그 코리아", url: "https://www.vogue.co.kr/2026/08/20/%EC%8B%A4%EC%9A%A9%EC%A0%81%EC%9D%B4%EA%B3%A0-%EC%A1%B4%EC%9E%AC%EA%B0%90-%EB%84%98%EC%B9%98%EB%8A%94-2026-%EA%B0%80%EC%9D%84-%EA%B2%A8%EC%9A%B8-%ED%8A%B8%EB%A0%8C%EB%93%9C-%EB%B0%B1-9"},
+      {label: "AOL", url: "https://www.aol.com/news/style-trends-look-2026-bold-005451786.html"}
+    ]
+  },
+  {
+    name: "'발견형 쇼핑' · 필코노미 확산",
+    why: "검색보다 SNS 피드에서 우연히 보고 바로 사는 소비가 늘고 있다는 분석이 겹쳐서, 짧은 영상·이미지 위주 콘텐츠가 더 잘 먹힐 시점이에요.",
+    sources: [
+      {label: "토스페이먼츠 블로그", url: "https://www.tosspayments.com/blog/articles/2026trend"},
+      {label: "오픈서베이 블로그", url: "https://blog.opensurvey.co.kr/trendreport/online_shopping-2026/"}
+    ]
+  },
+  {
+    name: "다이소 성분 중심 저가 스킨케어 (PDRN·레티놀)",
+    why: "명품 성분을 저가에 넣은 다이소 스킨케어가 여러 후기 블로그에서 동시에 품절템으로 꼽히고 있어요.",
+    sources: [
+      {label: "byuppo.com", url: "https://byuppo.com/2026-daiso-beauty-top5/"},
+      {label: "다사자", url: "https://dasaja.co.kr/saja_guide/184"}
+    ]
+  },
+  {
+    name: "올리브영 올영세일 · 여름 클리어런스 (쿨링템·데오드란트 등)",
+    why: "여름 시즌오프 특가가 공식 발표와 커뮤니티 후기 양쪽에서 확인돼서, 지금 저가 쿨링 아이템 소개하기 좋은 타이밍이에요.",
+    sources: [
+      {label: "올리브영 공식", url: "https://corp.oliveyoung.com/ko/news/86?pg=1&category="},
+      {label: "언니의파우치", url: "https://unpa.me/community/beautytip/134337150"}
+    ]
+  }
+];
+
+document.getElementById('dateLabel').textContent = generatedAt + ' 기준 웹 검색 참고자료';
+document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
+document.getElementById('countLabel').textContent = items.length + '건 · 교차검증 완료';
+
+const listWrap = document.getElementById('listWrap');
+
+if (items.length === 0) {
+  listWrap.innerHTML = '<div class="empty">오늘은 교차검증을 통과한 뚜렷한 트렌드가 많지 않았습니다.</div>';
+} else {
+  listWrap.innerHTML = items.map((it, i) => `
+    <div class="item">
+      <div class="item-head">
+        <div>
+          <div class="num">TREND ${String(i+1).padStart(2,'0')}</div>
+          <div class="name">${it.name}</div>
+        </div>
+      </div>
+      <div class="why">${it.why}</div>
+      <div class="sources">
+        ${it.sources.map(s => `<a class="src-link" href="${s.url}" target="_blank" rel="noopener">${s.label} ↗</a>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+</script>
+</body>
+</html>
