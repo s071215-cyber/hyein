@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Daily ChatGPT Buzz Radar</div>
-    <h1>오늘, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Recent ChatGPT Buzz Radar</div>
+    <h1>최근, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span>2건 · 웹 검색 기반</span>
+      <span>5건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,14 +87,14 @@
   </div>
 
 <script>
-// 2026.09.02 — 자동 갱신
-const generatedAt = "2026.09.02";
-const items = [{"title":"\"증거 지워라\" 지시까지 나왔다…애플, 오픈AI 상대 '기밀유출' 소송서 증거인멸 정황 폭로","summary":"애플 출신으로 오픈AI에 합류한 엔지니어 창 리우가 애플의 기밀 회로도를 무단 다운로드해 오픈AI 업무에 썼다는 의혹에 이어, 조사가 시작되자 동료에게 \"증거를 지워달라\"고 지시했고 동료가 이를 따랐다는 정황까지 애플 측이 법원에 제출했어요. 애플-오픈AI 영업비밀 소송이 '증거인멸' 국면으로 격화하며 실리콘밸리를 뒤흔들고 있어요.","tag":"HOT ISSUE","buzz":82,"source":"TechCrunch·Axios (2026.08.31~09.01)"},{"title":"\"내 진료기록까지 챗GPT가 본다\"…오픈AI, 병원 전자의무기록 직접 연동 시작","summary":"오픈AI가 챗GPT를 에픽(Epic) 전자의무기록 시스템과 직접 연결해 의료진이 진료노트·검사결과·처방 변경 이력을 챗GPT로 바로 조회할 수 있게 했어요. 임상시험·의약품 정보 등 공식 의료 데이터 9곳과 연동하는 플러그인도 함께 공개돼 \"민감정보까지 AI로\"라는 우려 섞인 관심이 쏠리고 있어요.","tag":"NEW FEATURE","buzz":55,"source":"OpenAI 공식·PYMNTS (2026.09.01)"}];
+// 2026.09.03 — 오늘 새 이슈 없음, 최근 화제 이슈로 구성
+const generatedAt = "2026.09.03";
+const items = [{"title":"\"안전팀이 신고하라 했는데 홍보가 막았다\"…오픈AI, 캐나다 총기난사 유족 등 30명에 또 피소","summary":"지난 2월 캐나다 텀블러리지 고교 총격(학생·교직원 6명 사망) 가해자가 챗GPT와 대화하며 범행을 계획한 정황을 오픈AI가 사건 8개월 전 감지했지만, 안전팀의 \"당국 신고\" 권고를 홍보 담당 임원이 묵살하고 계정만 정지시켰다는 새 주장이 나왔어요. 피해 학생·교사 등 30명이 9월 2일 추가 소송을 내며 오픈AI 관련 소송이 총 37건으로 늘었어요.","tag":"HOT ISSUE","buzz":95,"source":"TechCrunch·NPR (2026.09.02)"},{"title":"\"혼자서 해킹 코드까지 짠다\"…오픈AI 신모델 '아스트라', 사상 첫 '위험' 등급 받아 공개 제한","summary":"오픈AI 차세대 모델 '아스트라'가 사람 도움 없이 제로데이 취약점을 찾아 공격 코드까지 만들 수 있는 '위험(Critical)' 등급을 받은 첫 모델로 확인됐어요. 기존 GPT-5.6의 취약점 탐색 성공률이 10%대인데 아스트라는 40%에 달해, 오픈AI는 고급 해킹 기능을 소수 신뢰 프로그램에만 제한 공개하기로 했어요.","tag":"HOT ISSUE","buzz":80,"source":"Bloomberg·Axios (2026.09.01~09.02)"},{"title":"\"초코우유 추천해줘\"…챗GPT로 GS25 편의점 쇼핑하는 시대 열렸다","summary":"GS리테일이 '우리동네GS' 앱을 챗GPT와 직접 연동한 전용 플러그인을 출시했어요. 챗GPT에 원하는 상품이나 취향을 물어보면 GS25·GS더프레시·와인25플러스의 실제 상품과 1+1 행사 정보까지 알려주며, 전국 1만9000여개 매장으로 확대될 예정이에요.","tag":"NEW FEATURE","buzz":68,"source":"머니투데이·한국경제 (2026.09.01)"},{"title":"\"광고 시작 200일 만에 1조3000억원\"…챗GPT, 돈 버는 광고 사업으로 몸집 불린다","summary":"챗GPT 광고 사업이 출시 200일 만에 연환산 매출 10억 달러(약 1조3000억원)를 돌파했어요. 셀프서비스 광고 관리자를 유럽·인도·중동·북아프리카까지 확대하며 검색광고 시장의 새 강자로 떠오르고 있다는 평가가 나와요.","tag":"NEW FEATURE","buzz":50,"source":"Digiday·Campaign US (2026.08.31)"},{"title":"\"서울에서도 열린다\"…오픈AI 개발자 컨퍼런스 '데브데이 2026', 8개 도시 동시 개최","summary":"오픈AI가 9월 29일 샌프란시스코 본행사와 함께 서울·도쿄·런던·파리 등 세계 8개 도시에서 위성 행사 '데브데이 익스체인지'를 동시에 연다고 밝혔어요. 국내 개발자들도 현지에서 신기능 발표를 함께 볼 수 있게 됐어요.","tag":"NEW FEATURE","buzz":42,"source":"OpenAI 공식 (개최 예정 2026.09.29)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
-document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
+document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
+document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');
