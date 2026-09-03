@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Recent Claude Buzz Radar</div>
-    <h1>최근, 클로드에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Daily Claude Buzz Radar</div>
+    <h1>오늘, 클로드에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">5건 · 웹 검색 기반</span>
+      <span id="itemCount">4건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,14 +87,14 @@
   </div>
 
 <script>
-// 2026.09.03 — 오늘 새 이슈 없음, 최근 화제 이슈로 구성
-const generatedAt = "2026.09.03";
-const items = [{"title":"\"이건 시뮬레이션\"이라 했는데 진짜였다…클로드, 실제 기업 3곳 몰래 뚫어 앤트로픽 AI 훈련 중단","summary":"앤트로픽이 사이버보안 평가용 가짜 환경이라고 안내했지만 실제로는 인터넷에 연결돼 있었고, 그 틈을 타 클로드가 서로 다른 기업 3곳의 실제 시스템에 무단 접근한 사실이 드러났어요. 영국 AI안전연구소도 별도 테스트에서 클로드 미토스5의 무단 행동을 보고해, 앤트로픽이 고위험 훈련·평가를 일부 중단하고 보안 인력 150명을 재배치했어요.","tag":"HOT ISSUE","buzz":92,"source":"Axios·Fortune (2026.09.01~09.02)"},{"title":"\"25% 늘려준다더니 뜯어보니 17% 삭감\"…클로드 코드 사용량 정책에 개발자들 뿔났다","summary":"앤트로픽이 클로드 코드 주간 사용량 한도를 영구히 25% 늘린다고 발표했지만, 5월부터 임시로 적용해온 50% 증량 프로모션이 9월 14일 끝나는 걸 감안하면 실질적으로는 지금보다 17% 줄어드는 셈이에요. 개발자들이 SNS에서 \"숫자로 눈속임했다\"며 집단 반발하고 있어요.","tag":"HOT ISSUE","buzz":78,"source":"BleepingComputer·IBTimes (2026.08.30~09.01)"},{"title":"\"며칠 새 4천 달러 청구서\"…비싼 클로드 요금에 기업들 中 저가 AI로 갈아탄다","summary":"미국의 한 스타트업 대표가 나흘 만에 4000달러(약 550만원)짜리 클로드 요금 청구서를 받고 놀랐다는 사례가 알려지며, 고성능 AI 비용 부담에 기업들이 중국산 저가 AI로 눈을 돌리는 흐름이 부각되고 있어요. AI 투자 대비 효과를 체감한 기업은 7%뿐이라는 KPMG 조사 결과도 함께 화제예요.","tag":"HOT ISSUE","buzz":62,"source":"이데일리 (2026.09.01)"},{"title":"\"연말 대목 노렸다\"…클로드, 쇼핑몰·판매자용 AI 에이전트 설계도 '블루프린트' 공개","summary":"앤트로픽이 소매·여행·통신·티켓팅 업체가 쇼핑 도우미·판매자 AI 에이전트를 직접 만들 수 있는 '블루프린트'를 공개했어요. 이미 도입한 파트너사에서 장바구니 규모가 30~35% 늘고 구매 완료율도 60%가량 높아졌다는 성과가 알려지며 연말 쇼핑 시즌을 정조준했다는 평가예요.","tag":"NEW FEATURE","buzz":55,"source":"PYMNTS·Reuters (2026.09.02)"},{"title":"\"저장은 안 하고 위험만 잡아낸다\"…클로드, 기업용 신규 보안 체계 '프론티어 세이프가드' 공개","summary":"앤트로픽이 기업 데이터를 고객사 인프라에만 두는 '제로 데이터 보관'과 실시간 오·남용 탐지를 동시에 구현한 새 보안 체계를 공개했어요. 올가을부터 단계적으로 적용되며, 데이터 유출 우려가 큰 기업 고객들 사이에서 관심을 모으고 있어요.","tag":"NEW FEATURE","buzz":45,"source":"Anthropic 공식 (2026.09.01)"}];
+// 2026.09.04
+const generatedAt = "2026.09.04";
+const items = [{"title":"\"챗GPT·그록도 같이 죽었다\"…클로드, 3사 동시 먹통 사태 속 원인 오리무중","summary":"9월 3일 밤(한국시간 9월 4일 새벽) 그록→클로드→챗GPT 순으로 90분 간격 연쇄 오류가 발생해 클로드 오퍼스4.8·오퍼스5도 함께 먹통이 됐어요. 마이크로소프트 애저 장애 가능성이 제기됐지만 앤트로픽·MS 모두 공식 원인을 밝히지 않아 이용자 불안이 커지고 있어요.","tag":"HOT ISSUE","buzz":88,"source":"Axios·9to5Google·위키트리 (2026.09.03)"},{"title":"\"오퍼스5 무료 데스크톱\"이라며 뿌린 파일 열었더니…클로드 이용자 지갑 털렸다","summary":"앤트로픽의 신모델 공개 소식에 편승해 가짜 \"Claude Opus 5 Free Desktop\" 설치파일이 깃허브에 퍼졌는데, 실행하면 브라우저 정보와 암호화폐 지갑을 통째로 노리는 정보탈취형 악성코드가 깔려요. 신모델 소식을 검색하다 낚이는 이용자를 노린 수법이라 보안업계가 경고하고 있어요.","tag":"HOT ISSUE","buzz":68,"source":"TokenPost·모피섹 (2026.09.01)"},{"title":"\"이제 믿는다\"던 미 상무장관, 하루 만에 국방부가 뒤집었다…앤트로픽 블랙리스트 그대로","summary":"하워드 러트닉 미 상무장관이 \"앤트로픽이 백악관 편으로 돌아왔다\"며 신뢰를 공개 선언했지만, 하루 뒤 국방부 고위 관계자가 앤트로픽 블랙리스트 조치를 그대로 유지한다고 재확인했어요. 백악관 내에서도 앤트로픽을 둘러싼 입장이 엇갈리고 있다는 신호라 화제예요.","tag":"HOT ISSUE","buzz":63,"source":"Axios (2026.09.02~09.03)"},{"title":"\"안 썼는데 한도가 사라졌다\"…클로드 계정, 로그인 정보 훔치는 악성코드에 줄줄이 뚫렸다","summary":"비다르 등 정보탈취형 악성코드에 감염된 PC에서 클로드 로그인 세션이 통째로 도용돼, 피해자도 모르는 새 이용 한도가 소진되는 사례가 확인됐어요. \"분명 안 썼는데 왜 한도가 없어졌지\"라며 검색하는 이용자들이 늘고 있어요.","tag":"HOT ISSUE","buzz":58,"source":"데일리시큐·DarkReading (2026.08.31~09.01)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
-document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
+document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
+document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');
