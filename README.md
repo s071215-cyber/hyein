@@ -50,6 +50,12 @@
 - `history/` : 날짜별 검색 결과 백업
 - `.github/workflows/daily-update.yml` : 매일 자동 실행 설정 (선택사항)
 
+## 4. (별도 도구) 공문서 자동 생성기
+
+`official-docs/index.html`을 열면, 행정기관 표준 공문 서식에 맞춰 Word(.docx) 문서를 만들 수 있는
+별도의 도구가 있어요. 폼에 입력해서 한 건씩 만들거나, 엑셀 업로드로 여러 건을 한 번에 만들 수 있어요.
+브라우저에서만 동작하고 API 키가 필요 없어요. 자세한 사용법은 `official-docs/README.md`를 확인해주세요.
+
 ## 자주 묻는 질문
 
 **Q. API 키 없이도 되나요?**

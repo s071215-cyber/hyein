@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>공문서 자동 생성기</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --panel: #171a21;
+    --panel-2: #1e222b;
+    --border: #2a2f3a;
+    --text: #e7e9ee;
+    --text-dim: #9aa1b1;
+    --accent: #5b8cff;
+    --accent-2: #7ee0c3;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Pretendard", "Malgun Gothic", "맑은 고딕", -apple-system, sans-serif;
+  }
+  header.top {
+    padding: 24px 32px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  header.top h1 { margin: 0 0 4px; font-size: 22px; }
+  header.top p { margin: 0; color: var(--text-dim); font-size: 14px; }
+
+  nav.tabs {
+    display: flex; gap: 8px;
+    padding: 16px 32px 0;
+  }
+  nav.tabs button {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 10px 18px;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  nav.tabs button.active {
+    background: var(--panel-2);
+    color: var(--text);
+    border-bottom: 1px solid var(--panel-2);
+  }
+
+  main { padding: 0 32px 48px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(320px, 420px) 1fr;
+    gap: 24px;
+    padding: 24px 0;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+  }
+
+  .field { margin-bottom: 14px; }
+  .field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .field label .req { color: #ff8080; margin-left: 2px; }
+  .field .hint { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+  .field input[type="text"],
+  .field textarea,
+  .field select {
+    width: 100%;
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 8px;
+    padding: 9px 11px;
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+  }
+  .field textarea { min-height: 90px; line-height: 1.5; }
+  .field input:focus, .field textarea:focus, .field select:focus {
+    outline: none; border-color: var(--accent);
+  }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .btn.secondary {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .actions { display: flex; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
+
+  /* 미리보기 (실제 종이 느낌) */
+  .paper-wrap {
+    background: #2a2d35;
+    border-radius: 14px;
+    padding: 28px;
+    display: flex;
+    justify-content: center;
+  }
+  .paper {
+    background: #ffffff;
+    color: #111;
+    width: 100%;
+    max-width: 620px;
+    min-height: 700px;
+    padding: 48px 44px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    font-family: "Batang", "바탕", "Malgun Gothic", serif;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .doc-org { text-align: center; font-weight: 800; font-size: 20px; padding-bottom: 14px; border-bottom: 2px solid #111; margin-bottom: 18px; }
+  .doc-line { margin-bottom: 14px; }
+  .doc-title { font-weight: 800; font-size: 15px; margin-bottom: 18px; }
+  .doc-body .doc-p { margin: 0 0 6px; padding-left: 22px; text-indent: -8px; }
+  .doc-issuer { text-align: center; font-weight: 800; font-size: 18px; margin: 48px 0 36px; }
+  .doc-footer { border-top: 1px solid #999; padding-top: 10px; font-size: 11px; color: #333; }
+  .doc-footer div { margin-bottom: 3px; }
+  .paper:empty::before { content: ""; }
+  .paper-placeholder { color: #999; text-align: center; padding-top: 200px; font-size: 13px; }
+
+  .excel-steps { display: flex; flex-direction: column; gap: 18px; }
+  .step-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--accent); color: white; font-size: 12px; font-weight: 800;
+    margin-right: 8px;
+  }
+  .drop-zone {
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 14px;
+  }
+  .drop-zone.drag { border-color: var(--accent); color: var(--text); }
+  #fileInput { display: none; }
+  .progress-list {
+    margin-top: 14px;
+    max-height: 240px;
+    overflow-y: auto;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  .progress-list div { padding: 3px 0; border-bottom: 1px solid var(--border); }
+  .status-msg { margin-top: 12px; font-size: 13px; }
+  .status-msg.ok { color: var(--accent-2); }
+  .status-msg.err { color: #ff8080; }
+
+  footer.foot {
+    padding: 20px 32px 40px;
+    color: var(--text-dim);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <h1>📄 공문서 자동 생성기</h1>
+  <p>행정기관 표준 공문 서식(수신 · 제목 · 본문 · 붙임 · 발신명의)에 맞춰 Word(.docx) 문서를 만들어요. 서버 없이 이 브라우저 안에서만 처리돼요.</p>
+</header>
+
+<nav class="tabs">
+  <button id="tabBtnForm" class="active">✍️ 폼으로 한 건 만들기</button>
+  <button id="tabBtnExcel">📊 엑셀로 대량 생성</button>
+</nav>
+
+<main>
+  <!-- 폼 탭 -->
+  <section id="tabForm" class="tab-panel active">
+    <div class="layout">
+      <div class="card">
+        <form id="docForm"></form>
+        <div class="actions">
+          <button type="button" id="downloadDocxBtn" class="btn">⬇️ 워드 파일 다운로드</button>
+          <button type="button" id="resetFormBtn" class="btn secondary">비우기</button>
+        </div>
+        <div id="formStatus" class="status-msg"></div>
+      </div>
+      <div class="paper-wrap">
+        <div id="paper" class="paper"><div class="paper-placeholder">왼쪽에 내용을 입력하면<br/>여기에 실시간으로 미리보기가 표시돼요.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 엑셀 탭 -->
+  <section id="tabExcel" class="tab-panel">
+    <div class="card excel-steps" style="max-width:720px;">
+      <div>
+        <span class="step-num">1</span><strong>엑셀 양식 받기</strong>
+        <div class="hint" style="margin:6px 0 10px 30px;">각 행이 공문서 한 건이 돼요. 본문/붙임 칸에서 줄바꿈은 셀 안에서 Alt+Enter로 넣어주세요.</div>
+        <div style="margin-left:30px;">
+          <button type="button" id="downloadTemplateBtn" class="btn secondary">⬇️ 엑셀 양식 다운로드</button>
+        </div>
+      </div>
+      <div>
+        <span class="step-num">2</span><strong>작성한 엑셀 업로드</strong>
+        <div style="margin:10px 0 0 30px;">
+          <div id="dropZone" class="drop-zone">
+            여기로 엑셀 파일을 끌어다 놓거나 클릭해서 선택하세요 (.xlsx)
+            <input type="file" id="fileInput" accept=".xlsx,.xls" />
+          </div>
+          <div id="fileName" class="hint"></div>
+        </div>
+      </div>
+      <div>
+        <span class="step-num">3</span><strong>일괄 생성</strong>
+        <div style="margin:10px 0 0 30px;">
+          <button type="button" id="bulkGenerateBtn" class="btn" disabled>📦 전체 워드 파일 생성 (ZIP 다운로드)</button>
+          <div id="bulkProgress" class="progress-list"></div>
+          <div id="bulkStatus" class="status-msg"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  모든 처리는 이 브라우저 안에서만 이뤄져요. 입력한 내용이 서버로 전송되지 않아요. · 실제 기관 명의로 발송하기 전에는 소속 기관의 공문서 규정 및 결재 절차를 확인해주세요.
+</footer>
+
+<script src="vendor/jszip.min.js"></script>
+<script src="vendor/xlsx.full.min.js"></script>
+<script src="vendor/docx.umd.js"></script>
+<script src="app.js"></script>
+<script>
+(() => {
+  "use strict";
+  const { FIELDS, buildDocxBlob, renderPreviewHtml, downloadBlob, downloadExcelTemplate, generateFromExcelFile, sanitizeFilename } = window.OfficialDocs;
+
+  // ---------- 탭 전환 ----------
+  const tabBtnForm = document.getElementById("tabBtnForm");
+  const tabBtnExcel = document.getElementById("tabBtnExcel");
+  const tabForm = document.getElementById("tabForm");
+  const tabExcel = document.getElementById("tabExcel");
+  tabBtnForm.addEventListener("click", () => {
+    tabBtnForm.classList.add("active"); tabBtnExcel.classList.remove("active");
+    tabForm.classList.add("active"); tabExcel.classList.remove("active");
+  });
+  tabBtnExcel.addEventListener("click", () => {
+    tabBtnExcel.classList.add("active"); tabBtnForm.classList.remove("active");
+    tabExcel.classList.add("active"); tabForm.classList.remove("active");
+  });
+
+  // ---------- 폼 자동 생성 ----------
+  const formEl = document.getElementById("docForm");
+  FIELDS.forEach((f) => {
+    const wrap = document.createElement("div");
+    wrap.className = "field";
+    const label = document.createElement("label");
+    label.innerHTML = f.label + (f.required ? '<span class="req">*</span>' : "");
+    label.htmlFor = "f_" + f.key;
+    wrap.appendChild(label);
+
+    let input;
+    if (f.type === "textarea") {
+      input = document.createElement("textarea");
+    } else if (f.type === "select") {
+      input = document.createElement("select");
+      (f.options || []).forEach((opt) => {
+        const o = document.createElement("option");
+        o.value = opt; o.textContent = opt;
+        input.appendChild(o);
+      });
+    } else {
+      input = document.createElement("input");
+      input.type = "text";
+    }
+    input.id = "f_" + f.key;
+    input.name = f.key;
+    if (f.placeholder) input.placeholder = f.placeholder;
+    wrap.appendChild(input);
+
+    if (f.hint) {
+      const hint = document.createElement("div");
+      hint.className = "hint";
+      hint.textContent = f.hint;
+      wrap.appendChild(hint);
+    }
+    formEl.appendChild(wrap);
+  });
+
+  function collectFormData() {
+    const data = {};
+    FIELDS.forEach((f) => {
+      const el = document.getElementById("f_" + f.key);
+      data[f.key] = el.value || "";
+    });
+    return data;
+  }
+
+  function updatePreview() {
+    const data = collectFormData();
+    const hasAny = Object.values(data).some((v) => v.trim && v.trim().length > 0);
+    const paper = document.getElementById("paper");
+    if (!hasAny) {
+      paper.innerHTML = '<div class="paper-placeholder">왼쪽에 내용을 입력하면<br/>여기에 실시간으로 미리보기가 표시돼요.</div>';
+      return;
+    }
+    paper.innerHTML = renderPreviewHtml(data);
+  }
+  formEl.addEventListener("input", updatePreview);
+
+  const formStatus = document.getElementById("formStatus");
+  document.getElementById("downloadDocxBtn").addEventListener("click", async () => {
+    const data = collectFormData();
+    const missing = FIELDS.filter((f) => f.required && !data[f.key].trim()).map((f) => f.label);
+    if (missing.length) {
+      formStatus.className = "status-msg err";
+      formStatus.textContent = "필수 항목을 입력해주세요: " + missing.join(", ");
+      return;
+    }
+    formStatus.className = "status-msg";
+    formStatus.textContent = "생성 중...";
+    try {
+      const blob = await buildDocxBlob(data);
+      downloadBlob(blob, sanitizeFilename(data.제목) + ".docx");
+      formStatus.className = "status-msg ok";
+      formStatus.textContent = "워드 파일이 다운로드됐어요.";
+    } catch (err) {
+      formStatus.className = "status-msg err";
+      formStatus.textContent = "오류: " + err.message;
+    }
+  });
+
+  document.getElementById("resetFormBtn").addEventListener("click", () => {
+    formEl.reset();
+    updatePreview();
+    formStatus.textContent = "";
+  });
+
+  // ---------- 엑셀 탭 ----------
+  document.getElementById("downloadTemplateBtn").addEventListener("click", () => {
+    downloadExcelTemplate();
+  });
+
+  const dropZone = document.getElementById("dropZone");
+  const fileInput = document.getElementById("fileInput");
+  const fileNameEl = document.getElementById("fileName");
+  const bulkBtn = document.getElementById("bulkGenerateBtn");
+  const bulkProgress = document.getElementById("bulkProgress");
+  const bulkStatus = document.getElementById("bulkStatus");
+  let selectedFile = null;
+
+  function setSelectedFile(file) {
+    selectedFile = file;
+    fileNameEl.textContent = file ? `선택된 파일: ${file.name}` : "";
+    bulkBtn.disabled = !file;
+    bulkStatus.textContent = "";
+    bulkProgress.innerHTML = "";
+  }
+
+  dropZone.addEventListener("click", () => fileInput.click());
+  fileInput.addEventListener("change", () => {
+    if (fileInput.files[0]) setSelectedFile(fileInput.files[0]);
+  });
+  ["dragover", "dragenter"].forEach((evt) =>
+    dropZone.addEventListener(evt, (e) => { e.preventDefault(); dropZone.classList.add("drag"); })
+  );
+  ["dragleave", "drop"].forEach((evt) =>
+    dropZone.addEventListener(evt, (e) => { e.preventDefault(); dropZone.classList.remove("drag"); })
+  );
+  dropZone.addEventListener("drop", (e) => {
+    const file = e.dataTransfer.files[0];
+    if (file) setSelectedFile(file);
+  });
+
+  bulkBtn.addEventListener("click", async () => {
+    if (!selectedFile) return;
+    bulkBtn.disabled = true;
+    bulkStatus.className = "status-msg";
+    bulkStatus.textContent = "생성 중...";
+    bulkProgress.innerHTML = "";
+    try {
+      const zipBlob = await generateFromExcelFile(selectedFile, (done, total, title) => {
+        const line = document.createElement("div");
+        line.textContent = `${done}/${total} · ${title}`;
+        bulkProgress.appendChild(line);
+        bulkProgress.scrollTop = bulkProgress.scrollHeight;
+      });
+      const today = new Date().toISOString().slice(0, 10).replaceAll("-", "");
+      downloadBlob(zipBlob, `공문서_일괄생성_${today}.zip`);
+      bulkStatus.className = "status-msg ok";
+      bulkStatus.textContent = "ZIP 파일이 다운로드됐어요.";
+    } catch (err) {
+      bulkStatus.className = "status-msg err";
+      bulkStatus.textContent = "오류: " + err.message;
+    } finally {
+      bulkBtn.disabled = false;
+    }
+  });
+})();
+</script>
+</body>
+</html>
