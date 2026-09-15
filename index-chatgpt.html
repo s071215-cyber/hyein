@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Daily ChatGPT Buzz Radar</div>
-    <h1>오늘, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Recent ChatGPT Buzz Radar</div>
+    <h1>최근, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -87,14 +87,14 @@
   </div>
 
 <script>
-// 2026.09.15
-const generatedAt = "2026.09.15";
-const items = [{"title": "\"당신의 챗GPT 대화, 시간당 5만원 받는 계약직이 읽고 있었다\"…'프로젝트 릴리' 실체 폭로", "summary": "오픈AI가 '프로젝트 릴리'란 코드명으로 계약직 수백 명을 고용해 실제 이용자 대화를 1~7점으로 채점시켜온 사실이 404미디어 단독 보도로 드러났어요. 위치·개인 맥락이 담긴 '이용자 기억 요약'까지 검토자에게 노출된다는 내용에 \"내 대화가 사생활이 아니었나\" 하는 불안이 확산 중이에요.", "tag": "HOT ISSUE", "buzz": 96, "source": "404 Media (2026.09.14)"}, {"title": "\"급우들 죽이겠다\" 챗GPT에 적었다가…아르헨티나 15세 소년, FBI 경보로 경찰에 급습당했다", "summary": "미국 FBI가 챗GPT 대화 속 위험 키워드를 감지해 아르헨티나 당국에 통보했고, 현지 경찰이 15세 소년의 집을 급습해 전술장갑·복면 등을 압수했어요. 미국을 넘어 해외에서도 AI 챗봇발 범죄 예방·감시 사례가 이어지며 \"챗GPT는 이제 국경 없는 신고자\"라는 반응이 나와요.", "tag": "HOT ISSUE", "buzz": 87, "source": "Buenos Aires Herald (2026.09.10~09.11)"}, {"title": "월가로 간 챗GPT, 모건스탠리·에버코어 데이터까지 통째로 끌어안았다", "summary": "오픈AI가 '챗GPT 금융 서비스'를 정식 출시하며 PitchBook·LSEG·크런치베이스 등 프리미엄 금융 데이터를 GPT-6 아스트라와 결합했어요. 신입 애널리스트 업무 대체 논쟁이 다시 불붙을 만한 소식이라 금융업계 관심이 쏠려요.", "tag": "NEW FEATURE", "buzz": 42, "source": "OpenAI 공식·AI타임스 (2026.09.10)"}];
+// 2026.09.16
+const generatedAt = "2026.09.16";
+const items = [{"title": "\"유료를 공짜로 준다\"며 속였다…AI 사칭 악성코드 절반이 '챗GPT'였다", "summary": "안랩 등 보안업계가 챗GPT·클로드·제미나이 등 인기 AI 서비스를 사칭한 가짜 다운로드 사이트로 이용자를 유인해 악성코드를 심는 공격에 경보를 발령했어요. 올해 집계된 AI 사칭 공격 중 챗GPT를 사칭한 비율이 49%로 압도적 1위를 차지해, \"내가 깐 게 진짜 챗GPT 맞나\" 하는 검색이 늘고 있어요.", "tag": "HOT ISSUE", "buzz": 88, "source": "뉴시스 (2026.09.11)"}, {"title": "\"파트너사 뒤통수 쳤다\"…챗GPT, 경쟁 이미지·음성 AI 광고 전면 차단에 어도비 '발칵'", "summary": "오픈AI가 9월 9일 광고 파트너사들에게 사전 공지 없이 챗GPT 이미지·음성 생성 기능과 경쟁하는 제품 광고를 더 이상 승인하지 않겠다고 통보하면서, 챗GPT 광고 파일럿에 참여해온 어도비가 당혹감을 감추지 못했어요. 자사 사업은 지키면서 파트너는 내친다는 비판이 나오며 \"이게 갑질 아니냐\"는 반응이 확산 중이에요.", "tag": "HOT ISSUE", "buzz": 65, "source": "The Information·PYMNTS (2026.09.09~09.10)"}, {"title": "\"애플은 빠지고 오픈AI만 남았다\"…머스크, 시리-챗GPT 독점 소송서 애플만 쏙 빼줬다", "summary": "일론 머스크의 X Corp가 애플과 오픈AI를 상대로 낸 '시리-챗GPT 독점계약' 반독점 소송에서 애플에 대한 청구만 취하 요청하고 오픈AI 상대 소송은 그대로 유지했어요. 오랜 앙숙인 머스크와 샘 올트먼의 법정 다툼이 새 국면을 맞으며 \"결국 오픈AI만 남았다\"는 반응이 나와요.", "tag": "HOT ISSUE", "buzz": 55, "source": "MacRumors (2026.09.14)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
-document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
+document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
+document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');
