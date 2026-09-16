@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Recent ChatGPT Buzz Radar</div>
-    <h1>최근, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Daily ChatGPT Buzz Radar</div>
+    <h1>오늘, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span>3건 · 웹 검색 기반</span>
+      <span>2건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -88,13 +88,13 @@
 
 <script>
 // 2026.09.16
-const generatedAt = "2026.09.16";
-const items = [{"title": "\"유료를 공짜로 준다\"며 속였다…AI 사칭 악성코드 절반이 '챗GPT'였다", "summary": "안랩 등 보안업계가 챗GPT·클로드·제미나이 등 인기 AI 서비스를 사칭한 가짜 다운로드 사이트로 이용자를 유인해 악성코드를 심는 공격에 경보를 발령했어요. 올해 집계된 AI 사칭 공격 중 챗GPT를 사칭한 비율이 49%로 압도적 1위를 차지해, \"내가 깐 게 진짜 챗GPT 맞나\" 하는 검색이 늘고 있어요.", "tag": "HOT ISSUE", "buzz": 88, "source": "뉴시스 (2026.09.11)"}, {"title": "\"파트너사 뒤통수 쳤다\"…챗GPT, 경쟁 이미지·음성 AI 광고 전면 차단에 어도비 '발칵'", "summary": "오픈AI가 9월 9일 광고 파트너사들에게 사전 공지 없이 챗GPT 이미지·음성 생성 기능과 경쟁하는 제품 광고를 더 이상 승인하지 않겠다고 통보하면서, 챗GPT 광고 파일럿에 참여해온 어도비가 당혹감을 감추지 못했어요. 자사 사업은 지키면서 파트너는 내친다는 비판이 나오며 \"이게 갑질 아니냐\"는 반응이 확산 중이에요.", "tag": "HOT ISSUE", "buzz": 65, "source": "The Information·PYMNTS (2026.09.09~09.10)"}, {"title": "\"애플은 빠지고 오픈AI만 남았다\"…머스크, 시리-챗GPT 독점 소송서 애플만 쏙 빼줬다", "summary": "일론 머스크의 X Corp가 애플과 오픈AI를 상대로 낸 '시리-챗GPT 독점계약' 반독점 소송에서 애플에 대한 청구만 취하 요청하고 오픈AI 상대 소송은 그대로 유지했어요. 오랜 앙숙인 머스크와 샘 올트먼의 법정 다툼이 새 국면을 맞으며 \"결국 오픈AI만 남았다\"는 반응이 나와요.", "tag": "HOT ISSUE", "buzz": 55, "source": "MacRumors (2026.09.14)"}];
+const generatedAt = "2026.09.17";
+const items = [{"title": "\"1조2000억 달러 부르는데 상장은 안 한다\"…챗GPT 오픈AI, 몸값만 더 불렸다", "summary": "오픈AI가 상장(IPO) 전 새 투자유치를 추진하며 기업가치 1조2000억 달러(약 1560조원), 일부 보도는 1조5000억 달러까지 거론된다고 밝혔어요. 샘 올트먼이 \"2026년 상장은 없다\"고 선을 그은 직후라 \"상장도 안 하는데 몸값은 왜 계속 뛰냐\"는 반응이 나와요.", "tag": "HOT ISSUE", "buzz": 70, "source": "Bloomberg·Fortune (2026.09.15~09.16)"}, {"title": "\"채팅하다 갑자기 광고 에이전트가 말 건다\"…챗GPT, 웨이페어·안지와 '스폰서 대화' 실험", "summary": "오픈AI가 9월 16일 광고를 누르면 브랜드가 붙인 AI 에이전트가 직접 대화하는 '스폰서드 에이전트'를 공식 도입하고, 가구업체 웨이페어와 홈서비스업체 안지를 첫 참여사로 공개했어요. 답변과 광고 대화가 분리 표기된다지만 \"챗GPT에도 결국 광고가 들어왔다\"는 우려 섞인 검색이 늘고 있어요.", "tag": "HOT ISSUE", "buzz": 60, "source": "OpenAI 공식·GlobeNewswire (2026.09.16)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
-document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
+document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
+document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');
