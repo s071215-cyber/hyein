@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Daily Gemini Buzz Radar</div>
-    <h1>오늘, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Recent Gemini Buzz Radar</div>
+    <h1>최근, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -87,14 +87,14 @@
   </div>
 
 <script>
-// 2026.09.23
-const generatedAt = "2026.09.23";
-const items = [{"title": "\"유튜브 구독료 왜 한국만 비싸냐\" 따진다…구글코리아 사장, 국정감사 증인 불려나간다", "summary": "국회 과방위가 앱마켓 인앱결제 수수료·리베이트 계약과 해외 대비 비싼 국내 유튜브 구독료 문제를 캐묻기 위해 윤구 구글코리아 사장을 10월 국정감사 증인으로 채택했어요. 제미나이를 쓰는 국내 이용자들도 구글의 '갑질' 여부에 관심이 쏠리고 있어요.", "tag": "HOT ISSUE", "buzz": 78, "source": "머니투데이·아시아경제 (2026.09.22)"}, {"title": "\"단축키 한 번에 제미나이가 뜬다\"…구글, 윈도우 전용 데스크톱 앱 정식 출시", "summary": "맥 버전 출시 반년 만에 윈도우용 제미나이 앱이 나왔어요. Alt+Space 단축키로 즉시 호출해 구글독스·지메일과 바로 연동되는 점이 직장인 이용자들 사이에서 화제예요.", "tag": "NEW FEATURE", "buzz": 52, "source": "AI타임스·Google 공식 블로그 (2026.09.09~09.10)"}];
+// 2026.09.24
+const generatedAt = "2026.09.24";
+const items = [{"title": "\"899달러 AI 노트북 나왔는데, 한국은 또 빠졌다\"…구글, 제미나이 얹은 '구글북' 예약판매 시작", "summary": "구글이 제미나이를 전면에 내세운 프리미엄 노트북 '구글북'을 공개하고 사전 예약판매에 들어갔어요. 에이서·에이수스·델·HP·레노버 5개 제조사가 참여했지만 1차 출시국에서 한국은 빠져 아쉬움을 사고 있어요.", "tag": "NEW FEATURE", "buzz": 80, "source": "위키트리·AI매터스 (2026.09.21)"}, {"title": "\"클릭 한 번 없이 통째로 뚫린다\"…제미나이 CLI 포함 코딩 AI 4종서 발견된 치명적 결함", "summary": "보안업체 에어가 제미나이 CLI·클로드 코드·코덱스·깃허브 코파일럿에서 사용자 클릭 없이 해커가 시스템을 장악할 수 있는 '플러그인4쉘' 제로클릭 취약점을 발견했어요. 코딩 AI 확장기능 자동 업데이트 과정의 구조적 결함으로, 현재는 모두 패치가 완료됐어요.", "tag": "HOT ISSUE", "buzz": 68, "source": "AI타임스 (2026.09.18)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
-document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
+document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
+document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');

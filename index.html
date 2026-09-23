@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Daily Claude Buzz Radar</div>
-    <h1>오늘, 클로드에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Recent Claude Buzz Radar</div>
+    <h1>최근, 클로드에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">3건 · 웹 검색 기반</span>
+      <span id="itemCount">2건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,14 +87,14 @@
   </div>
 
 <script>
-// 2026.09.23
-const generatedAt = "2026.09.23";
-const items = [{"title": "\"또 오류야?\" 클로드·클로드코드, 대규모 먹통…다운디텍터 신고 1600건 폭주", "summary": "9월 22일 클로드와 클로드코드가 미토스5.1·페이블5.1·오퍼스5 등 주요 모델 전반에서 접속 장애를 일으켜 다운디텍터에 1600건 넘는 신고가 몰렸어요. 앤트로픽이 구체적 원인을 밝히지 않은 채 서비스를 복구해 이용자들의 불만이 이어지고 있어요.", "tag": "HOT ISSUE", "buzz": 88, "source": "Downdetector·Analytics Insight (2026.09.22)"}, {"title": "\"앱 180만개를 통째로 뜯어봤다\"…해커, 클로드로 안드로이드 개발자 '비밀번호 금고' 싹쓸이", "summary": "프랑스어권 해커 조직이 클로드를 이용해 안드로이드 앱 180만개를 자동 다운로드·역컴파일한 뒤 하드코딩된 API 키·비밀번호를 텔레그램으로 실시간 빼돌린 사실이 앤트로픽 위협보고서로 드러났어요. 내가 만든 앱에 남긴 정보가 통째로 털릴 수 있다는 공포에 개발자들 사이에서 화제가 되고 있어요.", "tag": "HOT ISSUE", "buzz": 76, "source": "BleepingComputer·보안뉴스 (2026.09.13~09.15)"}, {"title": "\"가격은 20% 내리고 코딩은 GPT-6를 이겼다\"…클로드 오퍼스 5.5, 오픈AI 정조준 출시", "summary": "앤트로픽이 페이블5.1급 성능을 40% 낮은 비용, 30% 빠른 속도로 구현한 '클로드 오퍼스 5.5'를 공개하며 코딩 벤치마크에서 오픈AI GPT-6 아스트라를 앞질렀다고 밝혔어요. 가격전쟁에서 밀렸던 앤트로픽의 반격이라는 점에서 개발자들의 관심이 집중되고 있어요.", "tag": "NEW FEATURE", "buzz": 68, "source": "Anthropic 공식 블로그·AI타임스 (2026.09.22)"}];
+// 2026.09.24
+const generatedAt = "2026.09.24";
+const items = [{"title": "\"발표 딱 5분 차이\"…클로드 오퍼스 5.5 나오자마자 오픈AI, GPT-6로 반값 맞불", "summary": "앤트로픽이 클로드 오퍼스 5.5를 공개한 지 수 분 만에 오픈AI가 GPT-6 솔·루나 가격을 절반으로 낮춰 맞불을 놓으면서 AI 가격전쟁이 본격화됐다는 평가가 나와요. 터미널벤치 등 벤치마크 점수를 둘러싼 개발자 커뮤니티의 비교 공방도 뜨거워요.", "tag": "HOT ISSUE", "buzz": 85, "source": "이코노미블록·AI타임스 (2026.09.23)"}, {"title": "\"클릭 한 번 없이 통째로 뚫린다\"…클로드 코드 등 코딩 AI 4종서 발견된 치명적 결함", "summary": "보안업체 에어가 클로드 코드·코덱스·제미나이 CLI·깃허브 코파일럿에서 사용자 클릭 없이도 해커가 시스템 제어권을 완전히 가져갈 수 있는 '플러그인4쉘' 제로클릭 취약점을 발견했어요. 코딩 AI 확장기능(스킬) 자동 업데이트 과정의 구조적 결함으로, 현재는 모두 패치가 완료됐어요.", "tag": "HOT ISSUE", "buzz": 72, "source": "AI타임스 (2026.09.18)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
-document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
+document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
+document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');

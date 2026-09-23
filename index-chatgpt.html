@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Daily ChatGPT Buzz Radar</div>
-    <h1>오늘, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Recent ChatGPT Buzz Radar</div>
+    <h1>최근, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -87,14 +87,14 @@
   </div>
 
 <script>
-// 2026.09.23
-const generatedAt = "2026.09.23";
-const items = [{"title": "\"전화 한 통이면 막았다\"…8명 숨진 캐나다 총기난사, 챗GPT 방치 책임 물어 오픈AI·올트먼 피소", "summary": "캐나다 브리티시컬럼비아주 정부가 2월 텀블러리지 총기난사 전 가해자와 챗GPT 사이 오간 위협적인 대화를 오픈AI가 경찰에 신고하지 않았다며 샌프란시스코 연방법원에 오픈AI와 샘 올트먼을 직접 제소했어요. AI의 살해 위협 감지·신고 실패가 실제 참사로 이어졌다는 점에서 챗GPT를 쓰는 부모·교사들 사이에 불안이 커지고 있어요.", "tag": "HOT ISSUE", "buzz": 92, "source": "CBC News·Al Jazeera (2026.09.21~09.22)"}, {"title": "\"비밀 다 털어놨는데\"…챗GPT 대화기록·접속토큰 노리는 신종 악성코드 '아마테라·리무스' 확산", "summary": "보안업체 젠디지털이 최근 석 달간 챗GPT 등 AI 도구에 남은 접속토큰·프롬프트·대화기록을 통째로 훔치는 정보탈취형 악성코드 '아마테라'와 '리무스'를 대량 탐지했다고 밝혔어요. 업무 고민이나 개인정보를 스스럼없이 털어놓던 이용자들 사이에서 \"내 대화가 해커 손에 들어갈 수 있다\"는 불안이 확산되고 있어요.", "tag": "HOT ISSUE", "buzz": 74, "source": "뉴스1 (2026.09.21)"}, {"title": "\"댓글만 모았을 뿐인데\"…해커, 국내 100만 비트코인 커뮤니티 표적삼아 챗GPT로 피싱메일 제작", "summary": "한국인터넷진흥원 연구원이 보안 컨퍼런스에서 국가배후 해킹조직이 회원 100만명 넘는 국내 최대 비트코인 커뮤니티 이용자 정보를 수집해 챗GPT로 '건강보험' 위장 스피어피싱 메일을 만든 정황을 공개했어요. 가상자산 투자자들 사이에서 \"내 카페 활동도 노려질 수 있다\"는 경계심이 커지고 있어요.", "tag": "HOT ISSUE", "buzz": 66, "source": "서울경제 (2026.09월)"}];
+// 2026.09.24
+const generatedAt = "2026.09.24";
+const items = [{"title": "\"가격은 반값, 오류는 절반\"…오픈AI, 코딩·팩트체크용 GPT-6 '솔·루나' 동시 출시", "summary": "오픈AI가 클로드 오퍼스 5.5 발표 수 분 뒤 GPT-6 솔·루나 2종을 전격 출시하며 API 가격을 GPT-5.6 대비 절반으로 낮췄어요. 챗GPT 워크·코덱스부터 순차 적용되고, 무료·Go 이용자도 데스크톱에서 루나를 바로 쓸 수 있어요.", "tag": "NEW FEATURE", "buzz": 90, "source": "뉴스핌·한국경제·ZDNet Korea (2026.09.23)"}, {"title": "\"카톡 켜면 바로 챗GPT\"…카카오·오픈AI, 8개월 준비한 협업 결과물 오늘 첫 공개", "summary": "카카오가 개발자 콘퍼런스 '이프카카오25'에서 오픈AI와의 협업 결과물을 처음 공개했어요. 카카오톡 채팅탭에서 별도 앱 실행 없이 챗GPT를 바로 쓸 수 있게 되면서, 5000만 카카오톡 이용자에게 직접 영향을 주는 국내 소식이라 관심이 뜨거워요.", "tag": "HOT ISSUE", "buzz": 87, "source": "경향신문 (2026.09.23)"}, {"title": "\"클릭 한 번 없이 통째로 뚫린다\"…코덱스 포함 코딩 AI 4종서 발견된 치명적 결함", "summary": "보안업체 에어가 오픈AI 코덱스·클로드 코드·제미나이 CLI·깃허브 코파일럿에서 사용자 클릭 없이 해커가 시스템을 장악할 수 있는 '플러그인4쉘' 제로클릭 취약점을 발견했어요. 코딩 AI 확장기능 자동 업데이트 과정의 구조적 결함으로, 현재는 모두 패치가 완료됐어요.", "tag": "HOT ISSUE", "buzz": 70, "source": "AI타임스 (2026.09.18)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
-document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
+document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
+document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');
