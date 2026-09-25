@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Daily Gemini Buzz Radar</div>
-    <h1>오늘, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Recent Gemini Buzz Radar</div>
+    <h1>최근, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">4건 · 웹 검색 기반</span>
+      <span id="itemCount">3건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,14 +87,14 @@
   </div>
 
 <script>
-// 2026.09.25
-const generatedAt = "2026.09.25";
-const items = [{"title": "\"편의점서 훔친 시험지, 제미나이에 입력해 정답 손바닥에\"…세무사 준비생, 결국 집행유예", "summary": "세무사 시험 준비생이 편의점·주유소에서 영어시험지를 훔쳐 촬영한 뒤 제미나이에 입력해 정답을 알아내고, 손바닥에 적어 시험장에 두 차례나 몰래 반입했다가 적발됐어요. 부산지법은 징역 6개월에 집행유예 1년과 사회봉사 80시간을 선고했어요.", "tag": "HOT ISSUE", "buzz": 84, "source": "아시아경제·SBS비즈·서울신문 (2026.09.23)"}, {"title": "\"이제 전화도 AI가 대신 걸어준다\"…구글, 픽셀11 제미나이 이용자 대상 '콜 포 미' 테스트", "summary": "구글이 픽셀11과 제미나이 구독자를 대상으로 AI가 사용자 대신 업체에 전화를 걸어 자동응답 메뉴 탐색부터 대기, 통화까지 처리해주는 '콜 포 미' 기능을 미국에서 테스트하기 시작했어요. 통화 중 개인정보를 AI가 대신 밝히는 방식이라 프라이버시 우려도 함께 제기돼요.", "tag": "NEW FEATURE", "buzz": 78, "source": "TechCrunch·9to5Google (2026.09.24)"}, {"title": "\"오픈AI·앤트로픽에 밀린다더니\"…구글, 제미나이4 \"최대한 빨리\" 조기 출시 예고", "summary": "구글 딥마인드 신임 수장 코레이 카부쿠오글루가 제미나이4가 사후학습 초기 단계에 있다며 연말보다 훨씬 앞당겨 출시하겠다고 밝혔어요. GPT-6, 클로드 오퍼스5.5에 밀린다는 평가를 정면 반박하는 발언이라 업계 관심이 쏠려요.", "tag": "HOT ISSUE", "buzz": 73, "source": "9to5Google (2026.09.24)"}, {"title": "\"사진 정리부터 이메일 초안까지\"…구글포토, 제미나이 스파크 신기능 5종 한꺼번에 추가", "summary": "구글포토에 제미나이 스파크 기반 사진 자동 정리·앨범화, 무드·리믹스 템플릿, 마크업 도구 개선 등 신기능 5가지가 한꺼번에 추가됐어요. AI Pro·Ultra 구독자(미국)부터 순차 적용돼요.", "tag": "NEW FEATURE", "buzz": 60, "source": "Droid Life (2026.09.24)"}];
+// 2026.09.26
+const generatedAt = "2026.09.26";
+const items = [{"title": "\"유명 작가 책까지 몰래 학습시켰나\"…스콧 터로 등 대형 출판사들, 제미나이 저작권 도용으로 구글에 집단소송", "summary": "베스트셀러 작가 스콧 터로와 아셰트북그룹 등 대형 출판사들이 구글이 수백만 권의 책과 논문을 무단으로 제미나이 학습에 썼다며 집단소송을 냈어요. 저작권 표시를 지우거나 바꿔 도용을 숨겼다는 주장까지 나와 작가·독자들 사이에서 관심이 뜨거워요.", "tag": "HOT ISSUE", "buzz": 50, "source": "TechCrunch·법원 소송기록 (2026.07월, 소송 진행 중)"}, {"title": "\"구글독스에서 전문서적 10만 권을 그대로 인용한다\"…제미나이 노트북, '엑스퍼트 인텔리전스' 전격 추가", "summary": "구글이 제미나이 노트북에 유명 출판사·전문가 콘텐츠 10만 권 이상을 연동하는 '엑스퍼트 인텔리전스' 기능을 새로 넣어, 구글독스로 글을 쓰면서도 전문 자료를 바로 인용할 수 있게 됐어요. 리서치와 글쓰기를 함께 하는 학생·직장인들 사이에서 화제예요.", "tag": "NEW FEATURE", "buzz": 46, "source": "Google Workspace Updates (2026.09.18)"}, {"title": "\"아사나·세일즈포스까지 제미나이로 다룬다\"…구글, 업무 앱 7종과 직접 연동 확대", "summary": "구글이 제미나이로 아사나·아틀라시안 로보·허브스팟·퀵북스·먼데이·세일즈포스 등 업무 도구를 MCP로 바로 다룰 수 있게 연동을 넓혔어요. 여러 앱을 옮겨 다니며 일하던 직장인들의 업무 방식이 바뀔 만한 소식이에요.", "tag": "NEW FEATURE", "buzz": 36, "source": "Google Workspace Updates (2026.09.18)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
-document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
+document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
+document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');

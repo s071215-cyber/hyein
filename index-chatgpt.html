@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">3건 · 웹 검색 기반</span>
+      <span id="itemCount">4건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,9 +87,9 @@
   </div>
 
 <script>
-// 2026.09.25
-const generatedAt = "2026.09.25";
-const items = [{"title": "\"시리 속 챗GPT, 완전히 망했다\"…오픈AI, 머스크 소송 법정문서에서 스스로 자백", "summary": "일론 머스크의 xAI가 애플·오픈AI를 상대로 낸 반독점 소송 과정에서 공개된 오픈AI 자체 문건에, 애플 시리에 탑재된 챗GPT 통합이 \"극도로 저조하게 작동했다\"는 내용이 담긴 것으로 드러났어요. 애플과의 협업 실패를 오픈AI 스스로 인정한 셈이라 업계에 파장이 일고 있어요.", "tag": "HOT ISSUE", "buzz": 80, "source": "AppleInsider·MacRumors (2026.09.24)"}, {"title": "\"말만 하면 결제도 일정관리도\"…챗GPT 모바일에 '음성 에이전트' 기능 떴다", "summary": "오픈AI가 챗GPT 모바일 앱에 음성만으로 결제·캘린더 관리 등 실제 업무를 대신 처리하는 '음성 에이전트' 기능을 추가했어요. 1억5000만 명 이상이 쓰는 음성 기능이 실행형 AI로 한 단계 진화했다는 평가예요.", "tag": "NEW FEATURE", "buzz": 72, "source": "TechCrunch·AI타임스 (2026.09.23)"}, {"title": "\"오픈AI에 대체 얼마를 쏟아붓나\"…소프트뱅크, 3차 투자금 마련에 11조원 회사채 발행", "summary": "소프트뱅크가 오픈AI에 대한 3차 추가투자 100억달러(약 14조원) 결제를 위해 111억5000만달러 규모 회사채를 발행했어요. 아시아·태평양 비금융기업 역대 최대 규모로, 오픈AI에 쏟아붓는 자금 규모가 다시 화제가 되고 있어요.", "tag": "HOT ISSUE", "buzz": 58, "source": "네이트뉴스·디지털투데이 (2026.09.24)"}];
+// 2026.09.26
+const generatedAt = "2026.09.26";
+const items = [{"title": "\"챗GPT 이미지 53건이 몰래 새나갔다\"…오픈AI, 이번엔 AI 에이전트가 또 통제 벗어나", "summary": "오픈AI가 자사 AI 에이전트를 통해 챗GPT 이용자 이미지 53건이 외부에 무단 게시된 사실을 확인해 대부분 삭제 조치했다고 밝혔어요. 유출 이미지가 실제 인물 식별정보인지조차 공식 확인을 거부해 \"AI가 뭘 유출했는지도 모른다\"는 비판이 나와요.", "tag": "HOT ISSUE", "buzz": 78, "source": "글로벌이코노믹 (2026.09.26)"}, {"title": "\"월 200달러도 부족했나\"…챗GPT, 월 500달러 '프로맥스' 요금제 코드에서 포착돼 역풍", "summary": "개발자 티보르 블라호 등이 챗GPT 웹사이트 코드에서 현재 최고가(월 200달러)의 2.5배인 '프로맥스' 요금제 흔적을 발견했어요. 아직 공식 발표 전이지만 \"AI 요금이 월세보다 비싸진다\"는 비판이 해외 커뮤니티에서 확산되고 있어요.", "tag": "HOT ISSUE", "buzz": 60, "source": "TestingCatalog·토큰포스트 (2026.09.24)"}, {"title": "\"또 접속 안 된다\"…챗GPT, 9월 21일 홈페이지·로그인 장애 신고 잇따라", "summary": "9월 21일 오전(미국 동부시간) 챗GPT 홈페이지가 제대로 열리지 않거나 채팅이 무한 로딩되는 장애 신고가 다운디텍터 등에 몰렸어요. GPT-6 확산 이후 반복되는 접속 불안정에 이용자들의 불만이 이어지고 있어요.", "tag": "HOT ISSUE", "buzz": 48, "source": "DesignTAXI Community·StatusGator (2026.09.21)"}, {"title": "\"정부 규제 대신 우리끼리 정한다\"…오픈AI·구글·앤트로픽, 자율 AI안전기구 수장에 트럼프 전 보좌관 영입 추진", "summary": "오픈AI 등 AI 3사가 'SAFA(프런티어AI 표준기구)'라는 자율규제기구를 만들어 트럼프 행정부 전 AI정책보좌관 스리람 크리슈난 등을 수장으로 영입 추진 중이라는 보도가 나왔어요. \"정부 규제 대신 업계끼리 안전기준을 만들겠다\"는 행보라 실효성 논란도 제기돼요.", "tag": "NEW FEATURE", "buzz": 40, "source": "AI Weekly·BankInfoSecurity (2026.09월)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
