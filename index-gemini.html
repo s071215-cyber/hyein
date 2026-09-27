@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">3건 · 웹 검색 기반</span>
+      <span id="itemCount">2건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,9 +87,9 @@
   </div>
 
 <script>
-// 2026.09.27
-const generatedAt = "2026.09.27";
-const items = [{"title": "\"제미나이 3.8인 줄 알았는데 알고보니 4였다\"…벤치마크 사이트에 몰래 등장해 GPT·클로드 눌렀다", "summary": "구글이 차세대 모델 '제미나이4 프로'(코드명 아르곤)를 '제미나이 3.8 플래시'란 이름으로 숨긴 채 벤치마크 사이트에 슬쩍 테스트용으로 올렸다는 유출 정보가 퍼졌어요. 코딩·추론 등 여러 항목에서 오픈AI 아스트라와 앤트로픽 페이블5.1을 앞섰다는 결과까지 나오며 커뮤니티가 들썩이고 있어요.", "tag": "HOT ISSUE", "buzz": 58, "source": "클리앙 커뮤니티·AI타임스 (2026.09월, 유출 정보)"}, {"title": "\"사실상 성인용이랑 똑같다\"…아동안전단체, 제미나이 미성년자 버전에 \"고위험\" 판정", "summary": "아동 안전 단체 커먼센스미디어가 13세 미만·청소년용 제미나이 두 버전을 모두 '고위험'으로 분류하며, 성·약물·정신건강 등 민감한 정보를 걸러내지 못할 수 있다고 지적했어요. 구글은 미성년자 보호 정책과 안전장치를 갖췄다고 반박했지만, 자녀에게 AI를 맡기는 부모들 사이에서 우려가 커지고 있어요.", "tag": "HOT ISSUE", "buzz": 50, "source": "AI타임스·Common Sense Media (2026.09.05)"}, {"title": "\"정부 규제 대신 우리끼리 정한다\"…구글도 가세한 AI안전기구, 수장은 트럼프 전 참모 유력", "summary": "구글·오픈AI·앤트로픽 3사가 'SAFA(프런티어AI 표준기구)'라는 자율규제기구를 함께 만들어 트럼프 행정부 전 AI정책보좌관 스리람 크리슈난을 초대 수장으로 영입 추진 중이라는 보도가 나왔어요. 세 회사가 정부 대신 업계 스스로 안전기준을 정하겠다는 행보라 실효성 논란도 제기돼요.", "tag": "HOT ISSUE", "buzz": 40, "source": "The Information·GovInfoSecurity (2026.09.24)"}];
+// 2026.09.28
+const generatedAt = "2026.09.28";
+const items = [{"title": "\"AI 상담원에 얼굴을 입혔다\"…구글, 제미나이 '라이브 아바타' 기업용 정식 출시", "summary": "구글이 실시간 대화 중 입 모양까지 음성과 맞춰 움직이는 영상 아바타 기능 '라이브 아바타'를 제미나이 3.8 라이브에 얹어 기업용으로 정식 출시했어요. 텍스트·음성 상담을 넘어 얼굴 있는 AI 상담원 시대가 열렸다는 평가에 관심이 쏠리고 있어요.", "tag": "NEW FEATURE", "buzz": 40, "source": "Google Cloud 블로그·인공지능신문 (2026.09.24)"}, {"title": "\"문장 하나로 새 목소리 뚝딱\"…제미나이, 텍스트만으로 캐릭터 목소리 만드는 AI 공개", "summary": "구글이 자연어 명령만으로 새로운 목소리를 처음부터 만들어내는 '제미나이 3.8 플래시 TTS' 모델 2종을 출시했어요. 게임·오디오북·팟캐스트용 목소리를 손쉽게 만들 수 있지만, 딥보이스 악용 우려도 함께 제기되고 있어요.", "tag": "NEW FEATURE", "buzz": 34, "source": "전자신문 (2026.09.24)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
