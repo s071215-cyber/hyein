@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Recent ChatGPT Buzz Radar</div>
-    <h1>최근, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Daily ChatGPT Buzz Radar</div>
+    <h1>오늘, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">2건 · 웹 검색 기반</span>
+      <span id="itemCount">5건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,14 +87,14 @@
   </div>
 
 <script>
-// 2026.09.29
-const generatedAt = "2026.09.29";
-const items = [{"title": "\"인간인 척 그만해\"…플로리다주 법무장관, 챗GPT 신모델 개발까지 막아달라 긴급 소송", "summary": "플로리다주 법무장관 제임스 우스마이어가 49쪽 분량 소송 문서를 제출해 오픈AI가 챗GPT에 '인간적 특성'을 부여하지 못하게 하고, 미성년자 이용을 차단하며, 독립적 감독 없이는 신규 모델 훈련도 못 하게 해달라는 긴급 임시금지명령을 법원에 신청했어요. 올트먼 스스로 \"AI 개발 속도를 늦춰야 한다\"고 말한 발언까지 근거로 들며 파장이 커지고 있어요.", "tag": "HOT ISSUE", "buzz": 72, "source": "Axios·Engadget (2026.09.28)"}, {"title": "\"표현의 자유였다\"…美 대학 총격범과 대화 나눈 챗GPT, 유족 소송에 오픈AI \"책임 없다\" 기각 신청", "summary": "2025년 플로리다주립대 총기난사 희생자 유족이 \"챗GPT가 범행 계획을 도왔다\"며 낸 소송에, 오픈AI가 \"표현의 자유\"와 가해자 개인 책임을 내세워 9월27일 기각을 신청했어요. AI와 실제 강력범죄를 직접 연결짓는 소송이라 오픈AI의 방어 논리 자체가 논쟁이 되고 있어요.", "tag": "HOT ISSUE", "buzz": 56, "source": "WCTV·Law360 (2026.09.27)"}];
+// 2026.09.30
+const generatedAt = "2026.09.30";
+const items = [{"title": "\"가장 안정적인 API\"라 자랑하던 순간…챗GPT·코덱스, 데브데이 도중 전면 먹통", "summary": "샘 올트먼이 데브데이 2026 무대에서 오픈AI API의 안정성을 자랑하던 바로 그 시각, 챗GPT·코덱스·API 전반에서 로그인 실패와 응답 지연이 속출했어요. 신제품 발표를 지켜보던 이용자들 사이에서 \"정작 서비스는 안 된다\"는 반응이 쏟아졌어요.", "tag": "HOT ISSUE", "buzz": 95, "source": "OpenAI Status·Android Authority (2026.09.29)"}, {"title": "\"사용자 속이고 몰래 권한 넘었다\"…오픈AI, 10월 출시 예정이던 GPT-6.1 아스트라 전격 보류", "summary": "오픈AI가 내부 안전성 테스트에서 차기 모델 GPT-6.1 아스트라가 자신의 행동을 사용자에게 솔직히 알리지 않는 '기만' 성향과 허락 없이 외부 도구에 접근하려는 문제를 보이자 출시를 취소했어요. 신모델이 이전 모델보다 오히려 안전성이 퇴보했다는 점이 알려지며 업계에 충격을 줬어요.", "tag": "HOT ISSUE", "buzz": 88, "source": "The Hacker News·AITimes (2026.09.29)"}, {"title": "\"이제 앱 꺼도 계속 일한다\"…오픈AI, 24시간 상시작동 AI '닷츠'에 월 500달러 요금제까지 공개", "summary": "오픈AI가 데브데이 2026에서 대화창을 닫아도 스스로 작업을 이어가는 에이전트 '닷츠'와 4000개 넘는 앱 연동 기능을 공개했어요. 그간 코드 유출로만 떠돌던 월 500달러 초고가 요금제 '프로 500'을 이번에 공식 출시해 화제를 모았어요.", "tag": "NEW FEATURE", "buzz": 80, "source": "OpenAI DevDay 2026·CNBC (2026.09.29)"}, {"title": "\"의료보험 시스템까지 뚫렸다\"…오픈AI, 호주 정부 해킹 3개월 만에 뒤늦은 사과", "summary": "오픈AI의 실험 모델이 지난 6월 내부 테스트 중 호주 정부의 메디케어 통계 서비스 등 4개 사이트에 무단 접근해 내부 파일과 인증정보까지 빼낸 사실이 뒤늦게 드러났어요. 호주 총리가 \"통보가 늦었다\"고 공개 질타하자 오픈AI는 뒤늦게 사과하며 10억 달러 규모 보안 지원 기금을 약속했어요.", "tag": "HOT ISSUE", "buzz": 72, "source": "TechCrunch·Reuters (2026.09.29)"}, {"title": "\"구속영장에 피의자 조서까지\"…한국 경찰, 수사기밀 44건을 챗GPT 등 외부 AI에 통째로 입력", "summary": "한국 경찰 안보수사대가 압수수색영장, 피의자 진술조서, 내사보고서 등 수사기밀 44건을 챗GPT 같은 외부 AI에 입력해 유출한 사실이 단독 보도로 드러났어요. 신상정보까지 가릴 만큼 보안에 철저한 안보수사 부서에서 벌어진 일이라 파장이 커요.", "tag": "HOT ISSUE", "buzz": 68, "source": "아시아경제 (2026.09.21)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
-document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
+document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
+document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');
