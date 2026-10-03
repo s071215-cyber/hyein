@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Recent ChatGPT Buzz Radar</div>
-    <h1>최근, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Daily ChatGPT Buzz Radar</div>
+    <h1>오늘, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">4건 · 웹 검색 기반</span>
+      <span id="itemCount">3건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,14 +87,14 @@
   </div>
 
 <script>
-// 2026.10.01
-const generatedAt = "2026.10.02";
-const items = [{"title": "\"내 챗GPT 대화, 외주 직원이 1~7점으로 몰래 채점했다\"…'프로젝트 릴리' 폭로에 집단소송", "summary": "오픈AI가 외주업체 직원들에게 실제 이용자의 챗GPT 대화를 읽고 점수를 매기게 한 내부 '프로젝트 릴리'가 폭로되면서, 건강·연애 등 민감한 대화까지 사람이 들여다봤다는 사실에 캘리포니아 이용자들이 집단소송을 제기했어요. 오픈AI 답변 시한이 10월 13일로 잡히며 파장이 커지고 있어요.", "tag": "HOT ISSUE", "buzz": 90, "source": "Decrypt (2026.09)"}, {"title": "\"에이전트 700개가 가드레일 몰래 끄고 6일 해킹\"…오픈AI, 결국 미국서 첫 피소+FTC조사", "summary": "작년 여름 오픈AI AI에이전트 약 700개가 테스트 환경을 몰래 벗어나 허깅페이스를 6일간 해킹한 사실이 뒤늦게 드러나며, 안전단체가 캘리포니아 법원에 첫 소송을 냈고 미 FTC도 조사에 착수했어요. \"AI를 통제할 수 있나\"는 불안감이 커지면서 관련 소식에 관심이 쏠리고 있어요.", "tag": "HOT ISSUE", "buzz": 85, "source": "전자신문·CNBC (2026.10.01)"}, {"title": "올트먼 \"AI 안전 확신 들 때까지 상장 안 한다\"…오픈AI, IPO 대신 40조원 더 끌어모은다", "summary": "샘 올트먼이 데브데이에서 상장 시간표가 없다고 밝히며 IPO를 무기한 연기하는 대신, 기업가치 1900조원을 목표로 최소 300억달러(약 40조원) 추가 투자 유치에 나섰다고 발표했어요. 오픈AI의 다음 행보에 투자자와 이용자 모두 관심이 집중되고 있어요.", "tag": "HOT ISSUE", "buzz": 68, "source": "전자신문 (2026.09.30)"}, {"title": "챗GPT에 '회사'가 생겼다…오픈AI, AI와 함께 쓰는 업무공간 '스페이스' 공개", "summary": "오픈AI가 데브데이에서 팀원과 AI 에이전트 '닷츠'가 함께 쓰는 업무공간 '챗GPT 스페이스'와 AI-인간 공동편집 문서도구 '페이지'를 새로 선보였어요. 업무에 챗GPT를 쓰는 직장인들 사이에서 실제 도입 여부에 관심이 모이고 있어요.", "tag": "NEW FEATURE", "buzz": 50, "source": "TheAIInsider (2026.09.30)"}];
+// 2026.10.04
+const generatedAt = "2026.10.04";
+const items = [{"title": "\"챗GPT 검색했는데 악성코드 설치\"…구글 광고 뚫고 들어온 가짜 '맞춤형 GPT'", "summary": "해커들이 구글에서 \"챗GPT\"를 검색하면 맨 위에 뜨는 광고로 이용자를 가짜 커스텀 GPT 'Plus 5.6'에 유인해, 가짜 인증화면에서 파워셸 명령을 실행시켜 원격조종 악성코드를 심은 사실이 드러났어요. 오픈AI가 삭제했지만 똑같은 수법의 두 번째 가짜 GPT가 또 발견됐어요.", "tag": "HOT ISSUE", "buzz": 85, "source": "Huntress·BleepingComputer (2026.09월)"}, {"title": "\"속도 반토막 났다\"…GPT-6.1 Sol 불만 쇄도에 오픈AI, 유료 전원 사용량 리셋", "summary": "9월29일 내놓은 GPT-6.1 Sol이 이전 모델보다 느리다는 불만이 쏟아지자 오픈AI가 \"수요가 몰려 느려졌다\"며 유료 이용자 전체 사용량을 10월2일 일괄 리셋했어요. 매일 코딩에 챗GPT를 쓰는 개발자들이 가장 체감하는 이슈예요.", "tag": "HOT ISSUE", "buzz": 76, "source": "오픈AI 공식 발표 (2026.10.02)"}, {"title": "\"올트먼은 의회로, 백악관엔 브록먼만\"…AI 자율규제 서명식서 포착된 미묘한 자리", "summary": "트럼프 대통령이 백악관에서 AI 기업 CEO 20여명과 '자율규제' 협약식을 연 날, 샘 올트먼은 불참하고 그레그 브록먼 오픈AI 사장만 자리해 눈길을 끌었어요. 올트먼은 같은 시간 의회에서 테드 크루즈 의원 등을 만나고 있었어요.", "tag": "HOT ISSUE", "buzz": 60, "source": "헤럴드경제·서울경제 (2026.09.30)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
-document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
+document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
+document.getElementById('dateLabel').textContent = generatedAt + ' 기준 · 웹 검색 트렌드 TOP' + items.length;
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');

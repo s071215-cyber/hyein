@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Recent Gemini Buzz Radar</div>
-    <h1>최근, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Daily Gemini Buzz Radar</div>
+    <h1>오늘, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">4건 · 웹 검색 기반</span>
+      <span id="itemCount">3건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,14 +87,14 @@
   </div>
 
 <script>
-// 2026.10.01
-const generatedAt = "2026.10.02";
-const items = [{"title": "\"피해자 47명 신상, 구글이 연구기관에 그대로 넘겼다\"…디지털성범죄 정보유출 파문, 국감서도 터진다", "summary": "삭제를 요청한 디지털성범죄 피해자 47명의 신상과 삭제요청문이 구글을 통해 제3의 해외 연구기관 사이트에 그대로 노출된 사실이 드러나며 정부가 법적 책임을 검토 중이에요. 10월 6일 국정감사에서도 집중 질의가 예고돼 피해 재확산 우려가 커지고 있어요.", "tag": "HOT ISSUE", "buzz": 88, "source": "네이트뉴스 (2026.09.20)"}, {"title": "\"과징금 내면 끝?\"…게임사들, 구글·애플 수수료 20% 피해 묻겠다며 국감 정조준", "summary": "국내 앱 개발사와 시민단체들이 구글의 인앱결제 수수료로 인한 실질 피해 회복을 요구하며 10월 6일 국정감사에서 구글코리아 대표에 직접 질의해달라는 요청서를 국회에 제출했어요. 과징금만으로는 피해가 복구되지 않는다는 분노가 커지는 사안이에요.", "tag": "HOT ISSUE", "buzz": 83, "source": "ZDNet Korea (2026.10.01)"}, {"title": "\"30초만 녹음하면 목소리 복제\"…제미나이 신규 TTS, 영국·EU·인도엔 왜 안 풀렸나", "summary": "제미나이 3.8 플래시의 새 음성합성 기능이 30초 샘플만으로 목소리를 복제해내지만, 영국·EU·인도 등에서는 바이오인식 정보 규제 우려로 아예 막혀 있어요. 신기능에 대한 기대와 프라이버시 우려가 동시에 퍼지고 있어요.", "tag": "NEW FEATURE", "buzz": 65, "source": "traictory.com (2026.09.24)"}, {"title": "\"사생활 되돌릴 수 없이 침해된다\"…구글, EU 규제에 정면으로 소송 걸었다", "summary": "구글이 안드로이드를 경쟁 AI비서에 개방하고 검색데이터를 경쟁사와 공유하라는 EU의 디지털시장법 시정명령에 맞서 취소 소송을 제기했어요. \"검색기록 공유는 사생활 침해\"라는 구글 주장에 경쟁사들은 반발하고 있어요.", "tag": "HOT ISSUE", "buzz": 58, "source": "AI타임스 (2026.09.29)"}];
+// 2026.10.04
+const generatedAt = "2026.10.04";
+const items = [{"title": "\"피차이도 백악관 갔다\"…트럼프 \"AI 규제 대신 자율통제\" 빅테크와 전격 서명", "summary": "트럼프 대통령이 백악관에 AI 기업 CEO 20여명을 불러 \"컴퓨팅 시스템이 복잡한 만큼 자율규제가 있어야 한다\"며 연방 규제 대신 자율 협약에 서명시켰어요. 순다르 피차이 구글 CEO도 서명에 참여했어요.", "tag": "HOT ISSUE", "buzz": 82, "source": "헤럴드경제·서울경제 (2026.09.30)"}, {"title": "\"899달러 AI 노트북, 오늘 미국서 첫 판매\"…제미나이 품은 '구글북', 한국은 또 빠졌다", "summary": "구글이 제미나이를 핵심 기능으로 내세운 프리미엄 노트북 '구글북'을 10월4일 미국에서 정식 판매하기 시작했어요. 에이서·ASUS·델·HP·레노버가 초기 제품을 만들지만, 한국은 이번에도 출시국에서 빠졌어요.", "tag": "NEW FEATURE", "buzz": 50, "source": "AI매터스·전자신문 (2026.10.04)"}, {"title": "\"탈세 의혹으로 국감 소환\"…구글코리아 사장, 이달 22일 국세청 국감 증인 출석", "summary": "2026년 국정감사(10월6일~27일)에서 구글코리아의 법인세 회피·탈세 의혹이 다뤄질 예정으로, 윤구 구글코리아 사장이 10월22일 국세청 국감 증인으로 출석하기로 확정됐어요.", "tag": "HOT ISSUE", "buzz": 38, "source": "ZDNet Korea·디일렉 (2026.09.28)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
-document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
+document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
+document.getElementById('dateLabel').textContent = generatedAt + ' 기준 · 웹 검색 트렌드 TOP' + items.length;
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');
