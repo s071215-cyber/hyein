@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Daily Gemini Buzz Radar</div>
-    <h1>오늘, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Recent Gemini Buzz Radar</div>
+    <h1>최근, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">3건 · 웹 검색 기반</span>
+      <span id="itemCount">1건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,14 +87,14 @@
   </div>
 
 <script>
-// 2026.10.04
-const generatedAt = "2026.10.04";
-const items = [{"title": "\"피차이도 백악관 갔다\"…트럼프 \"AI 규제 대신 자율통제\" 빅테크와 전격 서명", "summary": "트럼프 대통령이 백악관에 AI 기업 CEO 20여명을 불러 \"컴퓨팅 시스템이 복잡한 만큼 자율규제가 있어야 한다\"며 연방 규제 대신 자율 협약에 서명시켰어요. 순다르 피차이 구글 CEO도 서명에 참여했어요.", "tag": "HOT ISSUE", "buzz": 82, "source": "헤럴드경제·서울경제 (2026.09.30)"}, {"title": "\"899달러 AI 노트북, 오늘 미국서 첫 판매\"…제미나이 품은 '구글북', 한국은 또 빠졌다", "summary": "구글이 제미나이를 핵심 기능으로 내세운 프리미엄 노트북 '구글북'을 10월4일 미국에서 정식 판매하기 시작했어요. 에이서·ASUS·델·HP·레노버가 초기 제품을 만들지만, 한국은 이번에도 출시국에서 빠졌어요.", "tag": "NEW FEATURE", "buzz": 50, "source": "AI매터스·전자신문 (2026.10.04)"}, {"title": "\"탈세 의혹으로 국감 소환\"…구글코리아 사장, 이달 22일 국세청 국감 증인 출석", "summary": "2026년 국정감사(10월6일~27일)에서 구글코리아의 법인세 회피·탈세 의혹이 다뤄질 예정으로, 윤구 구글코리아 사장이 10월22일 국세청 국감 증인으로 출석하기로 확정됐어요.", "tag": "HOT ISSUE", "buzz": 38, "source": "ZDNet Korea·디일렉 (2026.09.28)"}];
+// 2026.10.07
+const generatedAt = "2026.10.07";
+const items = [{"title": "\"유료 결제자도 못 피했다\"…제미나이, 10월9일부터 무료·저가 요금제서 '프로' 모델 싹 뺀다", "summary": "구글이 10월9일부터 제미나이 무료 이용자와 월 9.99달러(한국 약 7500원) 'AI 플러스' 구독자에게서 '프로' 모델 접근을 없애고 최하위 모델 '플래시-라이트'만 쓰게 하기로 했어요. 신규 최상위 모델 출시를 앞두고 나온 조치라 \"사실상 요금 인상\"이라는 불만이 쏟아지고 있어요.", "tag": "HOT ISSUE", "buzz": 54, "source": "AI타임스·위키트리 (2026.10월초, 적용 10.09)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
-document.getElementById('dateLabel').textContent = generatedAt + ' 기준 · 웹 검색 트렌드 TOP' + items.length;
+document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
+document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');
