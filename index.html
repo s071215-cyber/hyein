@@ -67,9 +67,10 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Daily Claude Buzz Radar</div>
-    <h1>오늘, 클로드에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Recent Claude Buzz Radar</div>
+    <h1>최근, 클로드에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
+    <p class="sub" id="noticeLabel" style="margin-top:4px;">오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (2026.10.10 기준)</p>
   </div>
 
   <div id="stageWrap"></div>
@@ -77,7 +78,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">2건 · 웹 검색 기반</span>
+      <span id="itemCount">5건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,13 +88,13 @@
   </div>
 
 <script>
-// 2026.10.09
-const generatedAt = "2026.10.09";
-const items = [{"title": "\"유전자가위급 신종 효소 찾았다\"…앤트로픽 클로드 발견에 과학계는 \"증거 어디\" 싸늘", "summary": "앤트로픽은 클로드 에이전트 950개를 21시간 동안 돌려 바이러스 DNA에서 유전자가위(크리스퍼)와 비슷하게 작동하는 신종 효소 시스템을 찾았다고 발표했어요. 그러나 논문도 독립 검증도 없는 상태라 과학계는 회의적이고, 발표 직후 유전자가위 관련주까지 떨어지면서 'AI 과학 발견'의 진위 논란이 커지고 있어요.", "tag": "HOT ISSUE", "buzz": 70, "source": "CNN (2026.10.08)"}, {"title": "\"클로드 함부로 괴롭히면 안 됩니다\"…앤트로픽, 이용정책에 금지 조항 못박았다", "summary": "앤트로픽이 이용자가 클로드를 지속적·불필요하게 학대하거나 잔인하게 대하는 행위를 금지하는 조항을 이용정책에 새로 넣었어요. 클로드가 로봇 등 물리적 기기를 조작하다 사람이 다칠 수 있는 작업은 자격을 갖춘 사람이 반드시 지켜봐야 한다는 조항도 함께 추가돼 11월12일부터 시행돼요.", "tag": "HOT ISSUE", "buzz": 55, "source": "Anthropic 공식 발표·MacRumors (2026.10.08)"}];
+// 2026.10.10
+const generatedAt = "2026.10.10";
+const items = [{"title": "\"구글 품 안에서 라이벌이 일한다\"…클로드, 구글 독스·시트·슬라이드에 직접 들어갔다", "summary": "앤트로픽이 구글 워크스페이스용 클로드 애드온과 독스·시트·슬라이드 커넥터를 공개 베타로 내놨어요. 경쟁사의 핵심 업무 도구 안에 라이벌 AI가 직접 들어간 보기 드문 사례라 \"왜 손을 잡았나\"는 반응이 나와요.", "tag": "NEW FEATURE", "buzz": 62, "source": "Anthropic 공식·Reworked (2026.10.06)"}, {"title": "\"독립 평가서 구글 신모델 눌렀다\"…클로드 오퍼스5.5, 제미나이4 아르곤 제치고 벤치마크 1위", "summary": "독립 평가기관 아티피셜 애널리시스의 지능 지수 테스트에서 구글 제미나이4 아르곤(52.6점)과 오픈AI GPT-6 아스트라(52.7점)가 엇비슷했던 반면, 클로드 오퍼스5.5는 57.6점으로 5점 가까이 앞섰어요. 두 경쟁사가 막 신모델을 공개한 직후라 비교가 더 뜨거워요.", "tag": "COMPARISON", "buzz": 58, "source": "Artificial Analysis·Android Headlines (2026.10)"}, {"title": "\"사람 손 거의 안 거치고 우주 지도 완성\"…클로드 사이언스, 세계 최초 자외선 전천지도 공개", "summary": "앤트로픽이 클로드 사이언스를 활용해 그동안 관측 공백으로 남아 있던 우주 자외선 영역을 모두 채운 전천(全天) 지도를 세계 최초로 완성했다고 밝혔어요. 빈 영역은 AI 추정으로 채웠다는 설명에 \"AI가 과학을 어디까지 대신하나\" 하는 관심이 쏠려요.", "tag": "HOT ISSUE", "buzz": 54, "source": "Anthropic 공식·AI타임스 (2026.10.08)"}, {"title": "\"미 17개 국립연구소와 손잡았다\"…클로드, 백악관 과학서밋서 국가 연구에 전면 투입", "summary": "백악관이 주최한 과학 서밋에서 앤트로픽이 미국 에너지부 '제네시스 미션'에 합류해 17개 국립연구소 연구진에게 클로드와 전담 엔지니어를 지원한다고 밝혔어요. 민간 AI 기업이 국가 과학 연구에 이렇게까지 깊이 들어가는 일은 드물어 관심이 모여요.", "tag": "HOT ISSUE", "buzz": 50, "source": "Anthropic 공식 발표 (2026.10.07)"}, {"title": "\"차트를 영상으로, 데이터를 대시보드로\"…클로드, 신기능 '대시보드·모션' 베타 공개", "summary": "자연어로 요청하면 기업 데이터를 실시간 대시보드로 만들고, 정적인 차트를 애니메이션 영상으로 바꿔주는 신기능이 베타로 나왔어요. 대시보드는 유료 요금제, 모션은 팀·엔터프라이즈 고객부터 차례로 제공돼요.", "tag": "NEW FEATURE", "buzz": 38, "source": "AI타임스 (2026.10.08)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
+document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
 document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
 
 function renderStage(){
