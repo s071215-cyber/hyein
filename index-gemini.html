@@ -70,7 +70,7 @@
     <div class="eyebrow">Recent Gemini Buzz Radar</div>
     <h1>최근, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
-    <p class="sub" id="noticeLabel" style="margin-top:4px;">오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (2026.10.10 기준)</p>
+    <p class="sub" id="noticeLabel" style="margin-top:4px;">오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (2026.10.11 기준)</p>
   </div>
 
   <div id="stageWrap"></div>
@@ -78,7 +78,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">4건 · 웹 검색 기반</span>
+      <span id="itemCount">2건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -88,9 +88,9 @@
   </div>
 
 <script>
-// 2026.10.10
-const generatedAt = "2026.10.10";
-const items = [{"title": "\"6000명 넘게 신고했다\"…제미나이, 10월8일 또 접속 장애", "summary": "다운디텍터에 현지시간 오전 9시반 기준 6000명 넘는 이용자가 오류를 신고했어요. 가장 강력하다는 신모델을 내놓은 지 열흘도 안 돼 또 터진 장애라 \"이젠 패턴이냐\"는 반응까지 나와요.", "tag": "HOT ISSUE", "buzz": 76, "source": "GV Wire (2026.10.08)"}, {"title": "\"통화도 타이머도 못 알아듣는다\"…구글 어시스턴트 강제 교체 후 제미나이 불만 폭주", "summary": "구글 어시스턴트가 제미나이로 강제 전환된 뒤, 전화 걸기·타이머·알람처럼 기본적인 기능에서 오히려 신뢰도가 떨어졌다는 이용자 불만이 레딧 등에서 쏟아지고 있어요. \"말은 잘하는데 비서 역할은 못 한다\"는 지적이에요.", "tag": "HOT ISSUE", "buzz": 68, "source": "Android Authority (2026.10)"}, {"title": "\"'최강 모델'이라며 내놨는데…독립 벤치마크서 클로드에 덜미 잡힌 제미나이4 아르곤", "summary": "구글이 사이버보안 방어팀에만 먼저 공개한 신모델 제미나이4 아르곤이, 독립 평가기관의 지능 지수 테스트에서 경쟁사 클로드 오퍼스5.5보다 5점 가까이 낮은 점수를 받았어요. 블룸버그는 구글 내부 직원들 사이에서도 실제 성능에 의문이 나온다고 전했어요.", "tag": "COMPARISON", "buzz": 56, "source": "Artificial Analysis·Bloomberg (2026.10)"}, {"title": "\"질문마다 AI 노력 수준을 직접 고른다\"…제미나이, '낮음·중간·높음' 설정 신기능 추가", "summary": "간단한 질문엔 빠르게, 복잡한 질문엔 깊게 생각하도록 이용자가 직접 추론 강도를 고르는 기능이 제미나이에 추가됐어요. 비슷한 기능을 먼저 넣은 경쟁 모델들과 비교도 이어지고 있어요.", "tag": "NEW FEATURE", "buzz": 30, "source": "AI Weekly (2026.10.04)"}];
+// 2026.10.11
+const generatedAt = "2026.10.11";
+const items = [{"title": "\"프로 모델 쓰려고 돈 냈는데\"…제미나이 무료·4900원 요금제, 오늘부터 진짜로 다운그레이드", "summary": "지난 7일 예고됐던 무료 제미나이의 '플래시라이트 전용' 전환이 10월9일부터 실제 시행에 들어갔어요. 월 4900원짜리 AI플러스 구독자도 프로 모델을 더 이상 쓸 수 없게 되자, 아껴 쓰려던 이용자들의 불만이 커지고 있어요.", "tag": "HOT ISSUE", "buzz": 58, "source": "Notebookcheck·AIWeekly (2026.10.09)"}, {"title": "\"글자 깨짐까지 잡았다\"…구글, 차세대 이미지 생성 모델 '나노바나나2.1' 깜짝 공개", "summary": "나노바나나2.1(제미나이3.1 플래시 이미지)이 정식 출시되며 사진 14장을 조합해 인물 4명까지 특징을 유지하는 기능과 선명한 글자 렌더링이 추가됐어요. 기존 플래시급 속도·비용은 그대로라 개발자들 사이에서 화제예요.", "tag": "NEW FEATURE", "buzz": 45, "source": "Google·LetsDataScience (2026.10.06)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
