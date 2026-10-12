@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OVELY 트렌드 체크</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#12100D; --surface:#1C1914; --surface2:#241F18;
+    --text:#F7F1E6; --muted:#A79C8A; --line: rgba(247,241,230,0.08);
+    --coral:#FF8A5B; --gold:#E8C468;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:40px 16px 60px;}
+  .top{width:100%;max-width:560px;text-align:center;margin-bottom:20px;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;color:var(--coral);
+    text-transform:uppercase;margin-bottom:8px;}
+  h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;line-height:1.3;margin:0 0 6px;}
+  .sub{color:var(--muted);font-size:13px;line-height:1.5;}
+
+  .wrap{width:100%;max-width:560px;}
+
+  .warn{background:rgba(255,138,91,0.1);border:1px solid rgba(255,138,91,0.35);border-radius:14px;
+    padding:14px 16px;font-size:13px;line-height:1.6;color:var(--text);margin-top:18px;}
+  .warn b{color:var(--coral);}
+
+  .reminder{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;
+    margin-top:12px;display:flex;gap:12px;align-items:flex-start;}
+  .reminder .icon{font-size:18px;line-height:1;margin-top:1px;}
+  .reminder .txt{font-size:13px;line-height:1.6;color:var(--muted);}
+  .reminder .txt b{color:var(--gold);font-weight:600;}
+
+  .meta-row{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);
+    font-family:'JetBrains Mono',monospace;margin-top:20px;padding:0 2px;}
+
+  .list{display:flex;flex-direction:column;gap:14px;margin-top:12px;}
+  .item{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;position:relative;overflow:hidden;}
+  .item::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--coral),var(--gold));opacity:.7;}
+  .item-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:var(--coral);}
+  .name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;line-height:1.35;margin-top:4px;}
+  .why{color:var(--muted);font-size:13.5px;line-height:1.6;margin-top:8px;}
+  .sources{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+  .src-link{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold);text-decoration:none;
+    border:1px solid rgba(232,196,104,0.35);background:rgba(232,196,104,0.08);padding:5px 10px;border-radius:100px;
+    white-space:nowrap;}
+  .src-link:hover{background:rgba(232,196,104,0.16);}
+
+  .empty{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;text-align:center;
+    color:var(--muted);font-size:13.5px;line-height:1.7;margin-top:12px;}
+
+  .footer-note{margin-top:26px;font-size:11.5px;color:var(--muted);line-height:1.7;text-align:center;padding:0 8px;}
+
+  .kw-row{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
+  .kw-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.06em;}
+  .kw-chip{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text);background:var(--surface2);
+    border:1px solid var(--line);padding:4px 9px;border-radius:100px;white-space:nowrap;}
+
+  .connect{background:var(--surface);border:1px solid rgba(232,196,104,0.3);border-radius:16px;padding:20px;
+    margin-top:22px;}
+  .connect-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;}
+  .connect-desc{color:var(--muted);font-size:13px;line-height:1.65;margin-top:10px;}
+  .connect-sub{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--gold);
+    text-transform:uppercase;margin-top:16px;margin-bottom:8px;}
+  .connect-todo{display:flex;flex-direction:column;gap:6px;}
+  .connect-todo li{font-size:13px;line-height:1.6;color:var(--text);list-style:none;padding-left:20px;position:relative;}
+  .connect-todo li::before{content:'☐';position:absolute;left:0;color:var(--coral);}
+  .tip-list{display:flex;flex-direction:column;gap:6px;padding-left:0;margin:0;}
+  .tip-list li{font-size:12.5px;line-height:1.6;color:var(--muted);list-style:none;padding-left:14px;position:relative;}
+  .tip-list li::before{content:'·';position:absolute;left:0;color:var(--gold);}
+</style>
+</head>
+<body>
+
+  <div class="top">
+    <div class="eyebrow">OVELY Daily Trend Radar</div>
+    <h1>매일 발견하는<br/>괜찮은 쇼핑템, 오늘의 참고자료</h1>
+    <p class="sub" id="dateLabel">-</p>
+  </div>
+
+  <div class="wrap">
+    <div class="warn">
+      ⚠️ 이 리스트는 <b>네이버 데이터랩·유튜브의 실시간 순위 데이터가 아니라</b>, 웹 검색 기반 뉴스/블로그 참고자료이며 교차검증을 거쳤습니다.
+    </div>
+
+    <div class="reminder">
+      <div class="icon">🔔</div>
+      <div class="txt">오늘 <b>네이버 데이터랩 쇼핑인사이트(datalab.naver.com)</b>와 <b>유튜브</b>를 직접 확인하시고, OVELY에 올릴 상품 후보 2~3개를 상세페이지 스크롤 영상으로 보내주세요.</div>
+    </div>
+
+    <div class="meta-row">
+      <span id="updatedAt">-</span>
+      <span id="countLabel">-</span>
+    </div>
+
+    <div class="list" id="listWrap"></div>
+
+    <div class="footer-note">각 항목은 서로 다른 두 개 이상의 출처에서 확인된 내용만 실었어요. 최종 상품 선정은 운영자 확인 후 진행합니다.</div>
+
+    <div class="connect">
+      <div class="connect-title">💰 쇼핑커넥트 수익화 체크리스트</div>
+      <div class="connect-desc">쇼핑커넥트 수수료는 판매자가 상품마다 자율로 정해서 보통 5~20%대, 최대 50%까지도 있어요. 실시간 수수료율과 실제 상품은 로그인 후 쇼핑커넥트 앱 '상품찾기'에서만 확인 가능해서, 이 페이지가 직접 검색해드릴 수는 없어요.</div>
+
+      <div class="connect-sub">오늘 확인해볼 것</div>
+      <ul class="connect-todo" id="connectTodo"></ul>
+
+      <div class="connect-sub">실전 팁</div>
+      <ul class="tip-list">
+        <li>같은 상품이 쿠팡파트너스에도 있으면 수수료 더 높은 쪽으로 링크 발급</li>
+        <li>상품 상세페이지에서 할인가·수수료율을 링크 발급 전에 꼭 확인</li>
+        <li>판매자가 쇼핑커넥트에 등록하지 않은 상품은 검색해도 안 나오니, 트렌드템이어도 상품찾기에 없으면 스킵</li>
+      </ul>
+    </div>
+  </div>
+
+<script>
+const generatedAt = "2026.10.12";
+const items = [
+  {
+    name: "올리브영 '모두올영' 두피·탈모케어 캠페인 — 10월 한 달간 최대 41% 할인",
+    why: "올리브영이 두피·탈모·손상모·새치 등 헤어 고민별 대표 상품을 최대 41% 할인하는 '모두올영' 캠페인을 10월 31일까지 진행 중이에요. 14일부터는 헤어용품 2만5천원 이상 구매 시 체험키트도 선착순 증정해요. 9월 두피/탈모케어 매출이 전년 대비 28% 늘었다는 배경도 있어, 환절기 헤어케어 수요가 꾸준히 이어지는 모습이에요.",
+    keyword: "두피 스케일러",
+    sources: [
+      { label: "코스모닝", url: "https://www.cosmorning.com/news/article.html?no=53409" },
+      { label: "CJ올리브영 뉴스룸", url: "https://cjnews.cj.net/%ed%83%88%eb%aa%a8%ec%9d%98-%ea%b3%84%ec%a0%88-%ea%b0%80%ec%9d%84%ec%9d%b4-%ec%99%94%eb%8b%a4-cj%ec%98%ac%eb%a6%ac%eb%b8%8c%ec%98%81-10%ec%9b%94-%ed%95%9c-%eb%8b%ac%ea%b0%84/" }
+    ]
+  }
+];
+const searchNote = "'요즘 인기 쇼핑 트렌드', '요즘 뜨는 제품', '이번 주 쇼핑 트렌드'에 더해 계절가전(전기매트·가습기), 캠핑·나들이용품, 로봇청소기·공기청정기, 환절기 건강식품, 라이브커머스 인기 카테고리, 할로윈 시즌 소비, 넷플릭스 PPL 완판템까지 20여 개 키워드로 나눠 검색했지만, 2026년 10월 소식을 서로 다른 두 곳 이상에서 확인할 수 있었던 건 '모두올영' 캠페인 1건뿐이었어요. 제외한 항목: 11번가 '월간 십일절'(10/1~10/11, 어제 이미 종료돼 오늘 기준 트렌드로 보기 어려움), 그립 라이브커머스 생활주방 카테고리 거래량 350%↑(출처 1곳, 2026년 상반기 집계라 '이번 주' 소식이 아님), 'G마켓·11번가·SSG닷컴 난방매트·가습기 최대 75% 할인'(검색 결과에 실제 출처·날짜가 불명확해 신뢰하기 어려움), 가을웜 메이크업 검색량 증가·전기매트 판매 급증 등(모두 2025년 이전 과거 기사만 확인됨). 억지로 채우지 않았습니다.";
+
+document.getElementById('dateLabel').textContent = generatedAt + ' 기준 웹 검색 참고자료';
+document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
+document.getElementById('countLabel').textContent = items.length + '건 · 교차검증 완료';
+
+const listWrap = document.getElementById('listWrap');
+
+if (items.length === 0) {
+  listWrap.innerHTML = '<div class="empty">오늘은 교차검증을 통과한 뚜렷한 트렌드가 많지 않았습니다.<br/><br/>' + searchNote + '</div>';
+} else if (items.length < 5) {
+  listWrap.innerHTML = '<div class="empty" style="margin-bottom:0">오늘은 교차검증을 통과한 뚜렷한 트렌드가 목표치(5~10개)보다 적었습니다. 아래 ' + items.length + '건만 믿을 만한 근거로 남겼어요.<br/><br/>' + searchNote + '</div>' + items.map((it, i) => `
+    <div class="item">
+      <div class="item-head">
+        <div>
+          <div class="num">TREND ${String(i+1).padStart(2,'0')}</div>
+          <div class="name">${it.name}</div>
+        </div>
+      </div>
+      <div class="why">${it.why}</div>
+      ${it.keyword ? `
+      <div class="kw-row">
+        <span class="kw-label">쇼핑커넥트 키워드</span>
+        <span class="kw-chip">${it.keyword}</span>
+      </div>` : ''}
+      <div class="sources">
+        ${it.sources.map(s => `<a class="src-link" href="${s.url}" target="_blank" rel="noopener">${s.label} ↗</a>`).join('')}
+      </div>
+    </div>
+  `).join('');
+} else {
+  listWrap.innerHTML = items.map((it, i) => `
+    <div class="item">
+      <div class="item-head">
+        <div>
+          <div class="num">TREND ${String(i+1).padStart(2,'0')}</div>
+          <div class="name">${it.name}</div>
+        </div>
+      </div>
+      <div class="why">${it.why}</div>
+      ${it.keyword ? `
+      <div class="kw-row">
+        <span class="kw-label">쇼핑커넥트 키워드</span>
+        <span class="kw-chip">${it.keyword}</span>
+      </div>` : ''}
+      <div class="sources">
+        ${it.sources.map(s => `<a class="src-link" href="${s.url}" target="_blank" rel="noopener">${s.label} ↗</a>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+const connectTodo = document.getElementById('connectTodo');
+const keywords = items.map(it => it.keyword).filter(Boolean);
+connectTodo.innerHTML = keywords.length > 0
+  ? keywords.map(k => `<li>'${k}' 상품찾기에서 검색 → 수수료 20% 이상 & 10만원 미만 상품 있는지 확인</li>`).join('')
+  : '<li>오늘은 트렌드 리스트에서 뽑을 만한 상품 키워드가 없었어요.</li>';
+</script>
+</body>
+</html>
