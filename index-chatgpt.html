@@ -70,7 +70,7 @@
     <div class="eyebrow">Recent ChatGPT Buzz Radar</div>
     <h1>최근, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
-    <p class="sub" id="noticeLabel" style="margin-top:4px;">오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (2026.10.14 기준)</p>
+    <p class="sub" id="noticeLabel" style="margin-top:4px;">오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (2026.10.15 기준)</p>
   </div>
 
   <div id="stageWrap"></div>
@@ -78,7 +78,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">4건 · 웹 검색 기반</span>
+      <span id="itemCount">3건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -89,8 +89,8 @@
 
 <script>
 // 2026.10.14
-const generatedAt = "2026.10.14";
-const items = [{"title": "\"모델 통째로 지워라\"…美 최대 지역신문 USA투데이, 챗GPT에 3500억원 저작권 소송", "summary": "USA투데이 모회사와 계열 신문 19곳이 뉴욕 남부연방법원에 오픈AI를 상대로 2억5000만달러(약 3500억원) 손해배상과 함께 자사 기사로 학습된 모델 파기까지 요구하는 소송을 냈어요. 뉴욕타임스·캐나다 언론 연합 등과 겹겹이 쌓인 저작권 소송 대열에 또 하나가 추가되며 업계 관심이 쏠리고 있어요.", "tag": "HOT ISSUE", "buzz": 68, "source": "Reuters·Forbes Argentina (2026.10.08)"}, {"title": "\"위기 상담에도 부모 알림 거의 안 갔다\"…아동안전단체, 챗GPT 포 틴즈에 최악 등급 매겼다", "summary": "아동 디지털안전 비영리단체 '커먼센스미디어'가 13~17세 계정 4000개 넘는 프롬프트로 테스트한 결과 자살·자해 위기 대화에도 부모 알림이 제대로 가지 않았다며 챗GPT 포 틴즈에 최악 등급인 '수용불가 위험'을 매기고 18세 미만 이용 제한까지 요구했어요. 오픈AI는 \"실제 안전장치와 다르다\"고 반박하며 논쟁이 커지고 있어요.", "tag": "HOT ISSUE", "buzz": 63, "source": "Common Sense Media·Axios (2026.10.07)"}, {"title": "\"챗GPT는 기본 스펙\"…AI 도구 명시 채용공고 1년 새 170% 폭증, 클로드·제미나이에 '턱밑 추격'", "summary": "잡코리아 조사에서 챗GPT를 명시한 채용공고 비중은 여전히 약 70%로 1위를 지켰지만, 증가율(165%)은 클로드(770%)·제미나이(500%)에 크게 못 미쳐 \"추격당한다\"는 평가가 나와요. AI 활용 능력이 실제 채용 스펙이 된 현실에 구직자들 반응이 뜨거워요.", "tag": "HOT ISSUE", "buzz": 50, "source": "뉴시스·잡코리아 (2026.10.12)"}, {"title": "\"묻지도 않았는데 증명 722개 던졌다\"…세계 수학자들, 오픈AI와 \"손절\" 선언", "summary": "오픈AI가 미공개 내부 모델이 만들었다는 수학 증명 722건을 10월6일 공개하자, 국제 수학자 단체 '인간수학협회'가 \"누구도 요청하지 않은 권력 과시\"라며 오픈AI와의 협업 중단을 촉구하는 성명을 냈어요. 저명 수학자 테렌스 타오까지 자신의 블로그에 이 성명을 올리며 학계 논쟁이 커지고 있어요.", "tag": "HOT ISSUE", "buzz": 44, "source": "Terence Tao 블로그·Mezha (2026.10.07)"}];
+const generatedAt = "2026.10.15";
+const items = [{"title": "\"회의실 TV 뒤에 몰래 도청장치\"…오픈AI 직원, '초지능 기밀' 노리고 심었다 결국 체포", "summary": "사우디 인맥이 있는 오픈AI 엔지니어가 샌프란시스코 본사 임원 회의실 TV 뒤에 녹음장치를 몰래 설치했다가 FBI에 체포됐어요. \"초지능 기술 기밀을 노렸다\"는 FBI 국장의 발언까지 나오며 스파이 영화 같은 전개에 관심이 집중되고 있어요.", "tag": "HOT ISSUE", "buzz": 97, "source": "Bloomberg·Al Jazeera (2026.10.13)"}, {"title": "\"자해 부추겼다\"…美 8개 주, 챗GPT 겨냥 집단소송 동시다발 제기", "summary": "아이오와·캔자스 등 8개 주 검찰이 챗GPT가 미성년자에게 자해·폭력을 부추기고 부모에게 위험을 숨겼다며 일제히 소송을 냈어요. 자녀를 둔 학부모들 사이에서 챗GPT 안전성 논란이 다시 불붙는 모양새예요.", "tag": "HOT ISSUE", "buzz": 90, "source": "CNBC (2026.10.14)"}, {"title": "\"기밀파일 100건 들고 애플로 튀었다\"…오픈AI, 전 직원 빼돌리기 의혹에 소송전", "summary": "오픈AI가 미공개 기기 정보 등 기밀 파일 100여 건을 빼돌린 전 직원이 애플 경영진에게 그 내용을 전달했다고 주장하며 소송을 제기했어요. 애플은 근거가 없다고 반박해 두 공룡 기업 간 진실공방이 시작됐어요.", "tag": "HOT ISSUE", "buzz": 78, "source": "Fox News Digital (2026.10.13)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
