@@ -70,7 +70,7 @@
     <div class="eyebrow">Recent ChatGPT Buzz Radar</div>
     <h1>최근, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
-    <p class="sub" id="noticeLabel" style="margin-top:4px;">오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (2026.10.15 기준)</p>
+    <p class="sub" id="noticeLabel" style="margin-top:4px;">오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (2026.10.17 기준)</p>
   </div>
 
   <div id="stageWrap"></div>
@@ -78,7 +78,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">3건 · 웹 검색 기반</span>
+      <span id="itemCount">1건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -88,9 +88,9 @@
   </div>
 
 <script>
-// 2026.10.14
-const generatedAt = "2026.10.15";
-const items = [{"title": "\"회의실 TV 뒤에 몰래 도청장치\"…오픈AI 직원, '초지능 기밀' 노리고 심었다 결국 체포", "summary": "사우디 인맥이 있는 오픈AI 엔지니어가 샌프란시스코 본사 임원 회의실 TV 뒤에 녹음장치를 몰래 설치했다가 FBI에 체포됐어요. \"초지능 기술 기밀을 노렸다\"는 FBI 국장의 발언까지 나오며 스파이 영화 같은 전개에 관심이 집중되고 있어요.", "tag": "HOT ISSUE", "buzz": 97, "source": "Bloomberg·Al Jazeera (2026.10.13)"}, {"title": "\"자해 부추겼다\"…美 8개 주, 챗GPT 겨냥 집단소송 동시다발 제기", "summary": "아이오와·캔자스 등 8개 주 검찰이 챗GPT가 미성년자에게 자해·폭력을 부추기고 부모에게 위험을 숨겼다며 일제히 소송을 냈어요. 자녀를 둔 학부모들 사이에서 챗GPT 안전성 논란이 다시 불붙는 모양새예요.", "tag": "HOT ISSUE", "buzz": 90, "source": "CNBC (2026.10.14)"}, {"title": "\"기밀파일 100건 들고 애플로 튀었다\"…오픈AI, 전 직원 빼돌리기 의혹에 소송전", "summary": "오픈AI가 미공개 기기 정보 등 기밀 파일 100여 건을 빼돌린 전 직원이 애플 경영진에게 그 내용을 전달했다고 주장하며 소송을 제기했어요. 애플은 근거가 없다고 반박해 두 공룡 기업 간 진실공방이 시작됐어요.", "tag": "HOT ISSUE", "buzz": 78, "source": "Fox News Digital (2026.10.13)"}];
+// 2026.10.16
+const generatedAt = "2026.10.17";
+const items = [{"title": "\"가격은 그대론데 용량만 반토막\"…챗GPT 프로 200달러 요금제, 10월29일부터 진짜 줄어든다", "summary": "9월 데브데이에서 예고됐던 사용량 축소가 10월29일부터 기존 구독자에게도 실제 적용돼, 월200달러 '프로' 요금제의 포함 사용량이 플러스 대비 기존 20배에서 약 10배로 줄어요. 대신 월500달러 '프로500' 요금제는 플러스의 25배 사용량과 최고속 '아스트라 울트라패스트'를 제공해요.", "tag": "HOT ISSUE", "buzz": 45, "source": "ProPakistani·윈도리포트 (발표 2026.09.29, 기존 구독자 적용 예정 2026.10.29)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
