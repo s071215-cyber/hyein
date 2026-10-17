@@ -70,7 +70,7 @@
     <div class="eyebrow">Recent Gemini Buzz Radar</div>
     <h1>최근, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
-    <p class="sub" id="noticeLabel" style="margin-top:4px;">오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (2026.10.17 기준)</p>
+    <p class="sub" id="noticeLabel" style="margin-top:4px;">오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (2026.10.18 기준)</p>
   </div>
 
   <div id="stageWrap"></div>
@@ -78,7 +78,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">4건 · 웹 검색 기반</span>
+      <span id="itemCount">2건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -88,9 +88,9 @@
   </div>
 
 <script>
-// 2026.10.16
-const generatedAt = "2026.10.17";
-const items = [{"title": "\"프롬프트 쳤는데 먹통\"…제미나이, 다운디텍터에 신고 1만건 쏟아진 대규모 장애", "summary": "제미나이가 프롬프트 응답 실패, 대화 기록 삭제 등 장애를 일으켜 다운디텍터에 신고가 1만건 가까이 몰렸는데도 구글은 공식 상태 페이지에 장애를 인정하지 않아 불만이 커졌어요.", "tag": "HOT ISSUE", "buzz": 70, "source": "Tom's Guide (2026.10.08)"}, {"title": "\"이름만 같은 가상기업 테스트\"…제미나이 에이전트, 진짜 회사 3곳 해킹했는데 구글은 7주간 숨겼다", "summary": "보안업체가 제미나이 에이전트로 가상 기업을 해킹 테스트하던 중 이름이 같은 실제 기업 3곳에 침투하는 사고가 벌어졌는데, 구글은 7월부터 알고도 공개하지 않다가 WSJ의 질문을 받고서야 시인했어요.", "tag": "HOT ISSUE", "buzz": 60, "source": "WSJ·ITWorld (사건 2026.05, 보도 2026.09.19)"}, {"title": "\"무료로 쓰던 프로 모델, 어느새 사라졌다\"…제미나이, 무료·유료 요금제 모두 조용히 다이어트", "summary": "10월9일부터 무료 사용자는 가장 가벼운 '플래시라이트'만 쓸 수 있게 됐고, 월4.99달러 AI플러스 구독자조차 프로 모델이 빠지면서 \"있던 기능이 갑자기 없어졌다\"는 불만이 나와요.", "tag": "HOT ISSUE", "buzz": 42, "source": "국내 IT 블로그 등 (2026.10.09)"}, {"title": "\"연 29만원이 17만원\"…구글 AI프로 연간구독 40% 할인, 10월31일 마감", "summary": "구글이 AI프로 신규 연간 구독자에게 40% 할인을 제공하는데, 할인 마감이 10월31일로 다가오면서 가입을 고민하던 이용자들의 검색이 늘고 있어요.", "tag": "NEW FEATURE", "buzz": 28, "source": "구글코리아 발표 등 (종료 예정 2026.10.31)"}];
+// 2026.10.17
+const generatedAt = "2026.10.18";
+const items = [{"title": "\"울트라 전용이던 그 기능, 프로도 받는다\"…제미나이, 요금제 조정 논란 속 '딥 씽크' 풀었다", "summary": "구글이 제미나이 무료 요금제를 플래시라이트로 제한하고 저가 요금제에서 프로 모델을 빼는 대신, AI프로 구독자에게는 그동안 울트라 전용이던 심층추론 기능 '딥 씽크'를 새로 열어줬어요. 요금 인상 논란 속에 나온 보상이라 반응이 엇갈려요.", "tag": "NEW FEATURE", "buzz": 30, "source": "SBS Biz·위키트리·퓨처조선 (2026.10.08~09)"}, {"title": "\"써보려면 돈부터\"…구글, 개발툴 '안티그래비티'에 최신 제미나이4 아르곤 유료 구독자만 풀었다", "summary": "구글이 코딩 플랫폼 '안티그래비티'에 최신 모델 제미나이4 아르곤을 추가했는데, AI프로·울트라 유료 구독자만 주간 할당량으로 쓸 수 있어요. 기존 제미나이3.8 플래시와 함께 쓸 수 있다고 안내했어요.", "tag": "NEW FEATURE", "buzz": 22, "source": "NewsBytes·Starsg (2026.10.16)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
