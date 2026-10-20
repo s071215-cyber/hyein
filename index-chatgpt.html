@@ -67,9 +67,10 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Daily ChatGPT Buzz Radar</div>
-    <h1>오늘, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Recent ChatGPT Buzz Radar</div>
+    <h1>최근, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
+    <p class="sub" id="noticeLabel" style="margin-top:4px;">오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (2026.10.21 기준)</p>
   </div>
 
   <div id="stageWrap"></div>
@@ -77,7 +78,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">2건 · 웹 검색 기반</span>
+      <span id="itemCount">5건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,14 +88,14 @@
   </div>
 
 <script>
-// 2026.10.19
-const generatedAt = "2026.10.20";
-const items = [{"title": "\"FSU에서 제일 붐비는 시간 알려줘\" 물었다…총기난사범 챗GPT 대화록 들고 사형 재판 열렸다", "summary": "2025년 4월 플로리다주립대(FSU) 총기난사 피의자 피닉스 이크너의 재판이 배심원 선정을 시작으로 10월19일(현지시간) 열렸어요. 범행 전 그가 챗GPT와 나눈 대화 수백 건이 핵심 증거로 제출될 예정이라, 오픈AI 책임론을 둘러싼 공방이 재판 내내 이어질 전망이에요.", "tag": "HOT ISSUE", "buzz": 62, "source": "WTXL·Law360 등 美 현지매체 (2026.10.19)"}, {"title": "\"파워포인트 꺼질 날 머지않았다\"…챗GPT, 대화창 안에서 바로 슬라이드 만들고 같이 고친다", "summary": "오픈AI가 대화나 파일, 개요만으로 발표자료를 만들고 동료를 초대해 실시간으로 함께 편집할 수 있는 '슬라이드' 기능을 챗GPT에 선보였어요. 완성한 자료는 파워포인트·PDF·구글 슬라이드로 바로 내보낼 수 있어 직장인들 사이에서 반응이 뜨거워요.", "tag": "NEW FEATURE", "buzz": 36, "source": "aipicks.jp (2026.10.16~17)"}];
+// 2026.10.20 - 오늘자 신규 이슈 미확인(10/16~17 소식이 최신), 최근 이슈로 구성 (CLAUDE.md 규칙)
+const generatedAt = "2026.10.21";
+const items = [{"title": "\"가짜 신분으로 930만루피 가로챘다\"…유학비자 사기범, 챗GPT로 '진짜 직원들'처럼 연기했다 덜미", "summary": "파키스탄에서 가짜 미국 대학 입학·비자 서류를 꾸며 피해자에게 930만루피를 가로챈 남성이 체포됐어요. 여러 명이 사건을 처리하는 것처럼 보이려고 챗GPT로 답변을 만들어낸 것으로 드러나, AI가 사기 수법을 더 정교하게 만든다는 우려가 커지고 있어요.", "tag": "HOT ISSUE", "buzz": 54, "source": "ProPakistani (2026.10.12)"}, {"title": "\"비서 여러 명이 동시에 일한다\"…챗GPT 프로, AI 에이전트 병렬 실행 지원 시작", "summary": "오픈AI가 GPT-6 아스트라 프로 요금제에 여러 AI 에이전트가 하나의 작업을 나눠 동시에 처리하는 기능을 추가했어요. 복잡한 업무를 쪼개 한 번에 끝낼 수 있어 파워유저들 사이에서 반응이 좋아요.", "tag": "NEW FEATURE", "buzz": 40, "source": "AI타임스 (2026.10.16)"}, {"title": "\"입어보고 살지 말지 결정\"…챗GPT, 옷·액세서리 가상 피팅 기능 전격 추가", "summary": "챗GPT에서 옷이나 액세서리를 가상으로 입혀보고, 마음에 든 상품은 '라이브러리'에 즐겨찾기로 저장할 수 있게 됐어요. 쇼핑을 대화 안에서 끝내려는 오픈AI의 전략이 한 걸음 더 나간 모습이에요.", "tag": "NEW FEATURE", "buzz": 36, "source": "Releasebot·OpenAI 릴리스노트 (2026.10.16~17)"}, {"title": "\"열어둔 탭까지 다 읽는다\"…챗GPT, 크롬 브라우저 자동화 기능 강화", "summary": "챗GPT 워크가 크롬에서 열어둔 탭 내용을 읽고 비교·분석하고, 메시지 전송이나 양식 작성, 파일 다운로드까지 대신 처리할 수 있게 됐어요. 브라우저 안 반복 업무를 AI에게 맡기는 흐름이 한층 빨라지고 있어요.", "tag": "NEW FEATURE", "buzz": 32, "source": "네이트뉴스·OpenAI 릴리스노트 (2026.10.15~16)"}, {"title": "\"답변 대신 화면을 보여준다\"…챗GPT, 전체 이용자에 'GPT-6·지능형 UI' 순차 적용", "summary": "오픈AI가 질문에 따라 그래프나 버튼, 계산기 같은 화면을 직접 보여주는 'GPT-6 지능형 UI'를 전체 이용자에게 순차 적용했어요. 유료 이용자부터 시작해 무료·Go 요금제까지 차례로 확대됐어요.", "tag": "NEW FEATURE", "buzz": 26, "source": "OpenAI 공식 발표·letsdatascience (2026.10.07~08)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
-document.getElementById('dateLabel').textContent = generatedAt + ' 기준 · 웹 검색 트렌드 TOP' + items.length;
+document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
+document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');
