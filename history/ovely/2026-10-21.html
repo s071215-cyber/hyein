@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OVELY 트렌드 체크</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#12100D; --surface:#1C1914; --surface2:#241F18;
+    --text:#F7F1E6; --muted:#A79C8A; --line: rgba(247,241,230,0.08);
+    --coral:#FF8A5B; --gold:#E8C468;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:40px 16px 60px;}
+  .top{width:100%;max-width:560px;text-align:center;margin-bottom:20px;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;color:var(--coral);
+    text-transform:uppercase;margin-bottom:8px;}
+  h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;line-height:1.3;margin:0 0 6px;}
+  .sub{color:var(--muted);font-size:13px;line-height:1.5;}
+
+  .wrap{width:100%;max-width:560px;}
+
+  .warn{background:rgba(255,138,91,0.1);border:1px solid rgba(255,138,91,0.35);border-radius:14px;
+    padding:14px 16px;font-size:13px;line-height:1.6;color:var(--text);margin-top:18px;}
+  .warn b{color:var(--coral);}
+
+  .reminder{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;
+    margin-top:12px;display:flex;gap:12px;align-items:flex-start;}
+  .reminder .icon{font-size:18px;line-height:1;margin-top:1px;}
+  .reminder .txt{font-size:13px;line-height:1.6;color:var(--muted);}
+  .reminder .txt b{color:var(--gold);font-weight:600;}
+
+  .meta-row{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);
+    font-family:'JetBrains Mono',monospace;margin-top:20px;padding:0 2px;}
+
+  .list{display:flex;flex-direction:column;gap:14px;margin-top:12px;}
+  .item{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;position:relative;overflow:hidden;}
+  .item::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--coral),var(--gold));opacity:.7;}
+  .item-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:var(--coral);}
+  .name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;line-height:1.35;margin-top:4px;}
+  .why{color:var(--muted);font-size:13.5px;line-height:1.6;margin-top:8px;}
+  .sources{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+  .src-link{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold);text-decoration:none;
+    border:1px solid rgba(232,196,104,0.35);background:rgba(232,196,104,0.08);padding:5px 10px;border-radius:100px;
+    white-space:nowrap;}
+  .src-link:hover{background:rgba(232,196,104,0.16);}
+
+  .tag-row{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap;}
+  .tag{font-family:'JetBrains Mono',monospace;font-size:10px;padding:3px 8px;border-radius:100px;white-space:nowrap;}
+  .tag.cont{background:rgba(167,156,138,0.14);color:var(--muted);border:1px solid var(--line);}
+  .tag.new{background:rgba(232,196,104,0.14);color:var(--gold);border:1px solid rgba(232,196,104,0.35);}
+
+  .empty{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;text-align:center;
+    color:var(--muted);font-size:13.5px;line-height:1.7;margin-top:12px;}
+
+  .footer-note{margin-top:26px;font-size:11.5px;color:var(--muted);line-height:1.7;text-align:center;padding:0 8px;}
+
+  .kw-row{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
+  .kw-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.06em;}
+  .kw-chip{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text);background:var(--surface2);
+    border:1px solid var(--line);padding:4px 9px;border-radius:100px;white-space:nowrap;}
+
+  .connect{background:var(--surface);border:1px solid rgba(232,196,104,0.3);border-radius:16px;padding:20px;
+    margin-top:22px;}
+  .connect-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;}
+  .connect-desc{color:var(--muted);font-size:13px;line-height:1.65;margin-top:10px;}
+  .connect-sub{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--gold);
+    text-transform:uppercase;margin-top:16px;margin-bottom:8px;}
+  .connect-todo{display:flex;flex-direction:column;gap:6px;}
+  .connect-todo li{font-size:13px;line-height:1.6;color:var(--text);list-style:none;padding-left:20px;position:relative;}
+  .connect-todo li::before{content:'☐';position:absolute;left:0;color:var(--coral);}
+  .tip-list{display:flex;flex-direction:column;gap:6px;padding-left:0;margin:0;}
+  .tip-list li{font-size:12.5px;line-height:1.6;color:var(--muted);list-style:none;padding-left:14px;position:relative;}
+  .tip-list li::before{content:'·';position:absolute;left:0;color:var(--gold);}
+</style>
+</head>
+<body>
+
+  <div class="top">
+    <div class="eyebrow">OVELY Daily Trend Radar</div>
+    <h1>매일 발견하는<br/>괜찮은 쇼핑템, 오늘의 참고자료</h1>
+    <p class="sub" id="dateLabel">-</p>
+  </div>
+
+  <div class="wrap">
+    <div class="warn">
+      ⚠️ 이 리스트는 <b>네이버 데이터랩·유튜브의 실시간 순위 데이터가 아니라</b>, 웹 검색 기반 뉴스/블로그 참고자료이며 교차검증을 거쳤습니다.
+    </div>
+
+    <div class="reminder">
+      <div class="icon">🔔</div>
+      <div class="txt">오늘 <b>네이버 데이터랩 쇼핑인사이트(datalab.naver.com)</b>와 <b>유튜브</b>를 직접 확인하시고, OVELY에 올릴 상품 후보 2~3개를 상세페이지 스크롤 영상으로 보내주세요.</div>
+    </div>
+
+    <div class="meta-row">
+      <span id="updatedAt">-</span>
+      <span id="countLabel">-</span>
+    </div>
+
+    <div class="list" id="listWrap"></div>
+
+    <div class="footer-note">각 항목은 서로 다른 두 개 이상의 출처에서 확인된 내용만 실었어요. 최종 상품 선정은 운영자 확인 후 진행합니다.</div>
+
+    <div class="connect">
+      <div class="connect-title">💰 쇼핑커넥트 수익화 체크리스트</div>
+      <div class="connect-desc">쇼핑커넥트 수수료는 판매자가 상품마다 자율로 정해서 보통 5~20%대, 최대 50%까지도 있어요. 실시간 수수료율과 실제 상품은 로그인 후 쇼핑커넥트 앱 '상품찾기'에서만 확인 가능해서, 이 페이지가 직접 검색해드릴 수는 없어요.</div>
+
+      <div class="connect-sub">오늘 확인해볼 것</div>
+      <ul class="connect-todo" id="connectTodo"></ul>
+
+      <div class="connect-sub">실전 팁</div>
+      <ul class="tip-list">
+        <li>같은 상품이 쿠팡파트너스에도 있으면 수수료 더 높은 쪽으로 링크 발급</li>
+        <li>상품 상세페이지에서 할인가·수수료율을 링크 발급 전에 꼭 확인</li>
+        <li>판매자가 쇼핑커넥트에 등록하지 않은 상품은 검색해도 안 나오니, 트렌드템이어도 상품찾기에 없으면 스킵</li>
+      </ul>
+    </div>
+  </div>
+
+<script>
+const generatedAt = "2026.10.21";
+const items = [
+  {
+    name: "대형마트 '김장 조기 예약 전쟁' — 롯데마트·이마트 절임배추 사전예약 동시 진행 중",
+    why: "인사이트 보도에 따르면 롯데마트는 10월 1일부터 절임배추 1차 사전예약을 열고 해남 절임배추 20kg을 행사카드 결제 시 29,900원에, 괴산 준고랭지는 35,900원에, 평창 고랭지는 59,900원에 내놨고 예약은 12월 15일까지 이어져요. SBS Biz는 이마트가 10월 15일부터 28일까지 앱 '오더픽'으로 절임배추 사전예약을 받는다고 전했는데, 20kg 기준 1차 가격이 행사카드 결제 시 2만9천원대, 2차 기간엔 3만5천원대로 오른다고 해요. 오늘(10/21) 다시 검색해봐도 새로운 2차 일정 발표나 가격 변동 소식은 확인되지 않아, 두 마트 모두 기존 일정대로 접수가 이어지고 있는 것으로 보여요.",
+    tag: "cont",
+    keyword: "절임배추 20kg",
+    sources: [
+      { label: "인사이트", url: "https://www.insight.co.kr/news/576325" },
+      { label: "SBS Biz", url: "https://biz.sbs.co.kr/amp/article/20000339784" }
+    ]
+  },
+  {
+    name: "'아저씨 외투' 경량패딩, 패딩조끼·바람막이까지 번졌다 — 20·30대 남성이 주도",
+    why: "한정판 거래 플랫폼 크림(KREAM)이 10월 16일 발표한 월간 리포트에 따르면 9월 패딩·바람막이 거래량이 전월보다 117%, 거래액은 135% 늘었다고 세계일보가 보도했어요. 패딩조끼 거래량 증가율이 335%로 가장 가팔랐고, 가장 많이 거래된 바람막이도 86% 늘었는데, 특히 20대 남성 거래량이 168%, 30대 남성이 163% 늘어 남성 구매자가 흐름을 주도한 것으로 나타났어요(검색량도 바람막이 84%·경량패딩 136% 동반 상승). 앞서 파이낸셜뉴스는 무신사 9월 경량패딩 거래액이 전년 동기보다 128% 늘었다고 전했는데(8월엔 718% 증가), 서로 다른 플랫폼에서 같은 흐름이 반복 확인되는 셈이에요. 오늘(10/21) 다시 찾아봤지만 이 수치를 뒤집거나 덧붙일 새 10월 발표는 아직 없어 재확인만 했어요.",
+    tag: "cont",
+    keyword: "경량패딩",
+    sources: [
+      { label: "세계일보", url: "https://www.segye.com/newsView/20261016514394" },
+      { label: "파이낸셜뉴스", url: "https://www.fnnews.com/news/202610051143222090" }
+    ]
+  },
+  {
+    name: "다이소 뷰티, 1년 새 구매액 40%↑ — 이제 40·50대도 몰린다",
+    why: "엠브레인 분석에 따르면 다이소 뷰티 제품의 최근 1년(MAT) 구매 추정액이 3,619억 원으로 전년보다 39.6% 늘었다고 아이뉴스24가 보도했어요. 다이소 전용 세컨드 브랜드 구매액은 58.2% 더 뛰었고요. 얼루어코리아는 건대입구 뷰티 특화매장(20평, 상품의 80%가 뷰티)을 짚으며, 2030 중심이던 구매층이 40~50대까지 넓어졌다고 전했어요. 오늘 다시 검색했을 때는 'VT코스메틱 리들샷'(2024년 기사)이나 PDRN 성분 라인 인기 같은 옛 소식만 다시 나왔고, 10월 들어 이를 뒤집거나 새로 덧붙일 소식은 확인되지 않아 여전히 유효한 흐름으로 보고 재확인만 했어요.",
+    tag: "cont",
+    keyword: "다이소 전용 뷰티",
+    sources: [
+      { label: "아이뉴스24", url: "https://www.inews24.com/view/1674976" },
+      { label: "얼루어코리아", url: "https://allurekorea.com/2026/09/04/%ec%9a%94%ec%a6%98-%ed%99%94%ec%9e%a5%ed%92%88-%ec%97%ac%ea%b8%b0%ec%84%9c-%ec%82%ac%ec%9a%94-%eb%8b%a4%ec%9d%b4%ec%86%8c-%eb%b7%b0%ed%8b%b0-vs-%ec%98%a4%ed%94%84%eb%b7%b0%ed%8b%b0-vs-%eb%a9%94/" },
+      { label: "비즈한국", url: "https://heraldk.com/?p=2369724" }
+    ]
+  }
+];
+const searchNote = "'요즘 인기 쇼핑 트렌드', '요즘 뜨는 제품', '이번 주 쇼핑 트렌드'에 더해 다이소·올리브영 인기품목·절임배추 사전예약·경량패딩 바람막이 거래량·기모 레깅스 발열내의·수능 선물 네잎클로버·가을 캠핑 등산 아웃도어 매출·단풍 여행·침구 극세사이불 슬립맥싱·11번가 G마켓 가을 할인전·크리스마스 트리 미리 구매·가을 신상 완판 품절·할로윈 코스튬·블랙프라이데이 선구매 등 18개 가까운 키워드로 오늘 날짜를 넣어 따로 검색했어요. 그 결과 새로 교차검증을 통과한 항목은 없었고, 기존에 확인했던 3건(절임배추 사전예약·경량패딩 바람막이 거래량·다이소 뷰티)만 오늘 재검색에서도 여전히 유효함을 재확인했어요.<br/><br/>지난번까지 다뤘던 '할로윈 코스튬 1위 = 케이팝 데몬헌터스' 소식은 오늘 제외했어요. 구글의 공식 할로윈 검색 집계 '프라이트가이스트(Frightgeist)' 최신(10/15) 데이터를 다시 찾아보니 출처마다 1위가 서로 달랐고(타임아웃 기준 'Buddy the Unicorn', 폭스 계열 방송사 기준 'Dolly Parton'), 두 집계 모두 상위권에 데몬헌터스 캐릭터가 보이지 않아 기존 주장을 그대로 이어가기엔 근거가 약해졌다고 판단했어요. 애초에 미국 검색 트렌드라 국내 쇼핑과의 연결고리도 약했고요.<br/><br/>11번가의 '월간 십일절' 가전 할인(가습기·워셔블카본매트·온열찜질기 특가)은 MTN·SBS Biz 두 매체에서 확인됐지만, 행사 기간이 10월 1~11일로 한정돼 있어 오늘(10/21) 기준으로는 이미 끝난 것으로 보여 '오늘의 트렌드'로는 넣지 않았어요. 지그재그의 '슬립맥싱' 침구 트렌드(극세사이불·겨울이불 거래액 급증)도 흥미로운 소재였지만 2025년 11월 자료, 단일 매체(레이디경향) 보도뿐이라 교차검증에 실패해 제외했고, 기모 레깅스·발열내의·수능 선물·캠핑 등산 매출·크리스마스 트리 미리구매·가을 신상 완판 소식도 날짜가 불분명하거나 해외(미국) 자료뿐이거나 단일 출처여서 모두 뺐어요.";
+
+document.getElementById('dateLabel').textContent = generatedAt + ' 기준 웹 검색 참고자료';
+document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
+document.getElementById('countLabel').textContent = items.length + '건 · 교차검증 완료';
+
+const listWrap = document.getElementById('listWrap');
+const tagLabel = t => t === 'new' ? '오늘 새로 확인' : '지속 중 · 오늘 재확인';
+
+function renderItems(list) {
+  return list.map((it, i) => `
+    <div class="item">
+      <div class="item-head">
+        <div>
+          <div class="num">TREND ${String(i+1).padStart(2,'0')}</div>
+          <div class="name">${it.name}</div>
+        </div>
+      </div>
+      <div class="why">${it.why}</div>
+      ${it.tag ? `
+      <div class="tag-row">
+        <span class="tag ${it.tag}">${tagLabel(it.tag)}</span>
+      </div>` : ''}
+      ${it.keyword ? `
+      <div class="kw-row">
+        <span class="kw-label">쇼핑커넥트 키워드</span>
+        <span class="kw-chip">${it.keyword}</span>
+      </div>` : ''}
+      <div class="sources">
+        ${it.sources.map(s => `<a class="src-link" href="${s.url}" target="_blank" rel="noopener">${s.label} ↗</a>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+if (items.length === 0) {
+  listWrap.innerHTML = '<div class="empty">오늘은 교차검증을 통과한 뚜렷한 트렌드가 많지 않았습니다.<br/><br/>' + searchNote + '</div>';
+} else if (items.length < 5) {
+  listWrap.innerHTML = '<div class="empty" style="margin-bottom:0">오늘은 교차검증을 통과한 뚜렷한 트렌드가 목표치(5~10개)보다 적었습니다. 아래 ' + items.length + '건만 믿을 만한 근거로 남겼어요.<br/><br/>' + searchNote + '</div>' + renderItems(items);
+} else {
+  listWrap.innerHTML = renderItems(items);
+}
+
+const connectTodo = document.getElementById('connectTodo');
+const keywords = items.map(it => it.keyword).filter(Boolean);
+connectTodo.innerHTML = keywords.length > 0
+  ? keywords.map(k => `<li>'${k}' 상품찾기에서 검색 → 수수료 20% 이상 & 10만원 미만 상품 있는지 확인</li>`).join('')
+  : '<li>오늘은 트렌드 리스트에서 뽑을 만한 상품 키워드가 없었어요.</li>';
+</script>
+</body>
+</html>
