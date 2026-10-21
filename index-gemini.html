@@ -67,9 +67,10 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Daily Gemini Buzz Radar</div>
-    <h1>오늘, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Recent Gemini Buzz Radar</div>
+    <h1>최근, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
+    <p class="sub" id="noticeLabel" style="margin-top:4px;">오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (2026.10.22 기준)</p>
   </div>
 
   <div id="stageWrap"></div>
@@ -87,14 +88,14 @@
   </div>
 
 <script>
-// 2026.10.20 - 오늘자 신규 이슈 확인됨, 오늘의 이슈로 구성 (CLAUDE.md 규칙)
-const generatedAt = "2026.10.21";
-const items = [{"title": "\"59년 묵은 핵융합 난제, AI가 반례를 찾아냈다\"…제미나이4 아르곤, '스텔러레이터' 설계 이론 흔들다", "summary": "구글이 제미나이4 아르곤과 메릴랜드대 교수가 함께, 핵융합 발전기 설계의 오랜 가정이었던 '그라드 추측'에 새로운 반례들을 찾아냈다고 밝혔어요. 완전한 해법은 아니지만 차세대 핵융합 설비 시뮬레이션의 검증 기준이 될 수 있어 과학계가 주목하고 있어요.", "tag": "HOT ISSUE", "buzz": 56, "source": "Google 공식 블로그·TechRadar (2026.10.13)"}, {"title": "\"공무원도 AI 쓴다\"…구글, 미 연방정부 전용 '제미나이 포 거버먼트' 전격 출시", "summary": "구글 퍼블릭섹터가 미 연방기관을 위한 에이전트형 AI '제미나이 포 거버먼트'를 내놨어요. 오픈AI·앤트로픽도 정부용 요금을 깎아주며 경쟁 중인 상황에서, 행정업무 전반에 AI가 본격적으로 들어가는 신호로 읽혀요.", "tag": "NEW FEATURE", "buzz": 44, "source": "PR Newswire·Google Cloud (2026.10.20)"}, {"title": "\"운전 중에도 내 일정까지 챙긴다\"…제미나이 '퍼스널 인텔리전스', 안드로이드 오토 탑재 시작", "summary": "구글이 이메일·일정 등 개인 맥락을 이해하는 제미나이 '퍼스널 인텔리전스' 기능을 안드로이드 오토에 들여왔어요. 운전 중에도 비서처럼 일정과 메시지를 챙겨주는 기능이라 사용자 반응이 뜨거워요.", "tag": "NEW FEATURE", "buzz": 40, "source": "Engadget·Android Central (2026.10.20)"}, {"title": "\"지메일이 알아서 답장까지 써준다\"…유료 워크스페이스에 'AI 수신함'·'지메일 라이브' 전격 도입", "summary": "구글이 유료 워크스페이스 이용자를 대상으로 중요한 메일만 걸러주는 'AI 수신함'과 실시간 대화형 메일 기능 '지메일 라이브'를 순차 도입했어요. 직장인들의 메일함 피로도를 줄여줄 기능으로 기대를 모아요.", "tag": "NEW FEATURE", "buzz": 34, "source": "WebProNews·Google Workspace 업데이트 (2026.10월 중순)"}, {"title": "\"제미나이 앱에 '스킬' 탑재 시작\"…반복 업무, AI가 알아서 익힌다", "summary": "제미나이 앱에 특정 업무 방식을 익혀 반복 수행하는 '스킬' 기능이 순차 도입되기 시작했어요. 11월 중순까지 전체 적용이 목표라, 워크스페이스 이용자들의 업무 자동화 폭이 더 넓어질 전망이에요.", "tag": "NEW FEATURE", "buzz": 28, "source": "Google Workspace 업데이트 블로그 (2026.10.20)"}];
+// 2026.10.22 - 오늘자 신규 이슈 미확인, 최근 이슈로 구성 (CLAUDE.md 규칙)
+const generatedAt = "2026.10.22";
+const items = [{"title": "\"지메일 몰래 읽었다\"…제미나이 무단 사찰 의혹, 2차 소장까지 법정行", "summary": "구글이 2025년 10월 지메일·챗·미트에 제미나이를 동의 없이 기본으로 켜놨다며 사찰당했다는 집단소송이 다시 불붙었어요. 1차 소장은 기각됐지만 원고 측이 다시 소장을 내면서 구글이 9월29일 또 기각을 신청, 법정 공방이 이어지고 있어요.", "tag": "HOT ISSUE", "buzz": 56, "source": "Bloomberg Law (소송 제기 2025.10, 2차 기각신청 2026.09.29)"}, {"title": "\"가짜 백신 경고도 걸러낸다\"…크롬, 제미나이로 피싱·사기 사이트 전면 차단", "summary": "구글이 크롬의 '고급 보호' 모드에 제미나이 기반 분석을 적용해 가짜 백신 경고나 가짜 브라우저 업데이트를 가장한 사기 사이트까지 잡아내도록 했어요. 서버 기반 분석으로 넘어가면서 보호 기능을 켠 모든 이용자에게 확대됐어요.", "tag": "NEW FEATURE", "buzz": 44, "source": "Cybersecurity News (2026.10.20)"}, {"title": "\"슬랙·지라까지 혼자 들어간다\"…구글, 회사 업무 전담하는 '범용 에이전트' 공개", "summary": "구글이 '제미나이 앳 워크' 행사에서 워크스페이스·마이크로소프트365·슬랙·지라·깃·빅쿼리 등 여러 시스템에 직접 연결해 일하는 범용 업무 에이전트를 내놨어요. 우선 기업용으로 시작해 추후 일반 이용자에게도 확대할 계획이라고 밝혔어요.", "tag": "NEW FEATURE", "buzz": 40, "source": "Bloomberg·TechCrunch (2026.10.08)"}, {"title": "\"연구용인 줄 알았는데 누구나 쓴다\"…제미나이4 아르곤, 개발자 전체에 API로 전면 개방", "summary": "핵융합 난제 반례를 찾아내며 화제가 됐던 제미나이4 아르곤이 제미나이 API와 AI스튜디오를 통해 정식(GA) 공개됐어요. 코딩·에이전트·수학·과학 작업에 특화된 모델이라 개발자들의 관심이 쏠려요.", "tag": "NEW FEATURE", "buzz": 34, "source": "Google Gemini API 릴리스노트 (2026.10.13)"}, {"title": "\"구형 모델은 이제 못 쓴다\"…제미나이, 음성모델 3.8 라이브 정식 출시하며 플래시 구형판 단종", "summary": "구글이 실시간 음성 대화용 모델 '제미나이3.8 라이브'와 '라이브 익스텐디드 씽킹'을 정식 출시하면서, 기존 3.5·3.7 플래시 모델은 단종하고 신형 3.6·3.8 플래시로 요청을 자동 전환했어요. 음성 앱을 만드는 개발자들에게 영향이 큰 변화예요.", "tag": "NEW FEATURE", "buzz": 26, "source": "Google Gemini API 릴리스노트 (2026.10월 중순)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
-document.getElementById('dateLabel').textContent = generatedAt + ' 기준 · 웹 검색 트렌드 TOP' + items.length;
+document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
+document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');
