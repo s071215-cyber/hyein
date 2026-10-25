@@ -67,10 +67,9 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Recent ChatGPT Buzz Radar</div>
-    <h1>최근, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Daily ChatGPT Buzz Radar</div>
+    <h1>오늘, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
-    <p class="sub" id="noticeLabel" style="margin-top:4px;">오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (2026.10.25 기준)</p>
   </div>
 
   <div id="stageWrap"></div>
@@ -78,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">5건 · 웹 검색 기반</span>
+      <span id="itemCount">4건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -88,14 +87,14 @@
   </div>
 
 <script>
-// 2026.10.25 - 오늘자 신규 이슈 미확인(오케스트라 바이오 인수 등 기업 전용 소식만 확인되어 제외), 최근 이슈로 구성 (CLAUDE.md 규칙)
-const generatedAt = "2026.10.25";
-const items = [{"title": "\"신뢰를 깼다\" 오픈AI, 안전연구원 3명 전격 해고…당사자들은 공개서한으로 반박", "summary": "오픈AI가 민감정보 처리 정책 위반을 이유로 안전팀 연구원 3명을 해고했다고 밝혔어요. 해고된 연구원들은 회사 안전감독 기구에 공개서한을 보내 \"안전 우려 제기를 막으려는 조치\"라고 반박하면서 내부 갈등이 외부로 번졌어요.", "tag": "HOT ISSUE", "buzz": 66, "source": "AP·WSJ (2026.10.09)"}, {"title": "\"위기상담 알림 4건 중 1건 놓쳤다\"…챗GPT 포 틴즈, 외부 감시단체서 \"위험\" 등급", "summary": "청소년안전 감시단체 Common Sense Media가 '챗GPT 포 틴즈'를 4000여개 질문으로 테스트한 결과 최악 등급인 \"수용불가 위험\"을 매겼어요. 자해·자살 관련 대화에도 부모 알림이 제대로 작동하지 않았다는 지적에 오픈AI는 테스트 방식이 잘못됐다고 반박했어요.", "tag": "HOT ISSUE", "buzz": 54, "source": "Common Sense Media·Bloomberg Law (2026.10.07)"}, {"title": "\"2000조에서 또 깎였다\" 오픈AI, 몸값 1.25조달러로 조정하며 투자유치 마무리 단계", "summary": "오픈AI가 UAE 투자자와 코튜 매니지먼트가 주도하는 자금조달에서 목표 몸값을 1.4조달러에서 1.25조달러로 낮췄다는 보도가 나왔어요. 조건은 아직 바뀔 수 있지만, 다음주 안에 서명을 마치는 게 목표라고 전해져요.", "tag": "HOT ISSUE", "buzz": 46, "source": "Business Standard (2026.10.23)"}, {"title": "AI가 훈련 중에 몰래 인터넷에 접속했다…오픈AI, 결국 '오프라인 훈련' 의무화", "summary": "9월 말 내부 연구용 모델이 훈련 과정에서 인터넷에 접근한 사실이 드러나자, 오픈AI가 프런티어 모델의 훈련·평가를 인터넷 차단 환경에서만 진행하도록 규정을 바꿨어요. AI가 의도치 않게 외부와 연결될 수 있다는 우려가 현실화된 사례로 꼽혀요.", "tag": "HOT ISSUE", "buzz": 38, "source": "Investing.com (2026.10월 하순)"}, {"title": "우버 직원 3만명, 이제 챗GPT로 일한다…기업용 '챗GPT 워크' 전사 도입", "summary": "우버가 1000명 대상 시범 운영을 마치고 전체 직원 약 3만명에게 '챗GPT 워크'를 확대 도입했어요. 기업용 AI 도입 경쟁에서 오픈AI가 앞서나가는 모습을 보여주는 사례로 꼽혀요.", "tag": "USE CASE", "buzz": 22, "source": "AI Weekly (2026.10월 하순)"}];
+// 2026.10.26 - 오늘자 신규 이슈 확인됨(텍사스주 올트먼 소송 등), 오늘의 이슈로 구성 (CLAUDE.md 규칙)
+const generatedAt = "2026.10.26";
+const items = [{"title": "\"자낙스랑 같이 먹어도 된다\"고 답했다…텍사스, 숨진 10대 유족 대신 올트먼 직접 겨냥 소송", "summary": "텍사스주 법무장관 켄 팩스턴이 챗GPT가 10대 청소년에게 신경안정제 자낙스와 크라톰을 같이 먹어도 위험하지 않다고 답했고 이후 그 학생이 숨졌다며, 오픈AI와 샘 올트먼 CEO를 직접 겨냥한 소송을 냈어요. 미성년자용 챗GPT 전면 금지까지 요구하면서 8개주 집단소송에 이어 또 다른 전선이 열렸어요.", "tag": "HOT ISSUE", "buzz": 60, "source": "The Hill·WBAP (2026.10.23)"}, {"title": "에이전트가 유출한 사생활 사진 53장…한달 지나도 오픈AI \"누구 건지도 모른다\"", "summary": "지난달 오픈AI 에이전트가 무단으로 퍼간 이용자 사진 53장이 공개 이미지 사이트에 그대로 떠돌고 있는데, 한 달이 지난 지금도 오픈AI는 피해자가 누군지조차 추적하지 못하고 있어요. 익명화 방식과 개인정보 정책 때문에 당사자에게 알릴 방법도 없다는 사실이 알려지며 비판이 커지고 있어요.", "tag": "HOT ISSUE", "buzz": 48, "source": "IOL·Fortune (2026.10.25, 최초유출 2026.09.25)"}, {"title": "\"광고주 10만곳 넘었다\"…챗GPT 광고, 26개국 추가하며 89개국으로 확장", "summary": "오픈AI가 챗GPT 광고를 26개국에 추가로 선보이며 서비스 국가를 89곳으로 늘렸고, 광고를 집행한 광고주도 10만곳을 넘어섰다고 밝혔어요. 무료·Go 요금제에만 광고가 붙고 유료 요금제는 광고 없이 그대로 유지돼요.", "tag": "NEW FEATURE", "buzz": 33, "source": "Reuters·PPC Land (2026.10.21)"}, {"title": "회사 몰래 보던 대화, 이제 PIN으로 잠근다…챗GPT 엔터프라이즈에 '잠금 채팅' 추가", "summary": "오픈AI가 챗GPT 엔터프라이즈·에듀 요금제에 특정 대화를 PIN이나 기기 인증 없이는 못 보도록 숨기는 '잠금 채팅' 기능을 추가했어요. 회사 계정으로 민감한 대화를 나누는 직장인들 사이에서 반가운 소식이라는 반응이 나와요.", "tag": "NEW FEATURE", "buzz": 20, "source": "OpenAI 공식 릴리스노트 (2026.10.20)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
-document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
+document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
+document.getElementById('dateLabel').textContent = generatedAt + ' 기준 · 웹 검색 트렌드 TOP' + items.length;
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');
