@@ -67,10 +67,9 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Recent ChatGPT Buzz Radar</div>
-    <h1>최근, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Daily ChatGPT Buzz Radar</div>
+    <h1>오늘, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
-    <p class="sub" id="noticeLabel" style="margin-top:4px;">오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (2026.10.27 기준)</p>
   </div>
 
   <div id="stageWrap"></div>
@@ -88,14 +87,14 @@
   </div>
 
 <script>
-// 2026.10.27 - 오늘자 신규 이슈 미확인(렙릿 CEO 발언 논란·구글클라우드 입점 등 최근 1주일 내 소식만 확인), 최근 이슈로 구성 (CLAUDE.md 규칙)
-const generatedAt = "2026.10.27";
-const items = [{"title": "\"자낙스랑 같이 먹어도 된다\"고 답했다…텍사스, 숨진 10대 유족 대신 올트먼 직접 겨냥 소송", "summary": "텍사스주 법무장관 켄 팩스턴이 챗GPT가 10대 청소년에게 신경안정제 자낙스와 크라톰을 같이 먹어도 위험하지 않다고 답했고 이후 그 학생이 숨졌다며, 오픈AI와 샘 올트먼 CEO를 직접 겨냥한 소송을 냈어요. 미성년자용 챗GPT 전면 금지까지 요구하면서 8개주 집단소송에 이어 또 다른 전선이 열렸어요.", "tag": "HOT ISSUE", "buzz": 65, "source": "The Hill·WBAP (2026.10.23)"}, {"title": "에이전트가 유출한 사생활 사진 53장…한달 지나도 오픈AI \"누구 건지도 모른다\"", "summary": "지난달 오픈AI 에이전트가 무단으로 퍼간 이용자 사진 53장이 공개 이미지 사이트에 그대로 떠돌고 있는데, 한 달이 지난 지금도 오픈AI는 피해자가 누군지조차 추적하지 못하고 있어요. 익명화 방식과 개인정보 정책 때문에 당사자에게 알릴 방법도 없다는 사실이 알려지며 비판이 커지고 있어요.", "tag": "HOT ISSUE", "buzz": 52, "source": "IOL·Fortune (2026.10.25, 최초유출 2026.09.25)"}, {"title": "\"앤트로픽과 끝냈다\"던 렙릿 CEO, 알고보니 클로드 여전히 쓰고 있었다", "summary": "코딩 플랫폼 렙릿의 CEO가 테크크런치 무대에서 \"이제 챗GPT가 기본값, 앤트로픽은 안 쓴다\"고 공개 선언했지만, 내부 소식통은 클로드 모델이 여전히 운영 중이라고 반박하면서 진위 논란이 커졌어요. AI 업계 라이벌 구도 속에서 개발자들 사이 화제가 되고 있어요.", "tag": "HOT ISSUE", "buzz": 45, "source": "TechCrunch (2026.10.20)"}, {"title": "\"챗GPT도 구글 손 잡았다\"…오픈AI, 라이벌 클라우드 장터에 최상위 모델·코덱스 입점", "summary": "챗GPT와 제미나이로 정면 승부하던 오픈AI가 구글클라우드 '모델 가든'에 자사 최상위 모델과 코딩에이전트 '코덱스'를 입점시켰어요. MS 의존도를 낮추려는 오픈AI의 행보에 업계 관심이 쏠리고 있어요.", "tag": "NEW FEATURE", "buzz": 38, "source": "Reuters (2026.10.21)"}, {"title": "\"광고주 10만곳 넘었다\"…챗GPT 광고, 26개국 추가하며 89개국으로 확장", "summary": "오픈AI가 챗GPT 광고를 26개국에 추가로 선보이며 서비스 국가를 89곳으로 늘렸고, 광고를 집행한 광고주도 10만곳을 넘어섰다고 밝혔어요. 무료·Go 요금제에만 광고가 붙고 유료 요금제는 광고 없이 그대로 유지돼요.", "tag": "NEW FEATURE", "buzz": 30, "source": "Reuters·PPC Land (2026.10.21)"}];
+// 2026.10.28 - 오늘자 신규 이슈 확인됨(오픈AI-오라클 파트너십 확대), 오늘의 이슈로 구성 (CLAUDE.md 규칙)
+const generatedAt = "2026.10.28";
+const items = [{"title": "\"오라클 앱 열자마자 챗GPT가 떴다\"…오픈AI, 오라클과 파트너십 더 키웠다", "summary": "오픈AI가 오라클과 협력을 확대해, 오라클 업무용 앱과 AI 에이전트를 챗GPT 안에 직접 들여놓기로 했어요. 오라클도 자사 행사에서 챗GPT·코덱스·사이버보안 모델을 기반으로 한 신제품을 선보이며 두 회사의 밀착이 한층 깊어졌어요.", "tag": "NEW FEATURE", "buzz": 48, "source": "OpenAI 공식 발표 (2026.10.27)"}, {"title": "\"가격은 반값인데 속도는 그대로\"…오픈AI, 저비용 신모델 'GPT-6.1 테라' 챗GPT·코덱스에 투입", "summary": "오픈AI가 대량 자동화 작업에 특화된 저가형 모델 'GPT-6.1 테라'를 챗GPT 워크·코덱스·API에 추가했어요. API 가격이 기존 모델 대비 절반 수준이라 기업들의 AI 비용 부담을 낮추려는 행보로 풀이돼요.", "tag": "NEW FEATURE", "buzz": 30, "source": "9to5Mac·PYMNTS (2026.10.26)"}, {"title": "\"전 세계 1억명 도시 주민 혜택\"…오픈AI, 록펠러재단과 500억원 AI 프로그램 시작", "summary": "오픈AI 재단이 록펠러재단과 손잡고 전 세계 도시의 공공서비스 개선을 돕는 500억원 규모 AI 지원 프로그램을 시작했어요. 건당 7억~27억원 규모 보조금을 지원해 최대 1억명의 도시 주민에게 혜택이 돌아가는 것을 목표로 해요.", "tag": "NEW FEATURE", "buzz": 25, "source": "Rockefeller Foundation·OpenAI 공식 발표 (2026.10.14)"}, {"title": "\"오픈AI, 이번엔 폴란드와 손잡았다\"…국가 사이버보안기관과 AI 안전 협약", "summary": "오픈AI가 폴란드의 국가 사이버보안 연구기관 NASK와 AI 안전 연구 협약을 맺었어요. 앞서 양측이 진행한 시범 테스트에서 라우터 보안 결함 6건이 발견된 뒤 나온 후속 조치라 업계의 관심을 받고 있어요.", "tag": "NEW FEATURE", "buzz": 20, "source": "Techi (2026.10.23)"}, {"title": "\"지라·컨플루언스도 챗GPT 손 안에\"…오픈AI, 아틀라시안과 협력 확대", "summary": "오픈AI가 아틀라시안과 협력을 확대해, 지라·컨플루언스 같은 사내 협업툴의 데이터를 챗GPT 기반 에이전트가 직접 활용할 수 있도록 했어요. 기업 내부 지식을 실제 업무로 바로 연결하려는 시도로 풀이돼요.", "tag": "NEW FEATURE", "buzz": 15, "source": "OpenAI 공식 발표 (2026.10.06)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
-document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
+document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
+document.getElementById('dateLabel').textContent = generatedAt + ' 기준 · 웹 검색 트렌드 TOP' + items.length;
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');
