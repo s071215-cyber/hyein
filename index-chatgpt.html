@@ -70,7 +70,7 @@
     <div class="eyebrow">Recent ChatGPT Buzz Radar</div>
     <h1>최근, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
-    <p class="sub" id="noticeLabel" style="margin-top:4px;">오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (2026.10.30 기준)</p>
+    <p class="sub" id="noticeLabel" style="margin-top:4px;">오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (2026.10.31 기준)</p>
   </div>
 
   <div id="stageWrap"></div>
@@ -78,7 +78,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">3건 · 웹 검색 기반</span>
+      <span id="itemCount">1건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -88,9 +88,9 @@
   </div>
 
 <script>
-// 2026.10.30 - 오늘자 신규 이슈 미확인(공식발표/장애/사건 3카테고리 모두 검색했으나 오늘자 보도 없음), 최근 이슈로 구성 (CLAUDE.md 규칙)
-const generatedAt = "2026.10.30";
-const items = [{"title": "\"아이클라우드 메일·캘린더까지 챗GPT가 읽는다\"…무료 요금제도 전격 지원", "summary": "챗GPT가 아이클라우드 메일과 캘린더를 직접 읽고 쓸 수 있는 연동 기능을 무료 요금제를 포함한 전 플랜에 추가했어요. 애플 생태계 이용자들 사이에서는 편리하다는 반응과 동시에 \"이메일까지 AI에 맡겨도 되나\"는 보안 우려도 함께 번지고 있어요.", "tag": "NEW FEATURE", "buzz": 72, "source": "MacRumors (2026.10.27)"}, {"title": "\"그 추천서, 챗GPT가 썼죠?\" 아일랜드 판사, AI 작성 의심 서류 법정서 대놓고 지적", "summary": "아일랜드 포틀레이즈 법원 판사가 피고인 측이 낸 고용주 추천서를 보더니 \"챗GPT 가서 더 나은 걸 받아와라\"며 법정에서 공개적으로 꼬집었어요. AI가 쓴 듯한 서류를 둘러싼 씁쓸한 에피소드가 알려지며 화제를 모으고 있어요.", "tag": "HOT ISSUE", "buzz": 68, "source": "Irish Examiner (2026.10.27경)"}, {"title": "\"나만의 GPT, 12월11일 완전 퇴장\"…챗GPT 커스텀 챗봇 생성 전면 중단", "summary": "오픈AI가 기업·교육용 요금제의 신규 '커스텀 GPT' 생성을 중단하고 12월11일 전면 폐기한다고 밝혔어요. 기존에 만들어둔 챗봇을 '플러그인'으로 옮겨야 해서 이용자들의 이전·대체 수단 문의가 늘고 있어요.", "tag": "HOT ISSUE", "buzz": 50, "source": "OpenAI Help Center (2026.09.25 발표, 폐기 예정 2026.12.11)"}];
+// 2026.10.31 - 오늘자 신규 이슈 미확인(공식발표/장애/사건 3카테고리 모두 검색했으나 오늘자 보도 없음), 최근 이슈로 구성 (CLAUDE.md 규칙)
+const generatedAt = "2026.10.31";
+const items = [{"title": "\"로그인도 안 했는데 2672건이 술술\"…국회의원, 챗GPT로 식약처 비공개 자료 뚫었다", "summary": "국정감사에서 의원실이 챗GPT를 활용해 식약처 '의약품안전나라' 사이트의 비공개 임상자료 2672건을 로그인 없이 내려받을 수 있음을 폭로했고, 실제 1195명의 개인정보까지 노출된 것으로 확인돼 파장이 커요. 국내 공공기관 보안에 AI가 어떻게 쓰이는지 관심있는 이용자들이 많이 찾아봐요.", "tag": "HOT ISSUE", "buzz": 62, "source": "데일리팜 (2026.10.13 국감 폭로·2026.10.14 식약처 사과)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
