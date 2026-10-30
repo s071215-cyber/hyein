@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OVELY 트렌드 체크</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#12100D; --surface:#1C1914; --surface2:#241F18;
+    --text:#F7F1E6; --muted:#A79C8A; --line: rgba(247,241,230,0.08);
+    --coral:#FF8A5B; --gold:#E8C468;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:40px 16px 60px;}
+  .top{width:100%;max-width:560px;text-align:center;margin-bottom:20px;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;color:var(--coral);
+    text-transform:uppercase;margin-bottom:8px;}
+  h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;line-height:1.3;margin:0 0 6px;}
+  .sub{color:var(--muted);font-size:13px;line-height:1.5;}
+
+  .wrap{width:100%;max-width:560px;}
+
+  .warn{background:rgba(255,138,91,0.1);border:1px solid rgba(255,138,91,0.35);border-radius:14px;
+    padding:14px 16px;font-size:13px;line-height:1.6;color:var(--text);margin-top:18px;}
+  .warn b{color:var(--coral);}
+
+  .reminder{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;
+    margin-top:12px;display:flex;gap:12px;align-items:flex-start;}
+  .reminder .icon{font-size:18px;line-height:1;margin-top:1px;}
+  .reminder .txt{font-size:13px;line-height:1.6;color:var(--muted);}
+  .reminder .txt b{color:var(--gold);font-weight:600;}
+
+  .meta-row{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);
+    font-family:'JetBrains Mono',monospace;margin-top:20px;padding:0 2px;}
+
+  .list{display:flex;flex-direction:column;gap:14px;margin-top:12px;}
+  .item{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;position:relative;overflow:hidden;}
+  .item::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--coral),var(--gold));opacity:.7;}
+  .item-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:var(--coral);}
+  .name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;line-height:1.35;margin-top:4px;}
+  .why{color:var(--muted);font-size:13.5px;line-height:1.6;margin-top:8px;}
+  .sources{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+  .src-link{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold);text-decoration:none;
+    border:1px solid rgba(232,196,104,0.35);background:rgba(232,196,104,0.08);padding:5px 10px;border-radius:100px;
+    white-space:nowrap;}
+  .src-link:hover{background:rgba(232,196,104,0.16);}
+
+  .tag-row{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap;}
+  .tag{font-family:'JetBrains Mono',monospace;font-size:10px;padding:3px 8px;border-radius:100px;white-space:nowrap;}
+  .tag.cont{background:rgba(167,156,138,0.14);color:var(--muted);border:1px solid var(--line);}
+  .tag.new{background:rgba(232,196,104,0.14);color:var(--gold);border:1px solid rgba(232,196,104,0.35);}
+
+  .empty{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;text-align:center;
+    color:var(--muted);font-size:13.5px;line-height:1.7;margin-top:12px;}
+
+  .footer-note{margin-top:26px;font-size:11.5px;color:var(--muted);line-height:1.7;text-align:center;padding:0 8px;}
+
+  .kw-row{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
+  .kw-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.06em;}
+  .kw-chip{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text);background:var(--surface2);
+    border:1px solid var(--line);padding:4px 9px;border-radius:100px;white-space:nowrap;}
+
+  .connect{background:var(--surface);border:1px solid rgba(232,196,104,0.3);border-radius:16px;padding:20px;
+    margin-top:22px;}
+  .connect-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;}
+  .connect-desc{color:var(--muted);font-size:13px;line-height:1.65;margin-top:10px;}
+  .connect-sub{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--gold);
+    text-transform:uppercase;margin-top:16px;margin-bottom:8px;}
+  .connect-todo{display:flex;flex-direction:column;gap:6px;}
+  .connect-todo li{font-size:13px;line-height:1.6;color:var(--text);list-style:none;padding-left:20px;position:relative;}
+  .connect-todo li::before{content:'☐';position:absolute;left:0;color:var(--coral);}
+  .tip-list{display:flex;flex-direction:column;gap:6px;padding-left:0;margin:0;}
+  .tip-list li{font-size:12.5px;line-height:1.6;color:var(--muted);list-style:none;padding-left:14px;position:relative;}
+  .tip-list li::before{content:'·';position:absolute;left:0;color:var(--gold);}
+</style>
+</head>
+<body>
+
+  <div class="top">
+    <div class="eyebrow">OVELY Daily Trend Radar</div>
+    <h1>매일 발견하는<br/>괜찮은 쇼핑템, 오늘의 참고자료</h1>
+    <p class="sub" id="dateLabel">-</p>
+  </div>
+
+  <div class="wrap">
+    <div class="warn">
+      ⚠️ 이 리스트는 <b>네이버 데이터랩·유튜브의 실시간 순위 데이터가 아니라</b>, 웹 검색 기반 뉴스/블로그 참고자료이며 교차검증을 거쳤습니다.
+    </div>
+
+    <div class="reminder">
+      <div class="icon">🔔</div>
+      <div class="txt">오늘 <b>네이버 데이터랩 쇼핑인사이트(datalab.naver.com)</b>와 <b>유튜브</b>를 직접 확인하시고, OVELY에 올릴 상품 후보 2~3개를 상세페이지 스크롤 영상으로 보내주세요.</div>
+    </div>
+
+    <div class="meta-row">
+      <span id="updatedAt">-</span>
+      <span id="countLabel">-</span>
+    </div>
+
+    <div class="list" id="listWrap"></div>
+
+    <div class="footer-note">각 항목은 서로 다른 두 개 이상의 출처에서 확인된 내용만 실었어요. 최종 상품 선정은 운영자 확인 후 진행합니다.</div>
+
+    <div class="connect">
+      <div class="connect-title">💰 쇼핑커넥트 수익화 체크리스트</div>
+      <div class="connect-desc">쇼핑커넥트 수수료는 판매자가 상품마다 자율로 정해서 보통 5~20%대, 최대 50%까지도 있어요. 실시간 수수료율과 실제 상품은 로그인 후 쇼핑커넥트 앱 '상품찾기'에서만 확인 가능해서, 이 페이지가 직접 검색해드릴 수는 없어요.</div>
+
+      <div class="connect-sub">오늘 확인해볼 것</div>
+      <ul class="connect-todo" id="connectTodo"></ul>
+
+      <div class="connect-sub">실전 팁</div>
+      <ul class="tip-list">
+        <li>같은 상품이 쿠팡파트너스에도 있으면 수수료 더 높은 쪽으로 링크 발급</li>
+        <li>상품 상세페이지에서 할인가·수수료율을 링크 발급 전에 꼭 확인</li>
+        <li>판매자가 쇼핑커넥트에 등록하지 않은 상품은 검색해도 안 나오니, 트렌드템이어도 상품찾기에 없으면 스킵</li>
+      </ul>
+    </div>
+  </div>
+
+<script>
+const generatedAt = "2026.10.30";
+const items = [
+  {
+    name: "이마트 '쓱데이' vs 롯데마트 '메가통큰' 오늘(10/30) 동시 진행 중 — 한우 역대 최대 160톤, 특수부위 5종까지 반값",
+    why: "이마트가 10월 30일부터 11월 8일까지 열흘간(쓱데이 사상 처음으로 10일로 확대) '쓱데이'를 연다고 SBS Biz·경향신문·위키트리가 10월 28일 보도했어요. 첫 주말인 오늘(10/30)부터 11/1까지 나흘간 한우 전 품목을 50% 할인하는데 물량이 160톤으로 쓱데이 역대 최대 규모이고, 구이용뿐 아니라 LA식 꽃갈비·찜갈비도 포함돼요. 같은 보도에서 롯데마트도 어제(10/29)부터 11월 11일까지 2주간 '메가통큰'으로 맞대응에 나섰다고 전했는데, 1주차(10/29~11/4)엔 1등급 한우에 늑간살·꽃갈비살·안창살·토시살·제비추리 등 특수부위 5종까지 반값으로 풀렸고 2주차(11/5~)는 삼겹살, 완도산 전복 60% 할인은 11/1 종료라고 해요. 두 매체가 서로 다른 유통 대기업 두 곳의 할인을 같은 날 나란히 비교 보도해서 교차검증됐어요.",
+    tag: "new",
+    keyword: "한우 선물세트",
+    sources: [
+      { label: "SBS Biz", url: "https://biz.sbs.co.kr/amp/article/20000342502" },
+      { label: "경향신문", url: "https://khan.co.kr/article/202610281519011" },
+      { label: "위키트리", url: "https://www.wikitree.co.kr/articles/1169718" }
+    ]
+  },
+  {
+    name: "뚜레쥬르 미피 수능 세트, 앱 사전예약 마감 '내일'(10/31, D-1) — 한정판 2027 월캘린더도 품절 전 서둘러야",
+    why: "CJ푸드빌 뚜레쥬르가 2027학년도 수능(2026년 11월 19일 시행)을 앞두고 캐릭터 '미피'를 활용한 수험생 응원 제품 5종을 내놨다고 디지털타임스·허프포스트코리아가 보도했어요. 콘셉트는 '설레는 내일을 함께, The Day Is Yours'로, 초코 가나슈에 미피 아크릴 장식을 얹은 '소원의 별 미피 케이크', 찹쌀떡 세트(6구·9구) '미피 달콤가득 선물세트', 7가지 맛을 고르는 '미피 정답콕콕 초콜릿'이 대표 상품이에요. 공식 앱 사전예약은 10월 31일 마감인데 오늘(10/30) 기준으로 내일이 마감이라 하루밖에 안 남아서 순위를 계속 상위에 뒀어요. 예약하면 한정판 '2027 미피 월 캘린더'도 같이 살 수 있어요.",
+    tag: "cont",
+    keyword: "수능 선물세트 찹쌀떡",
+    sources: [
+      { label: "디지털타임스", url: "https://www.dt.co.kr/article/11417452" },
+      { label: "허프포스트코리아", url: "https://www.huffingtonpost.kr/article/261356" }
+    ]
+  },
+  {
+    name: "이마트 절임배추 사전예약은 마감됐지만, 롯데마트는 12/15까지 계속 — 대형마트 3사 물량 20~30%↑ 할인 경쟁",
+    why: "이마트·이마트에브리데이의 절임배추 사전예약은 지난 10월 28일 마감됐다고 사태경제·위키트리·SBS Biz가 보도했어요(국내산 20kg 1차 물량 2만9800원, 2차 물량 3만5800원, 수령은 11/13~12/12). 반면 롯데마트는 10월 1일부터 12월 15일까지 예약을 계속 받고 있는데, 이투데이는 대형마트 3사가 작년보다 물량을 20~30% 늘리고 할인 경쟁에 나섰다고 전했어요. 이마트를 놓쳤더라도 롯데마트 앱에서는 아직 예약할 수 있다는 뜻이에요.",
+    tag: "cont",
+    keyword: "절임배추 20kg",
+    sources: [
+      { label: "사태경제", url: "https://sateconomy.co.kr/news/view/1065579742848354" },
+      { label: "이투데이", url: "https://www.etoday.co.kr/news/view/2518079" },
+      { label: "위키트리", url: "https://www.wikitree.co.kr/articles/1166335" }
+    ]
+  },
+  {
+    name: "새우젓만 '나홀로' 32.5%↑, 배추·무는 오히려 쌀졌다 — 올해 김장 변수는 새우젓",
+    why: "한국농수산식품유통공사(aT) 10월 16일 기준 집계에서 새우젓 1kg 소매가가 2만269원으로 작년보다 32.5% 올랐다고 경향신문·뉴스토마토·SBS Biz가 공통으로 보도했어요. 올해 새우 어획량이 줄어든 게 원인으로 지목돼요. 반대로 배추는 포기당 5,557원(-10.3%), 무는 개당 2,262원(-7.1%)으로 오히려 작년보다 쌉니다. 대파(1kg 2,774원, -17.4%)·생강(1kg 1만2555원, -16.2%)도 내렸지만 멸치액젓(1kg 6,268원)은 3.0% 올랐어요. 정부는 11월 9일부터 공급 확대와 할인 지원에 나설 계획이라고 해요. 오늘(10/30) 다시 검색해도 이를 뒤집는 새 소식은 없어 여전히 유효했어요.",
+    tag: "cont",
+    keyword: "새우젓 1kg",
+    sources: [
+      { label: "경향신문", url: "https://www.khan.co.kr/article/202610181302001" },
+      { label: "뉴스토마토", url: "https://newstomato.com/ReadNews.aspx?no=1317041" },
+      { label: "SBS Biz", url: "https://biz.sbs.co.kr/amp/article/20000340596" }
+    ]
+  },
+  {
+    name: "경량패딩 열기, 바람막이로 번졌다 — 검색량 136%↑, 거래량도 86%↑",
+    why: "한정판 거래 플랫폼 크림(KREAM) 9월 리포트에서 패딩·바람막이 거래량이 전월보다 117%, 패딩조끼는 335% 늘었다고 세계일보가 보도했어요(20대 남성 168%↑·30대 남성 163%↑로 남성 구매자가 주도). 파이낸셜뉴스는 무신사 9월 경량패딩 거래액이 전년 동기보다 128% 늘었다고 별도로 전했고, SBS Biz는 10월 들어 바람막이 거래량이 전월보다 86%, 경량패딩 검색량은 136% 늘었다고 보도했어요. 세 매체가 서로 다른 플랫폼 데이터로 같은 흐름(경량패딩→바람막이 확산)을 반복 확인해준 셈이에요.",
+    tag: "cont",
+    keyword: "경량패딩",
+    sources: [
+      { label: "세계일보", url: "https://www.segye.com/newsView/20261016514394" },
+      { label: "파이낸셜뉴스", url: "https://www.fnnews.com/news/202610051143222090" },
+      { label: "SBS Biz", url: "https://biz.sbs.co.kr/amp/article/20000337914" }
+    ]
+  },
+  {
+    name: "단풍철 '아웃도어 + 겨울 캠핑' 동시 특수 — 아크테릭스 50%↑·노스페이스 111%↑, 캠핑 핫팩 거래액 365%↑",
+    why: "한국경제 보도에 따르면 백화점 카드 결제액 기준 아크테릭스 9월 결제액이 전년 동기보다 약 50% 늘었고 파타고니아도 45% 늘었으며, 코오롱스포츠는 16%, 노스페이스 화이트라벨은 111% 늘었다고 해요(8월엔 노스페이스 525%↑). 외국인 관광객 사이 '등산 열풍'까지 번지며 명동 매장에 손님이 몰렸다고 합니다. 같은 시기 리틀빗이 보도한 에누리 가격비교(커넥트웨이브) 집계에서는 캠핑 카테고리 거래액이 전월 대비 23% 늘었는데, 품목별로는 핫팩이 365%로 가장 많이 늘고 침낭(176%)·텐트(133%)도 크게 늘었대요. 아직 뒤집는 새 소식이 없어 지속 중인 트렌드로 유지했어요.",
+    tag: "cont",
+    keyword: "캠핑 핫팩",
+    sources: [
+      { label: "한국경제", url: "https://www.hankyung.com/article/202610155103i" },
+      { label: "리틀빗", url: "https://www.mydailybyte.com/littlebit/news/56ada4fa-5fd1-46e4-955c-9fc2844ab156" }
+    ]
+  },
+  {
+    name: "다이소 뷰티, 50대 이상 구매 증가율 139%로 전연령대 최고 — '고가 제품 전 미리 써보는' 리트머스 소비 확산",
+    why: "엠브레인 분석에 따르면 최근 1년 다이소 뷰티 구매액 증가율이 50대 이상 139%로 가장 높았고(20대 이하 119%·30대 102%·40대 103%), 고가 화장품을 사기 전 저렴하게 효능을 체험하는 '리트머스 소비'가 확산된 결과라고 코스모닝이 보도했어요. 아이뉴스24는 다이소 뷰티 전체 최근 1년 구매 추정액이 3,619억 원(+39.6%)이고 다이소 멤버십 데이터 기준 2025년 화장품 매출 비중에서 40대가 약 29%, 50대가 약 18%를 차지했다고 전했는데, 두 매체가 서로 다른 집계 방식으로도 '2030 중심 → 40·50대 확장'이라는 같은 흐름을 가리켜요.",
+    tag: "cont",
+    keyword: "다이소 전용 뷰티",
+    sources: [
+      { label: "코스모닝", url: "https://www.cosmorning.com/mobile/article.html?no=51738" },
+      { label: "아이뉴스24", url: "https://www.inews24.com/view/1674976" }
+    ]
+  },
+  {
+    name: "스타벅스 '2026 겨울 e-프리퀀시' 진행 중 — 레드닷 수상 포터블 스피커 '미노 티' 증정(12/31까지)",
+    why: "스타벅스커피 코리아가 10월 22일부터 12월 31일까지 '2026 겨울 e-프리퀀시'를 진행한다고 비즈워치·세계일보·위키트리 등이 보도했어요. 미션 음료 3잔을 포함해 제조 음료 17잔(e스티커 17개)을 모으면 증정품을 예약할 수 있는데, 레드닷 디자인 어워드 수상작인 렉슨(LEXON)의 포터블 스피커 '미노 티(Mino T)'가 그린·핑크 두 색상으로 나와요. 백팩·토트백, 몰스킨 플래너도 함께 증정돼요. 과거 겨울·여름 프리퀀시 모두 인기 굿즈가 예약 시작 직후 빠르게 품절되는 패턴이 반복됐던 만큼, 연말까지 이어지는 행사지만 서두르는 게 유리해 보여요.",
+    tag: "cont",
+    keyword: "미니 블루투스 스피커",
+    sources: [
+      { label: "비즈워치", url: "https://news.bizwatch.co.kr/article/consumer/2026/10/15/0004" },
+      { label: "세계일보", url: "https://www.segye.com/newsView/20261015508152" },
+      { label: "위키트리", url: "https://www.wikitree.co.kr/articles/1166378" }
+    ]
+  }
+];
+const searchNote = "'요즘 인기 쇼핑 트렌드', '요즘 뜨는 제품', '이번 주 쇼핑 트렌드'에 더해 쓱데이·메가통큰 할인 일정, 할로윈 코스튬·편의점 한정판, 올리브영·무신사·쿠팡 블랙프라이데이 일정, 빼빼로데이 선물세트 사전예약, 라부부 리셀가, 전기요·온열매트, 다나와·쿠팡 급상승 검색어, 뚜레쥬르 미피 수능세트, 김장 비용·새우젓 가격 등 15개 넘는 키워드로 오늘(10/30) 날짜를 넣어 따로 검색했어요. 그 결과 오늘 새로 교차검증을 통과한 트렌드는 '이마트 쓱데이·롯데마트 메가통큰 한우 반값 전쟁' 1건이었어요(SBS Biz·경향신문·위키트리가 10월 28일 나란히 보도) — 이마트는 오늘(10/30)부터 11월 8일까지, 롯데마트는 어제(10/29)부터 11월 11일까지로 두 대형마트가 동시에 할인에 들어간 날이라 1순위로 올렸어요. 기존에 확인했던 뚜레쥬르 미피 수능세트·절임배추·새우젓·경량패딩&바람막이·단풍철 아웃도어&캠핑·다이소 뷰티·스타벅스 겨울 프리퀀시 7건은 지속 중인 트렌드로 유지했고, 뚜레쥬르 미피는 사전예약 마감이 내일(10/31)로 하루 앞으로 다가와 2순위를 유지했어요. 새우젓·배추 가격은 오늘 다시 검색해도 10월 중순 수치를 뒤집는 새 소식이 없어 그대로 유지했어요.<br/><br/>제외한 항목도 적어둘게요. 할로윈 코스튬·편의점(CU·GS25) 한정판은 국내 기사로 교차검증되는 소식을 찾지 못해 계속 뺐어요. 올리브영·무신사·쿠팡의 겨울 블랙프라이데이는 11월 일정이 블로그의 '예상'일 뿐 공식 보도자료로 확정된 날짜를 찾지 못해 제외했고, 빼빼로데이(11/11) 선물세트 사전예약과 라부부 리셀가(10월 기준 신뢰할 만한 시세 없음), 전기요·온열매트 판매량, 다나와·쿠팡 급상승 검색어도 신뢰할 만한 교차검증 자료를 찾지 못해 제외했어요.";
+
+document.getElementById('dateLabel').textContent = generatedAt + ' 기준 웹 검색 참고자료';
+document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
+document.getElementById('countLabel').textContent = items.length + '건 · 교차검증 완료';
+
+const listWrap = document.getElementById('listWrap');
+const tagLabel = t => t === 'new' ? '오늘 새로 확인' : '지속 중 · 오늘 재확인';
+
+function renderItems(list) {
+  return list.map((it, i) => `
+    <div class="item">
+      <div class="item-head">
+        <div>
+          <div class="num">TREND ${String(i+1).padStart(2,'0')}</div>
+          <div class="name">${it.name}</div>
+        </div>
+      </div>
+      <div class="why">${it.why}</div>
+      ${it.tag ? `
+      <div class="tag-row">
+        <span class="tag ${it.tag}">${tagLabel(it.tag)}</span>
+      </div>` : ''}
+      ${it.keyword ? `
+      <div class="kw-row">
+        <span class="kw-label">쇼핑커넥트 키워드</span>
+        <span class="kw-chip">${it.keyword}</span>
+      </div>` : ''}
+      <div class="sources">
+        ${it.sources.map(s => `<a class="src-link" href="${s.url}" target="_blank" rel="noopener">${s.label} ↗</a>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+if (items.length === 0) {
+  listWrap.innerHTML = '<div class="empty">오늘은 교차검증을 통과한 뚜렷한 트렌드가 많지 않았습니다.<br/><br/>' + searchNote + '</div>';
+} else if (items.length < 5) {
+  listWrap.innerHTML = '<div class="empty" style="margin-bottom:0">오늘은 교차검증을 통과한 뚜렷한 트렌드가 목표치(5~10개)보다 적었습니다. 아래 ' + items.length + '건만 믿을 만한 근거로 남겼어요.<br/><br/>' + searchNote + '</div>' + renderItems(items);
+} else {
+  listWrap.innerHTML = renderItems(items);
+}
+
+const connectTodo = document.getElementById('connectTodo');
+const keywords = items.map(it => it.keyword).filter(Boolean);
+connectTodo.innerHTML = keywords.length > 0
+  ? keywords.map(k => `<li>'${k}' 상품찾기에서 검색 → 수수료 20% 이상 & 10만원 미만 상품 있는지 확인</li>`).join('')
+  : '<li>오늘은 트렌드 리스트에서 뽑을 만한 상품 키워드가 없었어요.</li>';
+</script>
+</body>
+</html>
