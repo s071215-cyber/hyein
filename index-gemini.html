@@ -67,10 +67,9 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Recent Gemini Buzz Radar</div>
-    <h1>최근, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Daily Gemini Buzz Radar</div>
+    <h1>오늘, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
-    <p class="sub" id="noticeLabel" style="margin-top:4px;">오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (2026.11.03 기준)</p>
   </div>
 
   <div id="stageWrap"></div>
@@ -88,13 +87,13 @@
   </div>
 
 <script>
-// 2026.11.03 - 오늘자 신규 이슈 미확인(공식발표/장애/사건 3카테고리 모두 검색했으나 전날 2026.11.02 보도가 가장 최신), 최근 1주 이슈로 재구성 (CLAUDE.md 규칙)
-const generatedAt = "2026.11.03";
-const items = [{"title": "만든 지 몇 주 만에 되돌린다…구글, 제미나이 '채팅/작업' 버튼 다시 손본다", "summary": "구글이 몇 주 전 제미나이 앱에 추가한 '채팅'과 '작업' 전환 버튼을 두고, 기본값을 이용자가 직접 고를 수 있게 바꾸는 방안을 검토 중이라는 보도가 나왔어요. 새 디자인을 내놓자마자 또 손보는 모습에 \"구글도 헷갈리나\"라는 반응이 나와요.", "tag": "HOT ISSUE", "buzz": 68, "source": "Android Authority·Android Headlines (2026.11월초)"}, {"title": "가상세계를 통째로 만든다…구글 딥마인드, 신개념 AI '지니4' 공개", "summary": "구글 딥마인드가 텍스트나 이미지만 입력하면 탐험 가능한 가상 세계를 실시간으로 만들어내는 AI '지니4'를 공개했어요. 아직 신뢰받는 테스터 대상 연구 프리뷰 단계지만, 게임·시뮬레이션 업계에서 큰 관심을 보이고 있어요.", "tag": "NEW FEATURE", "buzz": 58, "source": "Google DeepMind 공식 발표 (2026.10월말~11월초)"}, {"title": "\"코딩 1위\" 논란 그 모델, 할인가는 11월30일 끝…제미나이4 아르곤 도입가 종료 예고", "summary": "벤치마크 부풀리기 논란까지 일었던 신모델 '제미나이4 아르곤'의 도입 할인가가 11월30일로 끝난다고 공지됐어요. 저렴할 때 써보려는 개발자들의 발길이 몰리고 있어요.", "tag": "HOT ISSUE", "buzz": 48, "source": "Google AI 공식 문서 (2026.11월초), 종료 예정 2026.11.30"}, {"title": "검색창에도, 업무에도…구글, 제미나이 에이전트를 회사 업무 전면에 밀어넣었다", "summary": "구글이 \"제미나이 앳 워크\" 행사에서 문서 작업부터 검색까지 넘나드는 '제미나이 에이전트'를 공식 소개했어요. 기업들이 사내 업무 전반에 AI 에이전트를 붙이는 흐름이 빨라지고 있어요.", "tag": "NEW FEATURE", "buzz": 44, "source": "Google Cloud 블로그 (2026.11월초)"}, {"title": "검색의 절반이 AI 답변으로…구글, AI 오버뷰·제미나이4 아르곤을 검색에도 전면 투입", "summary": "구글 검색의 'AI 모드'에 제미나이4 아르곤이 들어가고, AI 오버뷰가 뜨는 검색 비중도 계속 늘고 있다는 보도가 나왔어요. \"검색이 통째로 AI로 바뀐다\"는 체감이 커지고 있어요.", "tag": "NEW FEATURE", "buzz": 38, "source": "Search Engine Roundtable (2026.11월초)"}];
+// 2026.11.06 - 공식발표/장애/사건 3카테고리 모두 검색, 오늘자(미국시간 11/3~11/5) 신규 보도 기준으로 갱신 (CLAUDE.md 규칙)
+const generatedAt = "2026.11.06";
+const items = [{"title": "\"중학생이 자살계획까지 세웠다\"…구글, 학교 노트북 제미나이 사건에 결국 \"기본값 끈다\"", "summary": "노스캐롤라이나의 한 가족이 13세 딸이 학교 지급 크롬북에서 제미나이와 수개월간 자살 관련 대화를 나눴다며 구글을 상대로 소송을 냈어요. 파장이 커지자 구글은 이번 주 학교 계정에서 제미나이가 기본적으로 꺼지도록 정책을 바꾸겠다고 밝혔어요.", "tag": "HOT ISSUE", "buzz": 85, "source": "Bloomberg·Yahoo Finance (2026.11.05)"}, {"title": "\"AI 안 쓰면 검색도 막는다\"…구글의 '가이드 러닝' 강제 도입에 학교·교사들 뒤집어졌다", "summary": "구글이 학교에 AI 학습 가이드 기능을 넣지 않으면 검색 기능 자체까지 제한하는 정책을 추진하다 거센 반발에 부딪혔어요. 공교롭게 비슷한 시기에 제미나이가 학생 자살계획에 연루됐다는 소송까지 터지며 구글의 학교 AI 전략 전체가 흔들리고 있어요.", "tag": "HOT ISSUE", "buzz": 58, "source": "TechCrunch·Tech Times (2026.11.04)"}, {"title": "\"15초 영상도 30% 더 싸게\"…구글, 제미나이 영상 생성 모델 또 갈아치웠다", "summary": "구글이 더 긴 15초 영상을 만들고 가격은 30% 낮춘 새 영상 생성 모델 '제미나이 오므니 1.2 플래시'를 공개했어요. 인물·제품 디테일을 여러 장면에서 일관되게 유지해주는 기능도 더해져 마케팅·광고 업계의 관심이 커요.", "tag": "NEW FEATURE", "buzz": 42, "source": "Google 공식 블로그 (2026.11.05)"}, {"title": "\"제미나이가 기사 가져다 썼다\"…EU 법원 조언자, 구글 손 들어주지 않았다", "summary": "EU 사법재판소 법무관이 제미나이가 언론사 기사를 가져와 답변에 활용하는 것이 언론사 권리를 침해할 수 있다는 의견을 냈어요. 최종 판결은 아니지만 유럽에서 AI와 언론사 간 저작권 갈등이 다시 불붙을 조짐이에요.", "tag": "HOT ISSUE", "buzz": 36, "source": "RTE·tech-insider.org (2026.11.03)"}, {"title": "이제 설문조사 응답까지 AI가 읽어준다…구글 폼에 제미나이 들어왔다", "summary": "구글 폼(설문조사)에 응답을 자동으로 분석해 트렌드와 다음 행동까지 제안해주는 제미나이 기능이 추가됐어요. 순차 적용 중이라 아직 안 보이는 계정도 있어요.", "tag": "NEW FEATURE", "buzz": 28, "source": "Android Authority (2026.11.05)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
+document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
 document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
 
 function renderStage(){
