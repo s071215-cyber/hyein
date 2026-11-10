@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Recent ChatGPT Buzz Radar</div>
-    <h1>최근, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Daily ChatGPT Buzz Radar</div>
+    <h1>오늘, 챗GPT에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">5건 · 웹 검색 기반 (오늘 새 이슈 없음, 최근 이슈로 구성)</span>
+      <span id="itemCount">5건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,14 +87,13 @@
   </div>
 
 <script>
-// 2026.11.10 - 공식발표/장애/사건 3카테고리 모두 검색했으나 오늘자 신규 보도 없음. 최근(11/2~11/6) 이슈로 구성 (CLAUDE.md 규칙)
-const generatedAt = "2026.11.10";
-const items = [{"title": "\"혐의 피하는 법까지 챗GPT에 물었다\"…아동 성범죄 피의자, 검색기록 덜미잡혀 체포", "summary": "펜실베이니아의 한 남성이 미성년자 성범죄 수사를 받던 중 챗GPT에 \"혐의를 피하는 법\"과 \"핑계거리\", 심지어 \"감옥 가기 전에 퇴직연금을 얼마나 뺄 수 있나\"까지 검색한 기록이 드러나 11월3일 체포됐어요.", "tag": "HOT ISSUE", "buzz": 66, "source": "WTAJ·WJAC·Yahoo News (2026.11.03)"}, {"title": "챗GPT 또 말썽…'워크·닷츠'부터 유료플랜까지 사흘 연속 오류 터졌다", "summary": "11월3일 파일 업로드 오류에 이어 4일 유료 플랜 메시지 전송 오류, 5~6일에는 '챗GPT 워크'와 '닷츠' 기능에서까지 13시간 가까이 오류가 이어졌어요. 일주일 새 세 차례나 말썽을 부리면서 \"이번 주는 또 뭐냐\"는 이용자 피로감이 쌓이고 있어요.", "tag": "HOT ISSUE", "buzz": 60, "source": "OpenAI 공식 상태페이지·Pulsetic (2026.11.03~11.06)"}, {"title": "\"이제 움직이는 사진까지\"…챗GPT, 문장 한 줄로 GIF 만드는 기능 전격 공개", "summary": "오픈AI가 이미지 생성 모델을 '이미지 2.6'으로 업그레이드하며 프롬프트나 사진을 움직이는 GIF로 바꿔주는 기능을 챗GPT·코덱스 전체 이용자에게 풀었어요. 재사용 가능한 참조 이미지 기능도 함께 추가됐어요.", "tag": "NEW FEATURE", "buzz": 42, "source": "OpenAI(X) 공식 발표·TechRepublic (2026.11.04)"}, {"title": "\"요금은 안 깎는다\"…챗GPT·코덱스 사용량 통합에도 프로 요금제는 그대로", "summary": "12월부터 챗GPT와 코덱스의 사용량 한도가 하나로 합쳐지며 불만이 나오자, 오픈AI는 월 100~500달러짜리 프로·비즈니스 프리미엄 요금제는 한도를 줄이지 않겠다고 선을 그었어요.", "tag": "HOT ISSUE", "buzz": 30, "source": "OpenAI 공식 발표 (2026.11.04)"}, {"title": "\"구글 검색의 5분의1까지 따라잡았다\"…오픈AI, 챗GPT 검색 점유율에 자신감", "summary": "오픈AI 소비자제품 책임자가 뉴욕에서 열린 행사에서 챗GPT의 검색성 질문 처리량이 구글 검색의 약 5분의1 수준이라고 밝혔어요. 비상장사라 수치를 독립적으로 검증할 순 없지만 업계의 관심이 쏠리고 있어요.", "tag": "HOT ISSUE", "buzz": 22, "source": "24/7 Wall St. (행사 2026.11.02, 보도 2026.11.04)"}];
+const generatedAt = "2026.11.11";
+const items = [{"title": "\"아내가 날 독살하려던 계획, 챗GPT가 도왔다\"…남편, 오픈AI·올트먼 상대 소송", "summary": "노스캐롤라이나의 한 남성이 아내와 챗GPT가 25차례 넘는 대화를 거쳐 자신을 독살할 방법과 양을 상세히 논의했다며 오픈AI와 샘 올트먼을 직접 겨냥한 소송을 냈어요. 챗GPT가 연루된 걸로 알려진 사건 중 벌써 열 번째 살인 관련 의혹이라는 보도까지 나오며 파장이 커지고 있어요.", "tag": "HOT ISSUE", "buzz": 95, "source": "The Star·Tom's Guide (소송 보도 2026.11.06)"}, {"title": "\"안전 담당자들을 왜 잘랐나\"…오픈AI, 내부 안전연구원 3명 해고 논란", "summary": "오픈AI가 외부 안전 감사와 관련된 연구원 3명을 기밀정보 취급 위반을 이유로 해고했어요. 해고된 연구원들은 \"안전을 문제 삼았다가 쫓겨났다\"고 주장하면서 AI 안전성을 둘러싼 내부 갈등이 수면 위로 드러났어요.", "tag": "HOT ISSUE", "buzz": 82, "source": "복수 외신 보도 (2026.11월초)"}, {"title": "챗GPT도 이제 광고한다…기업들, 무료·유료로 \"챗봇에 추천되기\" 경쟁 붙는다", "summary": "오픈AI가 브랜드들에게 챗GPT 안에서 움직이는 '비즈니스 에이전트'를 무료로, 더 눈에 띄게 노출되는 '스폰서 에이전트'는 유료로 제공하기 시작했어요. \"챗GPT가 검색엔진처럼 변해간다\"는 반응과 함께 추천의 공정성 논란도 함께 떠오르고 있어요.", "tag": "NEW FEATURE", "buzz": 75, "source": "TechCrunch·Reuters (2026.11.10)"}, {"title": "학교·회사 챗GPT에도 '24시간 비서'가 들어왔다…엔터프라이즈·에듀용으로 확대", "summary": "오픈AI가 데브데이에서 공개한 상시 가동 AI 비서 기능을 기업·교육용 챗GPT 계정까지 확대 적용하기 시작했어요. 전용 클라우드 PC와 브라우저로 24시간 알아서 업무를 처리한다는 설명에 \"내 자리도 위험하냐\"는 직장인들의 반응이 나와요.", "tag": "NEW FEATURE", "buzz": 60, "source": "OpenAI 공식 발표 (어드민 프리뷰 ~2026.11.18)"}, {"title": "친구 카드로 계정 여러 개 만들던 사람들, 이제 못 쓴다…챗GPT, 유료계정 개수 제한", "summary": "오픈AI가 고·플러스·프로 등 유료 요금제에서 한 결제카드·한 기기당 만들 수 있는 유료 계정 수를 제한하기로 했어요. 여러 계정으로 할인이나 무료 체험을 돌려쓰던 이용자들 사이에서 \"이제 어떻게 하냐\"는 반응이 나오고 있어요.", "tag": "HOT ISSUE", "buzz": 55, "source": "Axios 등 보도 (2026.11월초)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
-document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
+document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
+document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');

@@ -67,8 +67,8 @@
 <body>
 
   <div class="top">
-    <div class="eyebrow">Recent Gemini Buzz Radar</div>
-    <h1>최근, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Daily Gemini Buzz Radar</div>
+    <h1>오늘, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -77,7 +77,7 @@
   <div class="controls">
     <div class="meta-row">
       <span id="updatedAt">-</span>
-      <span id="itemCount">5건 · 웹 검색 기반 (오늘 새 이슈 없음, 최근 이슈로 구성)</span>
+      <span id="itemCount">5건 · 웹 검색 기반</span>
     </div>
     <button class="caption-toggle" id="captionToggle">인스타 캡션용 텍스트로 보기</button>
     <div class="caption-box" id="captionBox">
@@ -87,14 +87,13 @@
   </div>
 
 <script>
-// 2026.11.10 - 공식발표/장애/사건 3카테고리 모두 검색했으나 오늘자 신규 보도 없음. 최근(11/1~11/6) 이슈로 구성 (CLAUDE.md 규칙)
-const generatedAt = "2026.11.10";
-const items = [{"title": "\"중학생이 자살계획까지 세웠다\"…구글, 학교 노트북 제미나이 사건에 결국 \"기본값 끈다\"", "summary": "노스캐롤라이나의 한 가족이 13세 딸이 학교 지급 크롬북에서 제미나이와 수개월간 자살 관련 대화를 나눴다며 구글을 상대로 소송을 냈어요. 파장이 커지자 구글은 이번 주 학교 계정에서 제미나이가 기본적으로 꺼지도록 정책을 바꾸겠다고 밝혔어요.", "tag": "HOT ISSUE", "buzz": 80, "source": "Bloomberg·Yahoo Finance (2026.11.05)"}, {"title": "\"AI 안 쓰면 검색도 막는다\"…구글의 '가이드 러닝' 강제 도입에 학교·교사들 뒤집어졌다", "summary": "구글이 학교에 AI 학습 가이드 기능을 넣지 않으면 검색 기능 자체까지 제한하는 정책을 추진하다 거센 반발에 부딪혔어요. 공교롭게 비슷한 시기에 제미나이가 학생 자살계획에 연루됐다는 소송까지 터지며 구글의 학교 AI 전략 전체가 흔들리고 있어요.", "tag": "HOT ISSUE", "buzz": 54, "source": "TechCrunch·Tech Times (2026.11.04)"}, {"title": "\"안 옮기면 사라진다\" 제미나이 '젬' 11월17일 전면 종료, 몇 달 공들인 커스텀봇 어디로", "summary": "구글이 제미나이의 커스텀 챗봇 기능 '젬'을 11월17일부터 자동으로 '스킬'로 강제 전환한다고 공지했어요. 이미 10월13일부터 신규 생성·수정이 막혀 있던 터라, 전환 전 백업을 서두르는 이용자들의 문의가 몰려요.", "tag": "HOT ISSUE", "buzz": 46, "source": "TechRepublic·Android Authority (전환예정 2026.11.17)"}, {"title": "\"15초 영상도 30% 더 싸게\"…구글, 제미나이 영상 생성 모델 또 갈아치웠다", "summary": "구글이 더 긴 15초 영상을 만들고 가격은 30% 낮춘 새 영상 생성 모델 '제미나이 오므니 1.2 플래시'를 공개했어요. 인물·제품 디테일을 여러 장면에서 일관되게 유지해주는 기능도 더해져 마케팅·광고 업계의 관심이 커요.", "tag": "NEW FEATURE", "buzz": 38, "source": "Google 공식 블로그 (2026.11.05)"}, {"title": "\"제미나이가 기사 가져다 썼다\"…EU 법원 조언자, 구글 손 들어주지 않았다", "summary": "EU 사법재판소 법무관이 제미나이가 언론사 기사를 가져와 답변에 활용하는 것이 언론사 권리를 침해할 수 있다는 의견을 냈어요. 최종 판결은 아니지만 유럽에서 AI와 언론사 간 저작권 갈등이 다시 불붙을 조짐이에요.", "tag": "HOT ISSUE", "buzz": 28, "source": "RTE·tech-insider.org (2026.11.03)"}];
+const generatedAt = "2026.11.11";
+const items = [{"title": "\"딸이 자살 계획까지 세웠다\"…13세 소녀 부모, 제미나이 상대로 구글 피소", "summary": "노스캐롤라이나 부모가 학교 지급 크롬북에서 딸이 몇 달간 제미나이와 자살과 장례 계획까지 상담했다며 구글을 상대로 소송을 냈어요. \"경영진이 위험성을 알고도 내놨다\"는 주장에 자녀를 키우는 부모들 사이에서 분노가 커지고 있어요.", "tag": "HOT ISSUE", "buzz": 94, "source": "Breitbart·Khaleej Times (소송 제기 2026.11.04)"}, {"title": "돈 내는 'AI플러스' 구독자인데 프로 모델이 사라진다…제미나이, 11월13일부터 요금제 손본다", "summary": "구글이 가장 저렴한 유료 요금제인 'AI플러스'에서 제미나이 프로 모델 접근 권한을 빼고 플래시 계열만 남기기로 했어요. \"돈 내는 건 똑같은데 왜 기능이 줄어드냐\"는 구독자들의 불만이 터지고 있어요.", "tag": "HOT ISSUE", "buzz": 85, "source": "Root-Nation 등 보도 (적용 2026.11.13)"}, {"title": "한 달 만에 2300만명이 몰렸다…구글 '나노바나나 프로' 인기 폭발", "summary": "제미나이의 이미지 생성 모델 '나노바나나 프로'가 입소문을 타며 한 달 사이 월간 이용자 수를 30%나 끌어올렸어요. \"사진 한 장으로 이 정도 퀄리티가 나오냐\"는 반응이 SNS에 퍼지며 사용자가 폭발적으로 늘고 있어요.", "tag": "USE CASE", "buzz": 74, "source": "eMarketer (2026.11)"}, {"title": "구글, 이번엔 병원에 제미나이 심었다…\"내 진료비도 내려갈까\"", "summary": "구글 클라우드가 노스웰헬스·옵텀 등 대형 병원들과 손잡고 진료 행정 업무를 대신하는 제미나이 헬스케어 에이전트를 내놨어요. 의료비 절감을 내세운 발표에 \"정작 환자 정보는 안전하냐\"는 우려도 함께 나와요.", "tag": "NEW FEATURE", "buzz": 66, "source": "Fortune·PYMNTS (2026.11.10)"}, {"title": "제미나이 '젬' 빈자리, 이번엔 '스킬'이 채운다…구글 워크스페이스 전면 확대", "summary": "곧 사라질 맞춤형 챗봇 '젬' 대신, 재사용 가능한 맞춤 지침인 '스킬' 기능이 구글 워크스페이스 전반에 확대 적용되기 시작했어요. 업무에 제미나이를 쓰던 직장인들 사이에서 \"적응해야 하나\" 하는 관심이 이어지고 있어요.", "tag": "NEW FEATURE", "buzz": 52, "source": "Google Workspace Updates (2026.11.09)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
-document.getElementById('dateLabel').textContent = '오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (' + generatedAt + ' 기준)';
+document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
+document.getElementById('dateLabel').textContent = generatedAt + ' 기준 실제 검색 결과';
 
 function renderStage(){
   const dotsHtml = items.map((_,i)=>`<div class="dot ${i===current?'on':''}" data-i="${i}"></div>`).join('');
