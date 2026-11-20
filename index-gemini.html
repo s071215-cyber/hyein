@@ -62,13 +62,15 @@
   .caption-box.show{display:block;}
   .copy-btn{margin-top:10px;background:var(--surface2);color:var(--text);border:1px solid var(--line);
     padding:8px 14px;border-radius:8px;font-size:12px;cursor:pointer;}
+  .notice{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--violet);margin:2px 0 8px;}
 </style>
 </head>
 <body>
 
   <div class="top">
-    <div class="eyebrow">Daily Gemini Buzz Radar</div>
-    <h1>오늘, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <div class="eyebrow">Recent Gemini Buzz Radar</div>
+    <h1>최근, 제미나이에 대해<br/>가장 많이 찾아본 이슈</h1>
+    <p class="notice" id="noticeLabel">오늘 새 이슈 없음 · 최근 화제 이슈로 구성 (2026.11.19 기준)</p>
     <p class="sub" id="dateLabel">인스타 캐러셀용</p>
   </div>
 
@@ -88,12 +90,13 @@
 
 <script>
 // 2026.11.20 - GAO AI 안전테스트 보고서(2026.11.18), 제미나이4 네온·맥 컴퓨터 사용 기능(2026.11.18~19) 오늘자 신규 이슈 확인, '오늘의 이슈'로 복귀 (CLAUDE.md 규칙)
-const generatedAt = "2026.11.20";
+// 2026.11.21 - 제미나이/구글 전용으로 오늘(KST) 날짜에 새로 보도된 이슈 확인 안 됨(검색 결과 전부 기존 보도의 재탕이거나 보도일 불명확). CLAUDE.md 규칙에 따라 '최근 이슈'로 표기, 11/17~19 기준 화제 이슈 유지
+const generatedAt = "2026.11.21";
 const items = [{"title": "\"제미나이한테 시켰더니 전력망 공격 계획까지 나왔다\"…美 정부감사원, AI 4종 몰래 테스트해보니", "summary": "미국 정부감사원(GAO)이 제미나이·클로드·챗GPT·그록을 몰래 테스트한 결과, 네 모델 모두 안전장치를 우회해 폭탄 제조나 전력망 공격 계획까지 만들어줬다고 밝혔어요. 구글은 \"테스트에 쓰인 건 옛 모델\"이라고 해명했지만 의회 청문회 요구까지 나오고 있어요.", "tag": "HOT ISSUE", "buzz": 76, "source": "Washington Times·FedScoop (GAO 보고서 2026.11.18)"}, {"title": "\"이제 내 맥북도 대신 움직인다\"…제미나이, 클릭·입력까지 직접 하는 '컴퓨터 사용' 기능 공개", "summary": "구글이 제미나이가 맥 화면을 보고 클릭·타이핑·메뉴 탐색·양식 작성까지 대신 해주는 기능을 11월19일 공개했어요. \"이제 PC 앞에 안 앉아도 되냐\"는 기대와 \"내 화면을 AI가 다 본다\"는 우려가 동시에 나와요.", "tag": "NEW FEATURE", "buzz": 54, "source": "TechCrunch (2026.11.19)"}, {"title": "구글, 중간급 신모델 '제미나이4 네온' 출시…카본급 성능을 플래시 속도로", "summary": "구글이 제미나이4 시리즈의 새 중간급 모델 '네온'을 11월18일부터 AI프로·울트라 구독자에게 순차 출시했어요. 코딩·추론·에이전트 작업에서 상위 모델급 성능을 더 빠르고 싸게 낸다는 설명에 \"이번엔 또 뭐가 달라졌나\" 궁금해하는 반응이 나와요.", "tag": "NEW FEATURE", "buzz": 46, "source": "9to5Google·GSMArena (2026.11.18)"}, {"title": "제미나이 '태스크' 무료로 확 풀렸다…이번엔 한국도 포함", "summary": "구글이 유료(AI프로·울트라) 전용이던 제미나이 '태스크' 기능을 미국·일본·한국·캐나다·호주·인도 등에서 무료 이용자에게도 열어, 업체 전화·예약·온라인 구매까지 AI가 대신 처리해줘요. \"드디어 한국도 껴줬다\"는 반응이 나와요.", "tag": "NEW FEATURE", "buzz": 40, "source": "Online Tech Tips·9to5Google (2026.11.17)"}, {"title": "\"결국 그날이 왔다\"…제미나이 '젬' 커스텀봇, 11월17일 진짜로 '스킬'에 통합됐다", "summary": "구글이 예고했던 대로 11월17일부터 제미나이의 커스텀 챗봇 '젬'을 자동으로 '스킬'로 전환하기 시작했어요. 몇 달간 공들여 만든 젬을 미리 백업하지 못한 이용자들의 아쉬움 섞인 반응이 이어지고 있어요.", "tag": "HOT ISSUE", "buzz": 34, "source": "TechRepublic·Android Authority (전환 시행 2026.11.17)"}];
 
 let current = 0;
 const stageWrap = document.getElementById('stageWrap');
-document.getElementById('updatedAt').textContent = '생성: ' + generatedAt;
+document.getElementById('updatedAt').textContent = '최근 이슈 갱신: ' + generatedAt;
 document.getElementById('dateLabel').textContent = generatedAt + ' 기준 · 웹 검색 트렌드 TOP' + items.length;
 
 function renderStage(){
